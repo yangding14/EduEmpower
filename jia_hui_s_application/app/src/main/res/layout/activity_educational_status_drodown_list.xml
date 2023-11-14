@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="educationalStatusDrodownListVM" type="com.jiahuisapplication.app.modules.educationalstatusdrodownlist.data.viewmodel.EducationalStatusDrodownListVM"/>
+    </data>
+    <LinearLayout android:gravity="start"
+        android:id="@+id/linearEducationalsta"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" android:orientation="vertical">
+        <TextView android:ellipsize="end"
+            android:id="@+id/txtGroupSeven"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:lineSpacingExtra="@dimen/_9pxh"
+            android:paddingBottom="@dimen/_7pxv"
+            android:paddingStart="@dimen/_16pxh"
+            android:paddingTop="@dimen/_9pxv" android:singleLine="true"
+            android:text="@{educationalStatusDrodownListVM.educationalStatusDrodownListModel.txtGroupSeven}"
+            style="@style/txtSolidRoundedTopCorner" tools:text="@string/lbl_primary_school"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtGroupSix"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1pxv"
+            android:layout_width="match_parent"
+            android:lineSpacingExtra="@dimen/_9pxh"
+            android:paddingBottom="@dimen/_9pxv"
+            android:paddingStart="@dimen/_16pxh"
+            android:paddingTop="@dimen/_7pxv" android:singleLine="true"
+            android:text="@{educationalStatusDrodownListVM.educationalStatusDrodownListModel.txtGroupSix}"
+            style="@style/txtSolid" tools:text="@string/lbl_middle_school"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtGroupFive"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1pxv"
+            android:layout_width="match_parent"
+            android:lineSpacingExtra="@dimen/_9pxh"
+            android:paddingBottom="@dimen/_6pxv"
+            android:paddingStart="@dimen/_16pxh"
+            android:paddingTop="@dimen/_10pxv" android:singleLine="true"
+            android:text="@{educationalStatusDrodownListVM.educationalStatusDrodownListModel.txtGroupFive}"
+            style="@style/txtSolid" tools:text="@string/lbl_high_school"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtGroupFour"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1pxv"
+            android:layout_width="match_parent"
+            android:lineSpacingExtra="@dimen/_9pxh"
+            android:paddingBottom="@dimen/_6pxv"
+            android:paddingStart="@dimen/_16pxh"
+            android:paddingTop="@dimen/_10pxv" android:singleLine="true"
+            android:text="@{educationalStatusDrodownListVM.educationalStatusDrodownListModel.txtGroupFour}"
+            style="@style/txtSolid" tools:text="@string/lbl_college"/>
+        <TextView android:ellipsize="end"
+            android:id="@+id/txtGroupThree"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1pxv"
+            android:layout_width="match_parent"
+            android:lineSpacingExtra="@dimen/_9pxh"
+            android:paddingBottom="@dimen/_6pxv"
+            android:paddingStart="@dimen/_16pxh"
+            android:paddingTop="@dimen/_10pxv" android:singleLine="true"
+            android:text="@{educationalStatusDrodownListVM.educationalStatusDrodownListModel.txtGroupThree}"
+            style="@style/txtSolidRoundedBottomCorner" tools:text="@string/lbl_high_school"/>
+    </LinearLayout>
+</layout>

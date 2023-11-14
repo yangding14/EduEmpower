@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="dobCalendarVM" type="com.jiahuisapplication.app.modules.dobcalendar.data.viewmodel.DobCalendarVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameDOBcalendar"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylewhite_A700">
+        <FrameLayout android:id="@+id/frameStackellipsetwo"
+            android:layout_gravity="bottom|start"
+            android:layout_height="@dimen/_461pxv" android:layout_width="match_parent">
+            <ImageView android:id="@+id/imageEllipseTwo"
+                android:layout_gravity="start"
+                android:layout_height="@dimen/_461pxh"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                imageRes="@{@drawable/img_ellipse2}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_ellipse2"/>
+            <FrameLayout android:id="@+id/frameStack"
+                android:layout_gravity="top|start"
+                android:layout_height="@dimen/_318pxv"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:layout_marginTop="@dimen/_8pxv" android:layout_width="match_parent">
+                <FrameLayout android:id="@+id/frameStackoneEight"
+                    android:layout_gravity="bottom|end"
+                    android:layout_height="@dimen/_214pxv"
+                    android:layout_marginStart="@dimen/_10pxh"
+                    android:layout_marginTop="@dimen/_10pxv" android:layout_width="@dimen/_119pxh">
+                    <FrameLayout android:id="@+id/frameStackellipseone"
+                        android:layout_gravity="top|center"
+                        android:layout_height="@dimen/_193pxv"
+                        android:layout_marginBottom="@dimen/_10pxv" android:layout_width="@dimen/_119pxh">
+                        <ImageView android:id="@+id/imageEllipseOne"
+                            android:layout_gravity="start"
+                            android:layout_height="@dimen/_193pxh"
+                            android:layout_width="@dimen/_119pxh"
+                            android:scaleType="fitXY"
+                            imageRes="@{@drawable/img_ellipse1}"
+                            tools:ignore="ContentDescription" tools:src="@drawable/img_ellipse1"/>
+                        <LinearLayout android:id="@+id/linearColumn"
+                            android:layout_gravity="top|start"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10pxv"
+                            android:layout_marginEnd="@dimen/_23pxh"
+                            android:layout_marginStart="@dimen/_23pxh"
+                            android:layout_marginTop="@dimen/_6pxv"
+                            android:layout_width="match_parent" android:orientation="vertical">
+                            <LinearLayout android:id="@+id/linearRowone"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_1pxh"
+                                android:layout_width="match_parent" android:orientation="horizontal">
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:id="@+id/linearColumnone"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_1pxv"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="0dp"
+                                    android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                                    <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtOne"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtOne}"
+                                    style="@style/txtPoppinsregular15" tools:text="@string/lbl_02"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:id="@+id/linearColumnoneOne"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_26pxh"
+                                    android:layout_marginTop="@dimen/_1pxv"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="0dp"
+                                    android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                                    <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtOneOne"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtOneOne}"
+                                    style="@style/txtPoppinsregular15" tools:text="@string/lbl_03"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/linearRowoneTwo"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_2pxh"
+                                android:layout_marginTop="@dimen/_22pxv"
+                                android:layout_width="match_parent" android:orientation="horizontal">
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:id="@+id/linearColumnoneTwo"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_1pxv"
+                                    android:layout_weight="0.57"
+                                    android:layout_width="0dp"
+                                    android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                                    <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtOneTwo"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwo}"
+                                    style="@style/txtPoppinsregular15" tools:text="@string/lbl_09"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:id="@+id/linearColumnoneThree"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_27pxh"
+                                    android:layout_marginTop="@dimen/_1pxv"
+                                    android:layout_weight="0.43"
+                                    android:layout_width="0dp"
+                                    android:orientation="vertical" style="@style/groupStylecornerRadius">
+                                    <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtOneThree"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtOneThree}"
+                                    style="@style/txtPoppinsregular15" tools:text="@string/lbl_10"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/linearRowoneFour"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_3pxh"
+                                android:layout_marginStart="@dimen/_2pxh"
+                                android:layout_marginTop="@dimen/_22pxv"
+                                android:layout_width="match_parent" android:orientation="horizontal">
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:id="@+id/linearColumnoneFour"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_1pxv"
+                                    android:layout_weight="0.53"
+                                    android:layout_width="0dp"
+                                    android:orientation="vertical" style="@style/groupStylecornerRadius">
+                                    <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtOneFour"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtOneFour}"
+                                    style="@style/txtPoppinsregular15" tools:text="@string/lbl_16"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:id="@+id/linearColumnoneFive"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_31pxh"
+                                    android:layout_marginTop="@dimen/_1pxv"
+                                    android:layout_weight="0.47"
+                                    android:layout_width="0dp"
+                                    android:orientation="vertical" style="@style/groupStylecornerRadius_2">
+                                    <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtOneFive"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtOneFive}"
+                                    style="@style/txtPoppinsregular15" tools:text="@string/lbl_17"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/linearRowoneSix"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_1pxh"
+                                android:layout_marginTop="@dimen/_22pxv"
+                                android:layout_width="match_parent" android:orientation="horizontal">
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:id="@+id/linearColumnoneSix"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_1pxv"
+                                    android:layout_weight="0.49"
+                                    android:layout_width="0dp"
+                                    android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                                    <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtOneSix"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtOneSix}"
+                                    style="@style/txtPoppinsregular15" tools:text="@string/lbl_23"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:id="@+id/linearColumnoneSeven"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_1pxv"
+                                    android:layout_marginStart="@dimen/_26pxh"
+                                    android:layout_weight="0.51"
+                                    android:layout_width="0dp"
+                                    android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                                    <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtOneSeven"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtOneSeven}"
+                                    style="@style/txtPoppinsregular15" tools:text="@string/lbl_24"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                    <LinearLayout android:id="@+id/linearColumnoneEight"
+                        android:layout_gravity="bottom|start"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_24pxh"
+                        android:layout_marginStart="@dimen/_24pxh"
+                        android:layout_marginTop="@dimen/_10pxv"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                        <TextView android:ellipsize="end"
+                            android:gravity="start"
+                            android:id="@+id/txtOneEight"
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:singleLine="true"
+                            android:text="@{dobCalendarVM.dobCalendarModel.txtOneEight}"
+                            style="@style/txtPoppinsregular15" tools:text="@string/lbl_30"/>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/linearColumnoneNine"
+                        android:layout_gravity="bottom|end"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_31pxh"
+                        android:layout_marginStart="@dimen/_31pxh"
+                        android:layout_marginTop="@dimen/_10pxv"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical" style="@style/groupStylecornerRadius_3">
+                        <TextView android:ellipsize="end"
+                            android:gravity="start"
+                            android:id="@+id/txtOneNine"
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:singleLine="true"
+                            android:text="@{dobCalendarVM.dobCalendarModel.txtOneNine}"
+                            style="@style/txtPoppinsregular15" tools:text="@string/lbl_31"/>
+                    </LinearLayout>
+                </FrameLayout>
+                <FrameLayout android:id="@+id/frameStackellipseoneOne"
+                    android:layout_gravity="top|start"
+                    android:layout_height="@dimen/_193pxv"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_marginEnd="@dimen/_10pxh" android:layout_width="@dimen/_102pxh">
+                    <ImageView android:id="@+id/imageEllipseOneOne"
+                        android:layout_gravity="start"
+                        android:layout_height="@dimen/_193pxh"
+                        android:layout_width="@dimen/_102pxh"
+                        android:scaleType="fitXY"
+                        imageRes="@{@drawable/img_ellipse1_193x102}"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_ellipse1_193x102"/>
+                    <LinearLayout android:id="@+id/linearColumntwo"
+                        android:layout_gravity="end"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10pxv"
+                        android:layout_marginEnd="@dimen/_6pxh"
+                        android:layout_marginStart="@dimen/_10pxh"
+                        android:layout_marginTop="@dimen/_9pxv"
+                        android:layout_width="match_parent" android:orientation="vertical">
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearPreviousmonth"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_10pxh"
+                            android:layout_marginStart="@dimen/_8pxh"
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_4">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtTwo"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtTwo}"
+                                style="@style/txtPoppinssemibold15" tools:text="@string/lbl"/>
+                        </LinearLayout>
+                        <LinearLayout android:id="@+id/linearRowmo"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_1pxh"
+                            android:layout_marginTop="@dimen/_27pxv"
+                            android:layout_width="match_parent" android:orientation="horizontal">
+                            <LinearLayout
+                                android:gravity="center_horizontal"
+                                android:id="@+id/linearMonday"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_1pxv"
+                                android:layout_weight="0.56"
+                                android:layout_width="0dp"
+                                android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                                <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtMo"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtMo}"
+                                    style="@style/txtPoppinssemibold15" tools:text="@string/lbl_mo"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:gravity="center_horizontal"
+                                android:id="@+id/linearTuesday"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_1pxv"
+                                android:layout_marginStart="@dimen/_23pxh"
+                                android:layout_weight="0.44"
+                                android:layout_width="0dp"
+                                android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                                <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtTu"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtTu}"
+                                    style="@style/txtPoppinssemibold15" tools:text="@string/lbl_tu"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout android:id="@+id/linearRowoneTen"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_2pxh"
+                            android:layout_marginTop="@dimen/_71pxv"
+                            android:layout_width="match_parent" android:orientation="horizontal">
+                            <LinearLayout
+                                android:gravity="center_horizontal"
+                                android:id="@+id/linearColumnoneTen"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_1pxv"
+                                android:layout_weight="0.5"
+                                android:layout_width="0dp"
+                                android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                                <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtOneTen"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtOneTen}"
+                                    style="@style/txtPoppinsregular15" tools:text="@string/lbl_04"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:gravity="center_horizontal"
+                                android:id="@+id/linearColumnoneEleven"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_25pxh"
+                                android:layout_marginTop="@dimen/_1pxv"
+                                android:layout_weight="0.5"
+                                android:layout_width="0dp"
+                                android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                                <TextView android:ellipsize="end"
+                                    android:gravity="start"
+                                    android:id="@+id/txtOneEleven"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:singleLine="true"
+                                    android:text="@{dobCalendarVM.dobCalendarModel.txtOneEleven}"
+                                    style="@style/txtPoppinsregular15" tools:text="@string/lbl_05"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+                <LinearLayout android:id="@+id/linearColumnOne"
+                    android:layout_gravity="top|center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_110pxv"
+                    android:layout_marginEnd="@dimen/_120pxh"
+                    android:layout_marginStart="@dimen/_120pxh"
+                    android:layout_marginTop="@dimen/_110pxv"
+                    android:layout_width="match_parent" android:orientation="vertical">
+                    <LinearLayout android:gravity="center_horizontal"
+                        android:id="@+id/linearColumnoneTwelve"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_3pxh"
+                        android:layout_marginStart="@dimen/_94pxh"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical" style="@style/groupStylecornerRadius_5">
+                        <TextView android:ellipsize="end"
+                            android:gravity="start"
+                            android:id="@+id/txtOneTwelve"
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:singleLine="true"
+                            android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwelve}"
+                            style="@style/txtPoppinsregular15" tools:text="@string/lbl_01"/>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/linearRowoneThirteen"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_22pxv"
+                        android:layout_width="match_parent" android:orientation="horizontal">
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneThirteen"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_weight="0.34"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneThirteen"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneThirteen}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_06"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneFourteen"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_marginStart="@dimen/_26pxh"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.31"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneFourteen"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneFourteen}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_07"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneFifteen"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_26pxh"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.34"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneFifteen"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneFifteen}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_08"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/linearColumntwelve"
+                    android:layout_gravity="bottom|start"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_1pxv"
+                    android:layout_marginEnd="@dimen/_31pxh"
+                    android:layout_marginStart="@dimen/_31pxh"
+                    android:layout_marginTop="@dimen/_10pxv"
+                    android:layout_width="wrap_content" android:orientation="vertical">
+                    <LinearLayout android:id="@+id/linearRowoneSixteen"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_2pxh"
+                        android:layout_marginStart="@dimen/_2pxh"
+                        android:layout_width="wrap_content" android:orientation="horizontal">
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneSixteen"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_5pxv"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:layout_weight="0.11"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_6">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneSixteen"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneSixteen}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_11"/>
+                        </LinearLayout>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:id="@+id/btnTwelve"
+                            android:layout_height="@dimen/_35pxh"
+                            android:layout_marginStart="@dimen/_24pxh"
+                            android:layout_width="@dimen/_35pxh"
+                            android:paddingBottom="@dimen/_5pxv"
+                            android:paddingEnd="@dimen/_10pxh"
+                            android:paddingStart="@dimen/_10pxh"
+                            android:paddingTop="@dimen/_5pxv"
+                            android:singleLine="true"
+                            android:text="@string/lbl_12"
+                            android:textAllCaps="false"
+                            style="@style/btnSolidRounded_1" tools:text="@string/lbl_12"/>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneSeventeen"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_5pxv"
+                            android:layout_marginStart="@dimen/_20pxh"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:layout_weight="0.16"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_3">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneSeventeen"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneSeventeen}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_13"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneEighteen"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_5pxv"
+                            android:layout_marginStart="@dimen/_30pxh"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:layout_weight="0.17"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneEighteen"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneEighteen}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_14"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneNineteen"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_5pxv"
+                            android:layout_marginStart="@dimen/_30pxh"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:layout_weight="0.17"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneNineteen"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneNineteen}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_15"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/linearRowoneTwenty"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_1pxh"
+                        android:layout_marginTop="@dimen/_16pxv"
+                        android:layout_width="wrap_content" android:orientation="horizontal">
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneTwenty"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.19"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneTwenty"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwenty}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_18"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneTwentyone"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_marginStart="@dimen/_30pxh"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.19"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneTwentyOne"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwentyOne}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_19"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneTwentytwo"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_marginStart="@dimen/_28pxh"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.24"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneTwentyTwo"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwentyTwo}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_20"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneTwentythree"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_marginStart="@dimen/_28pxh"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.16"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_5">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneTwentyThree"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwentyThree}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_21"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearColumnoneTwentyfour"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_marginStart="@dimen/_30pxh"
+                            android:layout_weight="0.22"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtOneTwentyFour"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwentyFour}"
+                                style="@style/txtPoppinsregular15" tools:text="@string/lbl_22"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:gravity="center_horizontal"
+                        android:id="@+id/linearColumnoneTwentyfive"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_182pxh"
+                        android:layout_marginTop="@dimen/_21pxv"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                        <TextView android:ellipsize="end"
+                            android:gravity="start"
+                            android:id="@+id/txtOneTwentyFive"
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:singleLine="true"
+                            android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwentyFive}"
+                            style="@style/txtPoppinsregular15" tools:text="@string/lbl_29"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/linearColumnjulycounter"
+                    android:layout_gravity="top|end"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_marginEnd="@dimen/_28pxh"
+                    android:layout_marginStart="@dimen/_28pxh"
+                    android:layout_marginTop="@dimen/_9pxv"
+                    android:layout_width="wrap_content" android:orientation="vertical">
+                    <LinearLayout android:gravity="end"
+                        android:id="@+id/linearRowjulycounter"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_6pxh"
+                        android:layout_marginStart="@dimen/_19pxh"
+                        android:layout_width="wrap_content" android:orientation="horizontal">
+                        <TextView android:ellipsize="end"
+                            android:id="@+id/txtJulyCounter"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.9"
+                            android:layout_width="0dp"
+                            android:singleLine="true"
+                            android:text="@{dobCalendarVM.dobCalendarModel.txtJulyCounter}"
+                            style="@style/txtPoppinsbold15" tools:text="@string/lbl_july_2023"/>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearNextMonth"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_marginStart="@dimen/_91pxh"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_4">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtThree"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtThree}"
+                                style="@style/txtPoppinssemibold15" tools:text="@string/lbl"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/linearRowwe"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_24pxv"
+                        android:layout_width="wrap_content" android:orientation="horizontal">
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearWednesday"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.26"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtWe"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtWe}"
+                                style="@style/txtPoppinssemibold15" tools:text="@string/lbl_we"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearThrusday"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_marginStart="@dimen/_22pxh"
+                            android:layout_weight="0.19"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtTh"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtTh}"
+                                style="@style/txtPoppinssemibold15" tools:text="@string/lbl_th"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearFriday"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_marginStart="@dimen/_28pxh"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.14"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_3">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtFr"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtFr}"
+                                style="@style/txtPoppinssemibold15" tools:text="@string/lbl_fr"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearSaturday"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_marginStart="@dimen/_28pxh"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.2"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtSa"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtSa}"
+                                style="@style/txtPoppinssemibold15" tools:text="@string/lbl_sa"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:id="@+id/linearSunday"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_1pxv"
+                            android:layout_marginStart="@dimen/_25pxh"
+                            android:layout_marginTop="@dimen/_1pxv"
+                            android:layout_weight="0.2"
+                            android:layout_width="0dp"
+                            android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                            <TextView android:ellipsize="end"
+                                android:gravity="start"
+                                android:id="@+id/txtSu"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
+                                android:text="@{dobCalendarVM.dobCalendarModel.txtSu}"
+                                style="@style/txtPoppinssemibold15" tools:text="@string/lbl_su"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/frameStackellipsethree"
+            android:layout_gravity="bottom|start"
+            android:layout_height="@dimen/_213pxv"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_10pxv" android:layout_width="@dimen/_173pxh">
+            <ImageView android:id="@+id/imageEllipseThree"
+                android:layout_gravity="start"
+                android:layout_height="@dimen/_213pxh"
+                android:layout_width="@dimen/_173pxh"
+                android:scaleType="fitXY"
+                imageRes="@{@drawable/img_ellipse3}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_ellipse3"/>
+            <LinearLayout android:id="@+id/linearRowoneTwentysix"
+                android:layout_gravity="top|center"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:layout_marginEnd="@dimen/_29pxh"
+                android:layout_marginStart="@dimen/_29pxh"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <LinearLayout android:gravity="center_horizontal"
+                    android:id="@+id/linearColumnoneTwentysix"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_1pxv"
+                    android:layout_weight="0.34"
+                    android:layout_width="0dp"
+                    android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                    <TextView android:ellipsize="end"
+                        android:gravity="start"
+                        android:id="@+id/txtOneTwentySix"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwentySix}"
+                        style="@style/txtPoppinsregular15" tools:text="@string/lbl_25"/>
+                </LinearLayout>
+                <LinearLayout android:gravity="center_horizontal"
+                    android:id="@+id/linearColumnoneTwentyseven"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_1pxv"
+                    android:layout_marginStart="@dimen/_26pxh"
+                    android:layout_weight="0.34"
+                    android:layout_width="0dp"
+                    android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                    <TextView android:ellipsize="end"
+                        android:gravity="start"
+                        android:id="@+id/txtOneTwentySeven"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwentySeven}"
+                        style="@style/txtPoppinsregular15" tools:text="@string/lbl_26"/>
+                </LinearLayout>
+                <LinearLayout android:gravity="center_horizontal"
+                    android:id="@+id/linearColumnoneTwentyeight"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_1pxv"
+                    android:layout_marginStart="@dimen/_27pxh"
+                    android:layout_weight="0.31"
+                    android:layout_width="0dp"
+                    android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+                    <TextView android:ellipsize="end"
+                        android:gravity="start"
+                        android:id="@+id/txtOneTwentyEight"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwentyEight}"
+                        style="@style/txtPoppinsregular15" tools:text="@string/lbl_27"/>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+        <LinearLayout android:id="@+id/linearColumnoneTwentynine"
+            android:layout_gravity="bottom|center"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_27pxv"
+            android:layout_marginEnd="@dimen/_167pxh"
+            android:layout_marginStart="@dimen/_167pxh"
+            android:layout_marginTop="@dimen/_27pxv"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylecornerRadius_1">
+            <TextView android:ellipsize="end" android:gravity="start"
+                android:id="@+id/txtOneTwentyNine"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{dobCalendarVM.dobCalendarModel.txtOneTwentyNine}"
+                style="@style/txtPoppinsregular15" tools:text="@string/lbl_28"/>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

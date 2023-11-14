@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="studentCustomerServicePageVM" type="com.jiahuisapplication.app.modules.studentcustomerservicepage.data.viewmodel.StudentCustomerServicePageVM"/>
+    </data>
+    <View android:background="@color/white_A700"
+        android:id="@+id/viewStudentcustome"
+        android:layout_height="match_parent" android:layout_width="match_parent"/>
+</layout>

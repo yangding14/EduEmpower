@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="pageTwoVM" type="com.jiahuisapplication.app.modules.pagetwo.data.viewmodel.PageTwoVM"/>
+    </data>
+    <FrameLayout android:id="@+id/framePageTwo"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylewhite_A700">
+        <ImageView android:id="@+id/imageBackground"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            imageRes="@{@drawable/img_background}"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_background"/>
+        <LinearLayout android:id="@+id/linearColumngrades"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_40pxv"
+            android:layout_marginEnd="@dimen/_40pxh"
+            android:layout_marginStart="@dimen/_35pxh"
+            android:layout_marginTop="@dimen/_40pxv"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <ImageView android:gravity="center_horizontal"
+                android:id="@+id/imageGrades"
+                android:layout_height="@dimen/_169pxh"
+                android:layout_marginStart="@dimen/_6pxh"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_teaching"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_teaching"/>
+            <LinearLayout android:gravity="start"
+                android:id="@+id/linearColumnempoweryoured"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_52pxv"
+                android:layout_width="match_parent" android:orientation="vertical">
+                <TextView android:gravity="center_horizontal"
+                    android:id="@+id/txtEmpoweryoured"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_3pxh"
+                    android:layout_marginStart="@dimen/_13pxh"
+                    android:layout_width="match_parent"
+                    android:text="@{pageTwoVM.pageTwoModel.txtEmpoweryoured}"
+                    style="@style/txtPoppinsbold24" tools:text="@string/msg_empower_your_ed"/>
+                <TextView android:id="@+id/txtLanguage"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_13pxh"
+                    android:layout_marginStart="@dimen/_13pxh"
+                    android:layout_marginTop="@dimen/_5pxv"
+                    android:layout_width="match_parent"
+                    android:text="@{pageTwoVM.pageTwoModel.txtLanguage}"
+                    style="@style/txtPoppinsmedium14" tools:text="@string/msg_learn_new_thing"/>
+                <LinearLayout android:gravity="start"
+                    android:id="@+id/linearRowrectangletwo"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_15pxh"
+                    android:layout_marginStart="@dimen/_15pxh"
+                    android:layout_marginTop="@dimen/_17pxv"
+                    android:layout_width="wrap_content" android:orientation="horizontal">
+                    <View
+                        android:background="@drawable/rectangle_bg_gray_100_radius_2"
+                        android:id="@+id/viewRectangleTwo"
+                        android:layout_height="@dimen/_4pxh" android:layout_width="@dimen/_4pxh"/>
+                    <View
+                        android:background="@drawable/rectangle_bg_gray_100_radius_2"
+                        android:id="@+id/viewRectangleFive"
+                        android:layout_height="@dimen/_4pxv"
+                        android:layout_marginStart="@dimen/_5pxh" android:layout_width="@dimen/_18pxh"/>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/linearRownext"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_128pxv"
+                    android:layout_width="match_parent" android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:ellipsize="end" android:gravity="center"
+                        android:id="@+id/btnNext"
+                        android:layout_height="@dimen/_40pxv"
+                        android:layout_width="@dimen/_90pxh"
+                        android:paddingBottom="@dimen/_8pxv"
+                        android:paddingEnd="@dimen/_27pxh"
+                        android:paddingStart="@dimen/_26pxh"
+                        android:paddingTop="@dimen/_8pxv"
+                        android:singleLine="true"
+                        android:text="@string/lbl_next"
+                        android:textAllCaps="false"
+                        style="@style/btnSolidRounded" tools:text="@string/lbl_next"/>
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtSkip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_6pxv"
+                        android:layout_marginStart="@dimen/_172pxh"
+                        android:layout_marginTop="@dimen/_9pxv"
+                        android:layout_weight="0.28"
+                        android:layout_width="0dp"
+                        android:singleLine="true"
+                        android:text="@{pageTwoVM.pageTwoModel.txtSkip}"
+                        style="@style/txtPoppinssemibold16" tools:text="@string/lbl_skip"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>
