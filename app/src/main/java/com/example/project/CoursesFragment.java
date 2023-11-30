@@ -46,6 +46,11 @@ public class CoursesFragment extends Fragment {
     OngoingCourse ongoingCourse;
     int[] oc_courseImages = {R.drawable.oc_accounting, R.drawable.oc_biology, R.drawable.oc_accounting, R.drawable.oc_biology, R.drawable.oc_accounting};
 
+    //Completed Course Variables
+    ArrayList<CompletedCourse> completedCourseArrayList = new ArrayList<>();
+    CompletedCourse completedCourse;
+    int[] cc_courseImages = {R.drawable.chemistry};
+
     public CoursesFragment() {
         // Required empty public constructor
     }
@@ -101,6 +106,13 @@ public class CoursesFragment extends Fragment {
         OngoingCourseAdapter ongoingCourseAdapter = new OngoingCourseAdapter(this.getContext(), ongoingCourseArrayList);
         recyclerView1.setAdapter(ongoingCourseAdapter);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        // Recycle View for Completed Courses
+        RecyclerView recyclerView2 = view.findViewById(R.id.CompltetedCourseRecycleView);
+        setUpCompletedCourse();
+        CompletedCourseAdapter completedCourseAdapter = new CompletedCourseAdapter(this.getContext(), completedCourseArrayList);
+        recyclerView2.setAdapter(completedCourseAdapter);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 
     public void setUpDiscoverCourseData(){
@@ -117,6 +129,14 @@ public class CoursesFragment extends Fragment {
         String[] oc_courseQtys = getResources().getStringArray(R.array.oc_courseQty);
         for (int i=0; i<oc_courseNames.length; i++){
             ongoingCourseArrayList.add(new OngoingCourse(oc_courseNames[i], oc_courseQtys[i], oc_courseImages[i]));
+        }
+    }
+
+    public void setUpCompletedCourse(){
+        String[] cc_courseNames = getResources().getStringArray(R.array.cc_courseName);
+        String[] cc_courseDesc = getResources().getStringArray(R.array.cc_courseDesc);
+        for (int i=0; i<cc_courseDesc.length; i++){
+            completedCourseArrayList.add(new CompletedCourse(cc_courseNames[i], cc_courseDesc[i], cc_courseImages[i]));
         }
     }
 

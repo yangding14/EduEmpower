@@ -34,4 +34,12 @@
         <item>10 courses</item>
     </string-array>
 
+    <string-array name="cc_courseName">
+        <item>Introduction to General Chemistry</item>
+    </string-array>
+
+    <string-array name="cc_courseDesc">
+        <item>Explore the fundamental principles of chemistry in this introductory course.</item>
+    </string-array>
+
 </resources>

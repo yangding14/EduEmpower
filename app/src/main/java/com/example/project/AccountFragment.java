@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SearchView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,6 +83,73 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View view){
                 ((MainActivity)getActivity()).enterCustomerSupport(view);
+            }
+        });
+
+        // Button Change Username
+        ImageButton btnChangeName = view.findViewById(R.id.btn_acc_username);
+
+        btnChangeName.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Fragment fragment = new UpdateNameFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
+                btm.setVisibility(View.INVISIBLE);
+                ft.replace(R.id.frameLayout, fragment).commit();
+            }
+        });
+
+        ImageButton btnChangeEmail = view.findViewById(R.id.btn_acc_email);
+        btnChangeEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new UpdateEmailFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
+                btm.setVisibility(View.INVISIBLE);
+                ft.replace(R.id.frameLayout, fragment).commit();
+            }
+        });
+
+        ImageButton btnChangeDOB = view.findViewById(R.id.btn_acc_dob);
+        btnChangeDOB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new UpdateDOBFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
+                btm.setVisibility(View.INVISIBLE);
+                ft.replace(R.id.frameLayout, fragment).commit();
+            }
+        });
+
+        ImageButton btnChangePassword = view.findViewById(R.id.btn_acc_change_password);
+        btnChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new UpdatePasswordFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
+                btm.setVisibility(View.INVISIBLE);
+                ft.replace(R.id.frameLayout, fragment).commit();
+            }
+        });
+
+        ImageButton btnChangePhoneNumber = view.findViewById(R.id.btn_acc_phone);
+        btnChangePhoneNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new UpdatePhoneNumberFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
+                btm.setVisibility(View.INVISIBLE);
+                ft.replace(R.id.frameLayout, fragment).commit();
             }
         });
     }
