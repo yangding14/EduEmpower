@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/LandingPageFragment">
+
+    <fragment
+        android:id="@+id/LandingPageFragment"
+        android:name="com.example.mad2.landingpage.LandingPageFragment"
+        android:label="Landing Page"
+        tools:layout="@layout/landing_page">
+
+        <action
+            android:id="@+id/action_landingPageFragment_to_pageOneFragment"
+            app:destination="@id/pageOneFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pageOneFragment"
+        android:name="com.example.mad2.pageone.PageOneFragment"
+        android:label="Page One"
+        tools:layout="@layout/page_one">
+
+        <action
+            android:id="@+id/action_pageOneFragment_to_pageTwoFragment"
+            app:destination="@id/pageTwoFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pageTwoFragment"
+        android:name="com.example.mad2.pagetwo.PageTwoFragment"
+        android:label="Page Two"
+        tools:layout="@layout/page_two" >
+        <action
+            android:id="@+id/action_pageTwoFragment_to_RegisterPageFragment"
+            app:destination="@id/RegisterPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RegisterPageFragment"
+        android:name="com.example.mad2.registerpage.RegisterPageFragment"
+        android:label="register_page"
+        tools:layout="@layout/register_page"/>
+</navigation>

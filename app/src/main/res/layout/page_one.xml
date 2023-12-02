@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="pageOneVM"
+            type="com.example.mad2.pageone.PageOneVM"/>
+    </data>
+
+    <FrameLayout
+        android:id="@+id/framePageOne"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        style="@style/groupStylewhite_A700">
+
+        <ImageView
+            android:id="@+id/imageBackground"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:src = "@drawable/img_background"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_background"/>
+
+        <LinearLayout
+            android:id="@+id/linearColumnteaching"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_40pxv"
+            android:layout_marginEnd="@dimen/_35pxh"
+            android:layout_marginStart="@dimen/_35pxh"
+            android:layout_marginTop="@dimen/_40pxv"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageTeaching"
+                android:layout_height="@dimen/_239pxh"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_teaching"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_teaching"/>
+
+            <LinearLayout
+                android:gravity="start"
+                android:id="@+id/linearColumnexploreyourne"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtExploreyourne"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_13pxh"
+                    android:layout_marginStart="@dimen/_13pxh"
+                    android:layout_width="match_parent"
+                    android:text="@string/msg_explore_your_ne"
+                    style="@style/txtPoppinsbold24"
+                    tools:text="@string/msg_explore_your_ne"/>
+
+                <TextView
+                    android:id="@+id/txtYoucanlearnv"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_13pxh"
+                    android:layout_marginStart="@dimen/_13pxh"
+                    android:layout_marginTop="@dimen/_3pxv"
+                    android:layout_width="match_parent"
+                    android:text="@string/msg_you_can_learn_v"
+                    style="@style/txtPoppinsmedium14"
+                    tools:text="@string/msg_you_can_learn_v"/>
+
+                <LinearLayout
+                    android:gravity="start"
+                    android:id="@+id/linearRowrectangletwo"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_15pxh"
+                    android:layout_marginStart="@dimen/_15pxh"
+                    android:layout_marginTop="@dimen/_18pxv"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:background="@drawable/rectangle_bg_gray_100_radius_2"
+                        android:id="@+id/viewRectangleTwo"
+                        android:layout_height="@dimen/_4pxv"
+                        android:layout_width="@dimen/_18pxh"/>
+
+                    <View
+                        android:background="@drawable/rectangle_bg_gray_100_radius_2"
+                        android:id="@+id/viewEllipseSix"
+                        android:layout_height="@dimen/_4pxh"
+                        android:layout_marginStart="@dimen/_5pxh"
+                        android:layout_width="@dimen/_4pxh"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearRownext"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_126pxv"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:id="@+id/btnNext"
+                        android:layout_height="@dimen/_40pxv"
+                        android:layout_width="@dimen/_90pxh"
+                        android:paddingBottom="@dimen/_8pxv"
+                        android:paddingEnd="@dimen/_27pxh"
+                        android:paddingStart="@dimen/_26pxh"
+                        android:paddingTop="@dimen/_8pxv"
+                        android:singleLine="true"
+                        android:text="@string/lbl_next"
+                        android:textAllCaps="false"
+                        style="@style/btnSolidRounded"
+                        tools:text="@string/lbl_next"/>
+
+                    <TextView
+                        android:ellipsize="end"
+                        android:id="@+id/txtSkip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_6pxv"
+                        android:layout_marginStart="@dimen/_172pxh"
+                        android:layout_marginTop="@dimen/_9pxv"
+                        android:layout_weight="0.28"
+                        android:layout_width="0dp"
+                        android:singleLine="true"
+                        android:text="@string/lbl_skip"
+                        style="@style/txtPoppinssemibold16"
+                        tools:text="@string/lbl_skip"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>
