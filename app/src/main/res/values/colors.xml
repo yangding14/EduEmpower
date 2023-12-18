@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="discoverCourse">#0B8FAC</color>
+    <color name="dark_purple">#410375</color>
 </resources>
