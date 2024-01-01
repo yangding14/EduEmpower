@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <group
+        android:name="tracing">
+        <path
+            android:pathData="M24,2C12.27,2 2,12.27 2,24s10.27,22 22,22s22,-10.27 22,-22S35.73,2 24,2z"
+            android:fillColor="#F5B2B2"/>
+    </group>
+</vector>

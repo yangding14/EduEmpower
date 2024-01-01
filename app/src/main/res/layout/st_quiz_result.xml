@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/background">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></View>
+
+    <TextView
+        android:id="@+id/quizTitle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Quiz 1: Brain Busters!"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/circle_pink"
+        android:fontFamily="@font/open_sans_bold"
+        android:gravity="center"
+        android:text="4/10"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizTitle" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultAnalysis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_rectangle_white"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/result">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineCenter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="164dp" />
+        
+        <ImageView
+            android:id="@+id/purpleCircle1"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/circle_purple"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="20dp"/>
+
+        <TextView
+            android:id="@+id/completionValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100%"
+            app:layout_constraintStart_toEndOf="@id/purpleCircle1"
+            app:layout_constraintTop_toTopOf="@id/purpleCircle1"
+            app:layout_constraintBottom_toBottomOf="@id/purpleCircle1"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+            />
+
+        <TextView
+            android:id="@+id/completionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completion"
+            app:layout_constraintStart_toStartOf="@id/completionValue"
+            app:layout_constraintTop_toBottomOf="@id/completionValue"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+        />
+
+        <ImageView
+            android:id="@+id/purpleCircle2"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/circle_purple"
+            app:layout_constraintStart_toStartOf="@id/guidelineCenter"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="20dp"/>
+
+        <TextView
+            android:id="@+id/questionsValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100%"
+            app:layout_constraintStart_toEndOf="@id/purpleCircle2"
+            app:layout_constraintTop_toTopOf="@id/purpleCircle2"
+            app:layout_constraintBottom_toBottomOf="@id/purpleCircle2"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+        />
+
+        <TextView
+            android:id="@+id/questionsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completion"
+            app:layout_constraintStart_toStartOf="@id/questionsValue"
+            app:layout_constraintTop_toBottomOf="@id/questionsValue"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+        />
+
+        <ImageView
+            android:id="@+id/greenCircle"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/circle_green"
+            android:layout_marginVertical="50dp"
+            app:layout_constraintStart_toStartOf="@id/purpleCircle1"
+            app:layout_constraintTop_toBottomOf="@id/purpleCircle1"/>
+
+        <TextView
+            android:id="@+id/correctValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="04"
+            app:layout_constraintStart_toEndOf="@id/greenCircle"
+            app:layout_constraintTop_toTopOf="@id/greenCircle"
+            app:layout_constraintBottom_toBottomOf="@id/greenCircle"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+        />
+
+        <TextView
+            android:id="@+id/correctTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correct"
+            app:layout_constraintStart_toStartOf="@id/correctValue"
+            app:layout_constraintTop_toBottomOf="@id/correctValue"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingBottom="20dp"/>
+        />
+
+        <ImageView
+            android:id="@+id/redCircle"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/circle_red"
+            app:layout_constraintStart_toStartOf="@id/guidelineCenter"
+            app:layout_constraintTop_toBottomOf="@id/purpleCircle2"
+            android:layout_marginVertical="50dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/wrongValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="06"
+            app:layout_constraintStart_toEndOf="@id/redCircle"
+            app:layout_constraintTop_toTopOf="@id/redCircle"
+            app:layout_constraintBottom_toBottomOf="@id/redCircle"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+        />
+
+        <TextView
+            android:id="@+id/wrongTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wrong"
+            app:layout_constraintStart_toStartOf="@id/wrongValue"
+            app:layout_constraintTop_toBottomOf="@id/wrongValue"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/answerList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/resultAnalysis"
+        android:orientation="vertical"
+        android:layout_marginTop="32dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/btnReviewAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Review Answer"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans_bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingVertical="15dp"
+                android:background="@drawable/rounded_rectangle_white"/>
+
+            <TextView
+                android:id="@+id/btnBackToCourse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back To Course"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans_bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingVertical="15dp"
+                android:background="@drawable/rounded_rectangle_white"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
