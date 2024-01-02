@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1073082693112",
+    "project_id": "mad-flashcards-cd654",
+    "storage_bucket": "mad-flashcards-cd654.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073082693112:android:4cb578a628a6c8c676920d",
+        "android_client_info": {
+          "package_name": "com.mad.madflashcards"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD0FxIrFXa1XBVGLcMcBRweQS7gOuiJg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

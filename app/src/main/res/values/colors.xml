@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="pie_easy">#3579FF</color>
+    <color name="pie_good">#B24FFF</color>
+</resources>

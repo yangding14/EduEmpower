@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/rounded_blue_card">
+
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Question"
+        android:typeface="normal"
+        android:fontFamily="@font/poppins_regular"/>
+
+    <EditText
+        android:id="@+id/et_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/question_text"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        android:hint="Enter question"
+        android:textColor="@android:color/black" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/et_question"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/answer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line"
+        android:layout_marginLeft="10dp"
+        android:text="Answer"
+        android:typeface="normal"
+        android:fontFamily="@font/poppins_regular"/>
+
+    <EditText
+        android:id="@+id/et_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/answer_text"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        android:hint="Enter answer"
+        android:textColor="@android:color/black" />
+
+    <ImageButton
+        android:id="@+id/btn_delete"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/circular_delete_button"
+        android:src="@drawable/delete_vector"
+        android:contentDescription="@string/delete"
+        android:scaleType="center"
+        android:elevation="50dp" />
+
+</RelativeLayout>
