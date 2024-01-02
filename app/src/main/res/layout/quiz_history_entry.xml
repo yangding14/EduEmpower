@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="26dp"
+    android:paddingVertical="16dp"
+    android:layout_marginTop="18dp"
+    android:background="@drawable/rounded_rectangle_white">
+
+    <TextView
+        android:id="@+id/attemptNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Attempt 1"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/attemptScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_bold"
+        android:textSize="30sp"
+        android:textColor="#F29191"
+        android:text="4/10"
+        app:layout_constraintEnd_toStartOf="@id/arrowHead"
+        app:layout_constraintTop_toTopOf="@+id/attemptNumber"
+        app:layout_constraintBottom_toBottomOf="@id/attemptDate"
+        android:layout_marginRight="8dp"/>
+
+    <ImageView
+        android:id="@+id/arrowHead"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/left_arrow_head"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/attemptNumber"
+        app:layout_constraintBottom_toBottomOf="@id/attemptDate"
+        />
+
+    <TextView
+        android:id="@+id/attemptDate"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="12 Dec 2020"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/open_sans"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@id/attemptNumber"
+        app:layout_constraintTop_toBottomOf="@id/attemptNumber"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
