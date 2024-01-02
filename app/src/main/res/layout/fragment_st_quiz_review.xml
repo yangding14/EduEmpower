@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< Updated upstream
     tools:context=".StQuizReviewFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -95,4 +96,21 @@
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+    android:layout_marginTop="24dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".StQuizReviewFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvReviewQuestionsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+>>>>>>> Stashed changes
 </FrameLayout>
