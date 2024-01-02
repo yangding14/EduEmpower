@@ -28,11 +28,8 @@ public class InQuizQuestionsListFragment extends Fragment {
     private QuestionAdapter questionAdapter;
 
     private Button btnAddQuestion, btnSaveChangesSaveQuiz;
-<<<<<<< Updated upstream
-=======
 
     // Get a reference to the Firebase database
->>>>>>> Stashed changes
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     DatabaseReference dbRef = db.getReference("quizzes").child("quiz1").child("questions");
 

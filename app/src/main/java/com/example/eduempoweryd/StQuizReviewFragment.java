@@ -1,15 +1,6 @@
 package com.example.eduempoweryd;
 
 import android.os.Bundle;
-<<<<<<< Updated upstream
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import androidx.fragment.app.Fragment;
-
-public class StQuizReviewFragment extends Fragment {
-=======
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +25,6 @@ public class StQuizReviewFragment extends Fragment {
     private QuestionReviewAdapter questionReviewAdapter;
     private List<QuestionAttempt> attempts = new ArrayList<>();
     DatabaseReference db = FirebaseDatabase.getInstance().getReference("quizzes");
->>>>>>> Stashed changes
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,8 +37,6 @@ public class StQuizReviewFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_st_quiz_review, container, false);
 
-<<<<<<< Updated upstream
-=======
         // Set up recycler view for questions list
         RecyclerView recyclerView = view.findViewById(R.id.rvReviewQuestionsList);
         // Create an instance of the QuestionReviewAdapter
@@ -58,13 +46,10 @@ public class StQuizReviewFragment extends Fragment {
 
         populateAttempts();
 
->>>>>>> Stashed changes
         // Inflate the layout for this fragment
         return view;
     }
 
-<<<<<<< Updated upstream
-=======
     public void populateAttempts(){
         Bundle bundle = this.getArguments();
         String attemptKey = bundle.getString("attemptKey");
@@ -103,5 +88,4 @@ public class StQuizReviewFragment extends Fragment {
         });
 
     }
->>>>>>> Stashed changes
 }

@@ -106,13 +106,9 @@ public class StQuizResultFragment extends Fragment {
     }
 
     private void switchFragmentReviewAnswer() {
-<<<<<<< Updated upstream
-        StQuizReviewFragment nextFrag = new StQuizReviewFragment();
-=======
         Bundle bundle = this.getArguments();
         StQuizReviewFragment nextFrag = new StQuizReviewFragment();
         nextFrag.setArguments(bundle);
->>>>>>> Stashed changes
 
         // Get the FragmentManager
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
