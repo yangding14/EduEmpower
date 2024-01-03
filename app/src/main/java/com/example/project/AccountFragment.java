@@ -152,5 +152,18 @@ public class AccountFragment extends Fragment {
                 ft.replace(R.id.frameLayout, fragment).commit();
             }
         });
+
+        ImageButton btnChangeGender = view.findViewById(R.id.btn_acc_gender);
+        btnChangeGender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new UpdateGenderFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
+                btm.setVisibility(View.INVISIBLE);
+                ft.replace(R.id.frameLayout, fragment).commit();
+            }
+        });
     }
 }
