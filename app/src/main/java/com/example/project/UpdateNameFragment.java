@@ -1,10 +1,8 @@
 package com.example.project;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -17,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,7 +34,8 @@ import java.util.HashMap;
 public class UpdateNameFragment extends Fragment {
 
     EditText newUsername;
-    TextView oldUsername;
+    TextView userName;
+    TextView userEmail;
 
 
     @Override
@@ -43,17 +44,35 @@ public class UpdateNameFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_update_name, container, false);
         newUsername = view.findViewById(R.id.EVEditUsername);
-        oldUsername = view.findViewById(R.id.userName3);
+        userName = view.findViewById(R.id.userName3);
+        userEmail = view.findViewById(R.id.userEmail3);
+
+        // Show profile username and email
+        // Later need to change hardcoded UID to FirebaseAuth.getInstance().getUID();
+        String uid = "KW9dQocc6mUJtUkssl73sO07oDr2";
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
+        reference.child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DataSnapshot snapshot = task.getResult();
+                    String username = String.valueOf(snapshot.child("Username").getValue());
+                    String email = String.valueOf(snapshot.child("Email").getValue());
+                    userName.setText(username);
+                    userEmail.setText(email);
+                }
+            }
+        });
 
         Button btn = view.findViewById(R.id.btnConfirmUserame);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String txt_newUsername = newUsername.getText().toString();
-                String txt_oldUsername = oldUsername.getText().toString();
                 if(!txt_newUsername.isEmpty()){
-                    updateUsername(txt_oldUsername, txt_newUsername);
+                    updateUsername(uid, txt_newUsername);
                 }
+                //FirebaseDatabase.getInstance().getReference("Students").child(txt_oldUsername).removeValue();
                 navigateToAccountFragment();
             }
         });
@@ -61,33 +80,45 @@ public class UpdateNameFragment extends Fragment {
         return view;
     }
 
-    private void updateUsername(String oldUsername, String newUsername) {
+
+    private void updateUsername(String uid, String newUsername) {
         HashMap map = new HashMap();
         map.put("Username", newUsername);
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Students");
-        ref.child(oldUsername).updateChildren(map);
-        ref.child(oldUsername).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                StudentInfo info = snapshot.getValue(StudentInfo.class);
-                HashMap newMap = new HashMap();
-                newMap.put("DateOfBirth", info.getDateOfBirth());
-                newMap.put("Education", info.getEducation());
-                newMap.put("Email", info.getEmail());
-                newMap.put("Gender", info.getGender());
-                newMap.put("Phone", info.getPhone());
-                newMap.put("Password", info.getPassword());
-                newMap.put("Username", info.getUsername());
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Students").child(uid);
+        ref.updateChildren(map);
 
-                FirebaseDatabase.getInstance().getReference("Students").child(newUsername).updateChildren(newMap);
-                FirebaseDatabase.getInstance().getReference("Students").child(oldUsername).removeValue();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "Error happening", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if(snapshot.exists()){
+//                    //Log.d("TAG", "Beginning in onDataChange");
+//                    //Get existing data
+//                    StudentInfo info = snapshot.getValue(StudentInfo.class);
+//
+//                    // Create a new HashMap with the updated username and other existing data
+//                    HashMap newMap = new HashMap();
+//                    newMap.put("DateOfBirth", info.getDateOfBirth());
+//                    newMap.put("Education", info.getEducation());
+//                    newMap.put("Email", info.getEmail());
+//                    newMap.put("Gender", info.getGender());
+//                    newMap.put("Phone", info.getPhone());
+//                    newMap.put("Password", info.getPassword());
+//                    newMap.put("Username", info.getUsername());
+//
+//                    // Update the node with the new data
+//                    FirebaseDatabase.getInstance().getReference("Students").child(newUsername).updateChildren(newMap);
+//                    //Log.d("TAG", "Ending in onDataChange");
+//
+//                    // Remove the old node
+//                    ref.removeValue();
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(getContext(), "Error happening", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
     }
 

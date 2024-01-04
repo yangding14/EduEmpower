@@ -24,7 +24,8 @@ import android.widget.TextView;
 
 public class UpdateGenderFragment extends Fragment {
 
-    TextView username;
+    TextView userName;
+    TextView userEmail;
     EditText gender;
 
     @Override
@@ -32,10 +33,30 @@ public class UpdateGenderFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_update_gender, container, false);
-        username = view.findViewById(R.id.userName9);
+        userName = view.findViewById(R.id.userName9);
+        userEmail = view.findViewById(R.id.userEmail9);
         gender = view.findViewById(R.id.EVEditGender);
-        String txt_username = username.getText().toString();
-        readData(txt_username, gender);
+        //readData(txt_username, gender);
+
+        // Show profile username and email
+        // Later need to change hardcoded UID to FirebaseAuth.getInstance().getUID();
+        String uid = "KW9dQocc6mUJtUkssl73sO07oDr2";
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
+        reference.child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DataSnapshot snapshot = task.getResult();
+                    String username = String.valueOf(snapshot.child("Username").getValue());
+                    String email = String.valueOf(snapshot.child("Email").getValue());
+                    String txt_gender = String.valueOf(snapshot.child("Gender").getValue());
+                    userName.setText(username);
+                    userEmail.setText(email);
+                    gender.setText(txt_gender);
+
+                }
+            }
+        });
 
         Button btn = view.findViewById(R.id.btnConfirmGender);
         btn.setOnClickListener(new View.OnClickListener() {
