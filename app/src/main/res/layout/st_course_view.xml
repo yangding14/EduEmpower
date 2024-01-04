@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="112dp">
+
+    <ImageButton
+        android:id="@+id/btn_cs_back"
+        android:layout_width="104dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/vector" />
+
+    <TextView
+        android:id="@+id/TVCourseTitle"
+        android:layout_width="177dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="100dp"
+        android:text="Introduction to General Chemistry"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppinsbold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="659dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="22dp"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/bgAboutThisCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg" />
+
+            <TextView
+                android:id="@+id/TVDesc"
+                android:layout_width="283dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="64dp"
+                android:inputType="textMultiLine"
+                android:text="This course offers a comprehensive yet accessible chemistry foundation. Start your chemistry adventure today!"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/bgAboutThisCourse"
+                app:layout_constraintTop_toTopOf="@+id/bgAboutThisCourse" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="About This Course"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinsbold"
+                app:layout_constraintStart_toStartOf="@+id/bgAboutThisCourse"
+                app:layout_constraintTop_toTopOf="@+id/bgAboutThisCourse" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="277dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:text="*16 Chapters    *4 Quizzes    *20 Flashcards"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="@+id/bgAboutThisCourse"
+                app:layout_constraintTop_toBottomOf="@+id/TVDesc" />
+
+            <ImageView
+                android:id="@+id/bgDiveIntoChapters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bgAboutThisCourse"
+                app:srcCompat="@drawable/bg" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="100dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Dive Into Chapter"
+                android:fontFamily="@font/poppinsbold"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/bgDiveIntoChapters"
+                app:layout_constraintTop_toTopOf="@+id/bgDiveIntoChapters" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/bgDiveIntoChapters"
+                app:layout_constraintTop_toTopOf="@+id/bgDiveIntoChapters"
+                app:srcCompat="@drawable/group_131" />
+
+            <Button
+                android:id="@+id/btnStartStudy"
+                android:layout_width="104dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/orange"
+                android:text="Start Study"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/bgDiveIntoChapters"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <ImageView
+                android:id="@+id/bgFlashcard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bgDiveIntoChapters"
+                app:srcCompat="@drawable/bg" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="@+id/bgFlashcard"
+                app:layout_constraintTop_toTopOf="@+id/bgFlashcard"
+                app:srcCompat="@drawable/illustration" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="118dp"
+                android:layout_height="67dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="64dp"
+                android:fontFamily="@font/poppinsbold"
+                android:text="Study Flashcards"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/bgFlashcard"
+                app:layout_constraintTop_toTopOf="@+id/bgFlashcard" />
+
+            <Button
+                android:id="@+id/btnRevision"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="80dp"
+                android:background="@color/orange"
+                android:text="REVISION"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/bgFlashcard"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <ImageView
+                android:id="@+id/bgDiscussionForum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bgFlashcard"
+                app:srcCompat="@drawable/bg" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="@+id/bgDiscussionForum"
+                app:layout_constraintTop_toTopOf="@+id/bgDiscussionForum"
+                app:srcCompat="@drawable/completed_1" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="171dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="48dp"
+                android:text="Discussion Forum"
+                android:fontFamily="@font/poppinsbold"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/bgDiscussionForum"
+                app:layout_constraintTop_toBottomOf="@+id/bgFlashcard" />
+
+            <Button
+                android:id="@+id/btnEditCourse"
+                android:layout_width="141dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/orange"
+                android:text="Forum Discussion"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/bgDiscussionForum"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "970698663707",
+    "firebase_url": "https://eduempower-d31a5-default-rtdb.firebaseio.com",
+    "project_id": "eduempower-d31a5",
+    "storage_bucket": "eduempower-d31a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970698663707:android:8217030a4cc05ce7e015be",
+        "android_client_info": {
+          "package_name": "com.example.assignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsbqfBbTN73NLmtm1Ep2LUg3X7xLU7K6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
