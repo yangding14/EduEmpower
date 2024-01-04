@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/backgroundpic"
+    >
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavView"
+        app:itemIconSize="20dp"
+        android:layout_width="341dp"
+        android:layout_height="65.58dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/buttonbox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="82dp"
+        android:layout_height="85.15dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/us_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/us_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/us_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/poppins"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/us_username" />
+
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="149dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="132dp"
+
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:text="LOG OUT"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="379dp"
+        android:layout_height="326dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/us_email">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/buttonUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/transparent"
+                android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                android:fontFamily="@font/poppins"
+                android:gravity="left|center_vertical"
+                android:text="Username"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/us_email" />
+
+            <Button
+                android:id="@+id/buttonEmail"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/transparent"
+                android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                android:fontFamily="@font/poppins"
+                android:gravity="left|center_vertical"
+                android:text="Email address"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonUsername" />
+
+            <Button
+                android:id="@+id/buttonPhone"
+                android:layout_width="380dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/transparent"
+                android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                android:fontFamily="@font/poppins"
+                android:gravity="left|center_vertical"
+                android:text="Phone Number"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonEmail" />
+
+            <Button
+                android:id="@+id/buttonDOB"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/transparent"
+                android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                android:fontFamily="@font/poppins"
+                android:gravity="left|center_vertical"
+                android:text="Date of Birth"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonPhone" />
+
+
+            <Button
+                android:id="@+id/buttonGender"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/transparent"
+                android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                android:fontFamily="@font/poppins"
+                android:gravity="left|center_vertical"
+                android:text="Gender"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonPhone" />
+
+            <Button
+                android:id="@+id/buttonEducation"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/transparent"
+                android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                android:fontFamily="@font/poppins"
+                android:gravity="left|center_vertical"
+                android:text="Educational Details"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonPhone" />
+
+            <Button
+                android:id="@+id/buttonPassword"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/transparent"
+                android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                android:fontFamily="@font/poppins"
+                android:gravity="left|center_vertical"
+                android:text="Change Password"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonPhone" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
