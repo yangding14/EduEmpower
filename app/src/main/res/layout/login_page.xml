@@ -171,6 +171,7 @@
                 android:onClick="onClick"
                 style="@style/txtPoppinsregular17" tools:text="@string/lbl_sign_up"
                 android:focusable="true" />
+
         </LinearLayout>
     </FrameLayout>
 </layout>

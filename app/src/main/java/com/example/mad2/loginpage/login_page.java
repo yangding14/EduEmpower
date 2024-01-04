@@ -5,29 +5,36 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.databinding.DataBindingUtil;
 import com.example.mad2.R;
 import com.example.mad2.databinding.LoginPageBinding;
-import com.example.mad2.instructorregister.instructor_register;
-import com.example.mad2.pageone.page_one;
-import com.example.mad2.pagetwo.page_two;
 import com.example.mad2.registerpage.register_page;
-import com.example.mad2.studentregister.student_register;
+import com.example.mad2.studentsurvey.student_survey;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class login_page extends AppCompatActivity {
+
+    private EditText username;
+    private EditText password;
+    private Spinner role;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,17 +105,37 @@ public class login_page extends AppCompatActivity {
                     }
                 }
         );
+
+        username = findViewById(R.id.usernameinput);
+        password = findViewById(R.id.etInputFieldT);
+        role = findViewById(R.id.spinnerstud);
+
+
         AppCompatButton b2 = findViewById(R.id.btnLogInOne);
         b2.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        CharSequence text = "Login successfully!";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(login_page.this, text, duration);
-                        toast.show();
-                        Intent i = new Intent(login_page.this, login_page.class);
-                        startActivity(i);
+                        String txt_username = username.getText().toString();
+                        String txt_role = spinner.getSelectedItem().toString();
+                        String txt_password = password.getText().toString();
+                        if(txt_role.equals("Students")){
+                            if(!txt_username.isEmpty()){
+                                studentLogin(txt_username, txt_password);
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), "Please enter username", Toast.LENGTH_SHORT).show();
+                            }
+                        } else if (txt_role.equals("Instructors")){
+                            if(!txt_username.isEmpty()){
+                                instructorLogin(txt_username, txt_password);
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), "Please enter username", Toast.LENGTH_SHORT).show();
+                            }
+                        } else{
+                            Toast.makeText(getApplicationContext(), "Please enter your role", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
         );
@@ -124,5 +151,52 @@ public class login_page extends AppCompatActivity {
                 }
         );
     }
+
+    private void instructorLogin(String username,String password) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Instructors");
+        reference.child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        Toast.makeText(getApplicationContext(), "Read successfully", Toast.LENGTH_SHORT).show();
+                        DataSnapshot snapshot = task.getResult();
+                        String confirmPassword = String.valueOf(snapshot.child("Password").getValue());
+                        if(password.equals(confirmPassword)){
+                            Toast.makeText(getApplicationContext(), "Login successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(login_page.this, student_survey.class));
+                            finish();
+                        }
+                    }
+                } else{
+                    Toast.makeText(getApplicationContext(), "Failed to read", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void studentLogin(String username, String password) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
+        reference.child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        Toast.makeText(getApplicationContext(), "Read successfully", Toast.LENGTH_SHORT).show();
+                        DataSnapshot snapshot = task.getResult();
+                        String confirmPassword = String.valueOf(snapshot.child("Password").getValue());
+                        if(password.equals(confirmPassword)){
+                            Toast.makeText(getApplicationContext(), "Login successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(login_page.this, student_survey.class));
+                            finish();
+                        }
+                    }
+                } else{
+                    Toast.makeText(getApplicationContext(), "Failed to read", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
 
 }

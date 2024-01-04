@@ -4,7 +4,9 @@ import static androidx.databinding.adapters.ViewBindingAdapter.setClickListener;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,15 +14,17 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mad2.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class student_survey extends AppCompatActivity {
 
     boolean isChecked;
+    Button buttonDone;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_survey);
-
+        buttonDone = findViewById(R.id.btnDone);
 
         for (int i = 0; i <= 17; i++) {
             int layoutId = getResources().getIdentifier("linearChip" + i, "id", getPackageName());
@@ -51,5 +55,6 @@ public class student_survey extends AppCompatActivity {
                 }
             });
         }
+
     }
 }
