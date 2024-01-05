@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="loginPageVM" type="com.example.mad2.loginpage.LoginPageVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameLoginpage"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylewhite_A700">
+
+        <ImageView
+            android:id="@+id/imageBackgroundTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_background2"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_background2" />
+        <LinearLayout android:id="@+id/linearColumnlogin"
+            android:layout_gravity="bottom|center"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_29pxv"
+            android:layout_marginEnd="@dimen/_50pxh"
+            android:layout_marginStart="@dimen/_50pxh"
+            android:layout_marginTop="@dimen/_29pxv"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <TextView android:ellipsize="end" android:id="@+id/txtLOGIN"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_15pxh"
+                android:layout_marginStart="@dimen/_15pxh"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@string/lbl_log_in"
+                style="@style/txt_1" tools:text="@string/lbl_log_in"/>
+            <FrameLayout
+                android:id="@+id/frameSpinnerGroupTwo"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_3pxh"
+                android:layout_marginTop="@dimen/_41pxv"
+                android:layout_width="match_parent">
+
+                <!-- This is a custom background for the Spinner -->
+                <FrameLayout
+                    android:id="@+id/frameSpinnerBackground"
+                    android:layout_gravity="start"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/etSolidRounded">
+
+                    <!-- Add your ImageView inside the custom background if needed -->
+                    <ImageView
+                        android:id="@+id/imageUserSpinner"
+                        android:layout_gravity="start"
+                        android:layout_height="@dimen/_20pxh"
+                        android:layout_marginBottom="@dimen/_10pxv"
+                        android:layout_marginEnd="@dimen/_15pxh"
+                        android:layout_marginStart="@dimen/_12pxh"
+                        android:layout_marginTop="@dimen/_15pxv"
+                        android:layout_width="@dimen/_20pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_student"
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_user" />
+
+                    <Spinner
+                        android:id="@+id/spinnerstud"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_3pxh"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="@dimen/_2pxh"/>
+                    <!-- Your Spinner -->
+
+                </FrameLayout>
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/usernameinput"
+                style="@style/etSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_26pxv"
+                android:layout_marginEnd="@dimen/_3pxh"
+                android:background="@drawable/rectangle_bg_white_a700_radius_8"
+                android:drawableStart="@drawable/img_user"
+                android:drawablePadding="@dimen/_10pxh"
+                android:ellipsize="end"
+                android:hint="Email"
+                android:inputType="textPersonName"
+                android:paddingStart="@dimen/_14pxh"
+                android:paddingTop="@dimen/_10pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_9pxv"
+                android:singleLine="true"
+                android:textColorHint="@color/gray_600"
+                tools:ignore="Autofill" />
+
+            <EditText
+                android:background="@drawable/rectangle_bg_white_a700_radius_8"
+                android:drawablePadding="@dimen/_10pxh"
+                android:drawableStart="@drawable/img_lock"
+                android:ellipsize="end"
+                android:hint="@string/lbl_password"
+                android:id="@+id/etInputFieldT"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_3pxh"
+                android:layout_marginTop="@dimen/_26pxv"
+                android:layout_width="match_parent"
+                android:paddingBottom="@dimen/_9pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingStart="@dimen/_14pxh"
+                android:paddingTop="@dimen/_10pxv"
+                android:singleLine="true"
+                android:textColorHint="@color/gray_600"
+                style="@style/etSolidRounded" tools:ignore="Autofill"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtForgotpassword"
+                android:layout_gravity="end"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_6pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@string/msg_forgot_password"
+                style="@style/txtPoppinsregular14"
+                android:clickable="true"
+                android:onClick="onClick"
+                tools:text="@string/msg_forgot_password"
+                android:focusable="true" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:ellipsize="end" android:gravity="center"
+                android:id="@+id/btnLogInOne"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_1pxh"
+                android:layout_marginStart="@dimen/_2pxh"
+                android:layout_marginTop="@dimen/_23pxv"
+                android:layout_width="match_parent"
+                android:letterSpacing="0.06"
+                android:paddingBottom="@dimen/_14pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_14pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_log_in2"
+                android:textAllCaps="true"
+                style="@style/btnSolidRoundedOutline" tools:text="@string/lbl_log_in2"/>
+            <TextView android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:id="@+id/txtConfirmation"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8pxh"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_192pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@string/msg_don_t_have_an_a"
+                style="@style/txtPoppinsregular17" tools:text="@string/msg_don_t_have_an_a"/>
+            <TextView android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:id="@+id/txtSignUp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8pxh"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@string/lbl_sign_up"
+                android:clickable="true"
+                android:onClick="onClick"
+                style="@style/txtPoppinsregular17" tools:text="@string/lbl_sign_up"
+                android:focusable="true" />
+
+        </LinearLayout>
+    </FrameLayout>
+</layout>

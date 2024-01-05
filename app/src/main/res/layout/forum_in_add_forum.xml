@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout android:id="@+id/frameINEDITDISFOR"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylewhite_1">
+        <ImageView android:id="@+id/imageBackground"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_background"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_background"/>
+        <LinearLayout android:id="@+id/linearColumnarrowleft"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_30pxv"
+            android:layout_marginEnd="@dimen/_25pxh"
+            android:layout_marginStart="@dimen/_25pxh"
+            android:layout_marginTop="@dimen/_20pxv"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar android:gravity="start"
+                android:id="@+id/toolbarToolbar"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_13pxh"
+                android:layout_marginStart="@dimen/_13pxh"
+                android:layout_width="match_parent" app:contentInsetStart="0dp">
+                <LinearLayout android:gravity="start"
+                    android:id="@+id/linearRowarrowleft"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent" android:orientation="horizontal">
+                    <ImageView android:id="@+id/imageArrowleft"
+                        android:layout_height="@dimen/_21pxh"
+                        android:layout_marginBottom="@dimen/_8pxv"
+                        android:layout_marginTop="@dimen/_6pxv"
+                        android:layout_width="@dimen/_12pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_arrowleft"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft"/>
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtLanguage"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_53pxh"
+                        android:layout_weight="0.93"
+                        android:layout_width="0dp"
+                        android:singleLine="true"
+                        android:text="@string/lbl_add_discussion"
+                        style="@style/txtOpenSansromanbold26" tools:text="@string/lbl_add_discussion"/>
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+            <ImageView android:id="@+id/imageRectangleThirtyTwo"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/_93pxh"
+                android:layout_marginEnd="@dimen/_13pxh"
+                android:layout_marginStart="@dimen/_13pxh"
+                android:layout_marginTop="@dimen/_57pxv"
+                android:layout_width="@dimen/_99pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_rectangle32"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_rectangle32"/>
+            <LinearLayout android:id="@+id/linearCoursename"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_69pxv"
+                android:layout_width="match_parent"
+                android:orientation="vertical" style="@style/groupStylecornerRadius">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtTopicc"
+                    android:layout_gravity="start"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_19pxh"
+                    android:layout_marginStart="@dimen/_19pxh"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/lbl_topic"
+                    style="@style/txtPoppinsregular18" tools:text="@string/lbl_topic"/>
+                <LinearLayout android:gravity="center_horizontal"
+                    android:id="@+id/linearInputFieldT"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical" style="@style/groupStylewhite_A700cornerRadius">
+                    <EditText android:ellipsize="end"
+                        android:gravity="start"
+                        android:id="@+id/txtTopicIn"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/_10pxv"
+                        android:layout_marginEnd="@dimen/_19pxh"
+                        android:layout_marginStart="@dimen/_19pxh"
+                        android:layout_marginTop="@dimen/_9pxv"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/discussion_topic"
+                        style="@style/txtPoppinsregular18_1"
+                        android:autofillHints="Discussion Topic"
+                        android:inputType="text" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/linearCoursedescript"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="match_parent"
+                android:orientation="vertical" style="@style/groupStylecornerRadius">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtCommentt"
+                    android:layout_gravity="start"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_19pxh"
+                    android:layout_marginStart="@dimen/_19pxh"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/content"
+                    style="@style/txtPoppinsregular18" tools:text="@string/content"/>
+                <LinearLayout android:gravity="center_horizontal"
+                    android:id="@+id/linearInputFieldT1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_23pxv"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical" style="@style/groupStylewhite_A700cornerRadius">
+                    <EditText android:gravity="start|top"
+                        android:id="@+id/txtContentIn"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_34pxv"
+                        android:layout_marginEnd="@dimen/_19pxh"
+                        android:layout_marginStart="@dimen/_19pxh"
+                        android:layout_marginTop="@dimen/_29pxv"
+                        android:layout_width="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/add_some_contents"
+                        style="@style/txtPoppinsregular18_1"
+                        android:autofillHints="Comment"
+                        android:inputType="textLongMessage" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:ellipsize="end" android:gravity="center|bottom"
+                android:id="@+id/btnConfirm"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_4pxh"
+                android:layout_marginStart="@dimen/_4pxh"
+                android:layout_marginTop="@dimen/_25pxv"
+                android:layout_marginBottom="@dimen/_10pxh"
+                android:layout_width="match_parent"
+                android:letterSpacing="0.06"
+                android:paddingBottom="@dimen/_14pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_14pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_confirm"
+                android:textAllCaps="true"
+                android:onClick="onClick"
+                style="@style/btnSolidRoundedOutline_1" tools:text="@string/lbl_confirm"/>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

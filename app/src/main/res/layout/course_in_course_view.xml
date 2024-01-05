@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <!-- Add your existing content here -->
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="112dp">
+
+
+        <ImageButton
+            android:id="@+id/btn_cs_back"
+            android:layout_width="104dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/vector" />
+
+        <TextView
+            android:id="@+id/TVCourseTitle"
+            android:layout_width="177dp"
+            android:layout_height="66dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="100dp"
+            android:text="Introduction to General Chemistry"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!-- Your existing views -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="659dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="22dp"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".InEditCourseActivity">
+
+            <ImageView
+                android:id="@+id/bgAboutThisCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg" />
+
+            <TextView
+                android:id="@+id/TVDesc"
+                android:layout_width="155dp"
+                android:layout_height="81dp"
+                android:layout_marginStart="148dp"
+                android:layout_marginTop="56dp"
+                android:inputType="textMultiLine"
+                android:text="This course offers a comprehensive yet accessible chemistry foundation. Start your chemistry adventure today!"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="@+id/bgAboutThisCourse"
+                app:layout_constraintTop_toTopOf="@+id/bgAboutThisCourse" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="About This Course"
+                android:fontFamily="@font/poppinsbold"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/bgAboutThisCourse"
+                app:layout_constraintTop_toTopOf="@+id/bgAboutThisCourse" />
+
+            <Button
+                android:id="@+id/btnEditCourse"
+                android:layout_width="131dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="160dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/orange"
+                android:onClick="openEditCourse"
+                android:text="EDIT COURSE"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/bgAboutThisCourse"
+                app:layout_constraintTop_toBottomOf="@+id/TVDesc" />
+
+
+            <ImageView
+                android:id="@+id/ImageCourse"
+                android:layout_width="129dp"
+                android:layout_height="122dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="56dp"
+                app:layout_constraintStart_toStartOf="@+id/bgAboutThisCourse"
+                app:layout_constraintTop_toTopOf="@+id/bgAboutThisCourse"
+                app:srcCompat="@drawable/course_photo" />
+
+            <ImageView
+                android:id="@+id/bgChapters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bgAboutThisCourse"
+                app:srcCompat="@drawable/bg" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="180dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="8dp"
+                android:text="*16 Chapters    *4 Quizzes    "
+                android:fontFamily="@font/poppins"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/bgChapters"
+                app:layout_constraintStart_toStartOf="@+id/bgChapters" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="116dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Chapters"
+                android:fontFamily="@font/poppinsbold"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/bgChapters"
+                app:layout_constraintTop_toTopOf="@+id/bgChapters" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/bgChapters"
+                app:layout_constraintTop_toTopOf="@+id/bgChapters"
+                app:srcCompat="@drawable/group_131" />
+
+            <Button
+                android:id="@+id/btnPrieviewChapters"
+                android:layout_width="143dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="12dp"
+                android:background="@color/orange"
+                android:text="PREVIEW CHAPTERS"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/bgChapters"
+                app:layout_constraintTop_toBottomOf="@id/textView8"
+                tools:layout_editor_absoluteY="265dp" />
+
+            <Button
+                android:id="@+id/btnEditChapters"
+                android:layout_width="143dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/orange"
+                android:text="EDIT CHAPTERS"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/bgChapters"
+                app:layout_constraintTop_toBottomOf="@+id/btnPrieviewChapters" />
+
+
+            <ImageView
+                android:id="@+id/bgFlashcard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bgChapters"
+                app:srcCompat="@drawable/bg" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="291dp"
+                android:layout_height="171dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="@+id/bgFlashcard"
+                app:layout_constraintTop_toTopOf="@+id/bgFlashcard"
+                app:srcCompat="@drawable/illustration" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="126dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="44dp"
+                android:text="Flashcards"
+                android:fontFamily="@font/poppinsbold"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/bgFlashcard"
+                app:layout_constraintTop_toTopOf="@+id/bgFlashcard" />
+
+            <Button
+                android:id="@+id/btnEditFlashcard"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="84dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/orange"
+                android:text="EDIT FLASHCARDS"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/bgFlashcard"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/TV"
+                android:layout_width="119dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="176dp"
+                android:text="*20 Flashcards"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="@+id/bgFlashcard"
+                app:layout_constraintTop_toBottomOf="@id/btnEditFlashcard"
+                tools:layout_editor_absoluteY="580dp" />
+
+            <ImageView
+                android:id="@+id/bgDiscussionForum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bgFlashcard"
+                app:srcCompat="@drawable/bg" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="@+id/bgDiscussionForum"
+                app:layout_constraintTop_toTopOf="@+id/bgDiscussionForum"
+                app:srcCompat="@drawable/completed_1" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="171dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="32dp"
+                android:text="Discussion Forum"
+                android:fontFamily="@font/poppinsbold"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/bgDiscussionForum"
+                app:layout_constraintTop_toBottomOf="@+id/bgFlashcard" />
+
+            <Button
+                android:id="@+id/btnAddDiscussion"
+                android:layout_width="119dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="44dp"
+                android:background="@color/orange"
+                android:text="ADD DISCUSSION"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/bgDiscussionForum"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <Button
+                android:id="@+id/btnEditDiscussion"
+                android:layout_width="119dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="44dp"
+                android:background="@color/orange"
+                android:text="EDIT DISCUSSION"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/bgDiscussionForum"
+                app:layout_constraintTop_toBottomOf="@+id/btnAddDiscussion" />
+
+            <ImageView
+                android:id="@+id/bgEnrol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bgDiscussionForum"
+                app:srcCompat="@drawable/bg" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="177dp"
+                android:layout_height="175dp"
+                app:layout_constraintStart_toStartOf="@+id/bgEnrol"
+                app:layout_constraintTop_toTopOf="@+id/bgEnrol"
+                app:srcCompat="@drawable/completed_1__1_" />
+
+            <Button
+                android:id="@+id/btnEnrol"
+                android:layout_width="112dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="68dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/orange"
+                android:text="ENROLMENT CLASS &amp; COMPLETED CLASS"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/bgEnrol"
+                app:layout_constraintTop_toBottomOf="@+id/bgDiscussionForum" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

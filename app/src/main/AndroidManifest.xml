@@ -16,7 +16,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
         <activity
-            android:name=".MainActivity"
+            android:name=".quiz.MainActivity"
             android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
             >
@@ -26,10 +26,10 @@
                 </intent-filter>
         </activity>
         <activity
-            android:name=".QuizActivityInstructor"
+            android:name=".quiz.QuizActivityInstructor"
             android:theme="@style/Theme.NoTitleBar"/>
         <activity
-            android:name=".QuizActivityStudent"
+            android:name=".quiz.QuizActivityStudent"
             android:theme="@style/Theme.NoTitleBar"/>
 
     </application>
