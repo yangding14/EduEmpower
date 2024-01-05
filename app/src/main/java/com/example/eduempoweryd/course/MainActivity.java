@@ -11,16 +11,16 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.course.databinding.ActivityMainBinding;
+import com.example.eduempoweryd.databinding.CourseActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+    CourseActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = CourseActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
 

@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.eduempoweryd.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,7 +18,7 @@ public class StCourseViewActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.st_course_view);
+        setContentView(R.layout.course_st_course_view);
 
         courseTitleTextView = findViewById(R.id.TVCourseTitle);
         courseDescTextView = findViewById(R.id.TVDesc);

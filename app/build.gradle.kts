@@ -27,6 +27,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -45,4 +50,12 @@ dependencies {
 
     // Pie Chart
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    // bumptech Glide
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+
+    // Circle Image View??
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 }

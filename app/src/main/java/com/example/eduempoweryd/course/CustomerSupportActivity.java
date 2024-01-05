@@ -7,15 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.eduempoweryd.course.databinding.ActivityCustomerSupportBinding;
+import com.example.eduempoweryd.databinding.CourseActivityCustomerSupportBinding;
 
 public class CustomerSupportActivity extends AppCompatActivity {
 
-    private ActivityCustomerSupportBinding binding;
+    private CourseActivityCustomerSupportBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityCustomerSupportBinding.inflate(getLayoutInflater());
+        binding = CourseActivityCustomerSupportBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         binding.btnCsBack.setOnClickListener(new View.OnClickListener() {
