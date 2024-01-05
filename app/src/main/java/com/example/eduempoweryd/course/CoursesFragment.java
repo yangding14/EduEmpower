@@ -16,6 +16,8 @@ import android.widget.Button;
 
 import androidx.appcompat.widget.SearchView;
 
+import com.example.eduempoweryd.R;
+
 import java.util.ArrayList;
 
 /**
@@ -89,7 +91,7 @@ public class CoursesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_courses, container, false);
+        View view = inflater.inflate(R.layout.course_fragment_courses, container, false);
 
         Button button = view.findViewById(R.id.BtnCompletedCourse);
         Button button2 = view.findViewById(R.id.BtnOngoingCourses);

@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eduempoweryd.R;
+
 import java.util.ArrayList;
 
 public class CompletedCourseAdapter extends RecyclerView.Adapter<CompletedCourseAdapter.MyViewHolder> {
@@ -28,7 +30,7 @@ public class CompletedCourseAdapter extends RecyclerView.Adapter<CompletedCourse
     @Override
     public CompletedCourseAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.completed_course_layout, parent, false);
+        View view = layoutInflater.inflate(R.layout.course_completed_course_layout, parent, false);
         return new CompletedCourseAdapter.MyViewHolder(view);
     }
 

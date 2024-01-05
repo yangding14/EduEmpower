@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.settings.instructor.UserSettingsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class InCourseList extends AppCompatActivity {
@@ -19,7 +21,7 @@ public class InCourseList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.in_course_list);
+        setContentView(R.layout.course_in_course_list);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavView);
         bottomNavigationView.setSelectedItemId(R.id.Course);

@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eduempoweryd.R;
+
 import java.util.ArrayList;
 
 public class OngoingCourseAdapter extends RecyclerView.Adapter<OngoingCourseAdapter.MyViewHolder> {
@@ -30,7 +32,7 @@ public class OngoingCourseAdapter extends RecyclerView.Adapter<OngoingCourseAdap
     public OngoingCourseAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.ongoing_course_layout, parent, false);
+        View view = layoutInflater.inflate(R.layout.course_ongoing_course_layout, parent, false);
         return new OngoingCourseAdapter.MyViewHolder(view);
     }
 

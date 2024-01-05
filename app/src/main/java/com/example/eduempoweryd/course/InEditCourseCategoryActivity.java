@@ -9,13 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.eduempoweryd.R;
+
 public class InEditCourseCategoryActivity extends AppCompatActivity {
 
     int lastClickedPosition = -1; // Track the last clicked position
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.in_edit_course_category);
+        setContentView(R.layout.course_in_edit_course_category);
 
         Button editCourse = findViewById(R.id.btnDone);
         editCourse.setOnClickListener(new View.OnClickListener() {

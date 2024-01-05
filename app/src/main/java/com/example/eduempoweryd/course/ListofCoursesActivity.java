@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import com.example.eduempoweryd.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ListofCoursesActivity extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class ListofCoursesActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listofcourse);
+        setContentView(R.layout.course_listofcourse);
 
         ImageButton chemistry = findViewById(R.id.ScAndMath1);
 
@@ -69,7 +70,7 @@ public class ListofCoursesActivity extends AppCompatActivity {
 
         // Initialize your dialog
         dialog = new Dialog(this);
-        dialog.setContentView(R.layout.custom_delete_popup);
+        dialog.setContentView(R.layout.course_custom_delete_popup);
 
         // Assuming the buttons in your dialog have IDs btn_delete and btn_cancel
         Button deleteButton = dialog.findViewById(R.id.btn_delete);

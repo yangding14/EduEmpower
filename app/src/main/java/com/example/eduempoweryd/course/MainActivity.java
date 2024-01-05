@@ -10,7 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.assignment.databinding.ActivityMainBinding;
+import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.course.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 

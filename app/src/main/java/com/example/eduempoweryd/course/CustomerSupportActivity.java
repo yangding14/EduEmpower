@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.assignment.databinding.ActivityCustomerSupportBinding;
+import com.example.eduempoweryd.course.databinding.ActivityCustomerSupportBinding;
 
 public class CustomerSupportActivity extends AppCompatActivity {
 
