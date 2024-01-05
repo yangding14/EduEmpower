@@ -1,4 +1,4 @@
-package com.example.mad2;
+package com.example.eduempoweryd.login;
 
 import android.app.Application;
 

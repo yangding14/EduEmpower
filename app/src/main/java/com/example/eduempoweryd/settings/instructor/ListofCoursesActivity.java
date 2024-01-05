@@ -7,12 +7,13 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.eduempoweryd.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ListofCoursesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listofcourse);
+        setContentView(R.layout.settings_in_listofcourse);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavView);
         bottomNavigationView.setSelectedItemId(R.id.Course);

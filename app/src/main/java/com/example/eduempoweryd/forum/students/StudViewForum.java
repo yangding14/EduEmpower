@@ -110,7 +110,7 @@
 //        startActivity(intent);
 //    }
 //}
-package com.example.forum.students;
+package com.example.eduempoweryd.forum.students;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -128,9 +128,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.eduempoweryd.forum.AddComment;
 import com.example.eduempoweryd.forum.DiscussionItem;
 import com.example.eduempoweryd.forum.DiscussionItemAdapter;
-import com.example.forum.R;
+import com.example.eduempoweryd.R;
 import com.example.eduempoweryd.forum.RecyclerViewClickListener;
-import com.example.forum.instructors.InEditForum;
+import com.example.eduempoweryd.forum.instructors.InEditForum;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -150,7 +150,7 @@ public class StudViewForum extends AppCompatActivity implements DiscussionItemAd
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.stud_view_forum);
+        setContentView(R.layout.forum_stud_view_forum);
         // Assuming you have a DatabaseReference reference
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Discussion");
 
@@ -168,7 +168,7 @@ public class StudViewForum extends AppCompatActivity implements DiscussionItemAd
 
                 // Now you have the list of DiscussionItem objects, you can use it as needed.
                 // For example, you can pass it to your RecyclerView adapter.
-                DiscussionItemAdapter adapter = new DiscussionItemAdapter(com.example.forum.students.StudViewForum.this, discussionItemList, com.example.forum.students.StudViewForum.this);
+                DiscussionItemAdapter adapter = new DiscussionItemAdapter(com.example.eduempoweryd.forum.students.StudViewForum.this, discussionItemList, com.example.eduempoweryd.forum.students.StudViewForum.this);
                 recyclerView.setAdapter(adapter);
                 adapter.setStudentView(true);
                 // Set click listener for the RecyclerView
@@ -216,7 +216,7 @@ public class StudViewForum extends AppCompatActivity implements DiscussionItemAd
             public void onCancelled(@NonNull DatabaseError error) {
                 CharSequence text = "Fail to get data!";
                 int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(com.example.forum.students.StudViewForum.this, text, duration);
+                Toast toast = Toast.makeText(com.example.eduempoweryd.forum.students.StudViewForum.this, text, duration);
                 toast.show();
             }
 

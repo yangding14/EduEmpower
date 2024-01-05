@@ -1,4 +1,4 @@
-package com.example.mad2.registerpage;
+package com.example.eduempoweryd.login.registerpage;
 
 import android.os.Bundle;
 import androidx.lifecycle.MutableLiveData;

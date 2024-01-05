@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.eduempoweryd.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +26,7 @@ public class UpdateDOBActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_dobactivity);
+        setContentView(R.layout.settings_in_activity_update_dobactivity);
 
         userEmail = findViewById(R.id.userEmail4);
         userName = findViewById(R.id.userName4);

@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.eduempoweryd.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class InstructorCourseList extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class InstructorCourseList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.settings_in_activity_main);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavView);
         bottomNavigationView.setSelectedItemId(R.id.Course);

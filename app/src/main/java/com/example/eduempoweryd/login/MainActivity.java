@@ -1,4 +1,4 @@
-package com.example.mad2;
+package com.example.eduempoweryd.login;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;

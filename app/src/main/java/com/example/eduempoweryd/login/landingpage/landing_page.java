@@ -1,4 +1,4 @@
-package com.example.mad2.landingpage;
+package com.example.eduempoweryd.login.landingpage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,15 +7,16 @@ import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import com.example.mad2.R;
-import com.example.mad2.databinding.LandingPageBinding; // Import the correct binding class
-import com.example.mad2.pageone.page_one;
+
+import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.login.databinding.LandingPageBinding; // Import the correct binding class
+import com.example.eduempoweryd.login.pageone.page_one;
 
 public class landing_page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LandingPageBinding binding = DataBindingUtil.setContentView(this, R.layout.landing_page);
+        LandingPageBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_landing_page);
         LandingPageVM viewModel = new LandingPageVM();
         binding.setLandingPageVM(viewModel);
         binding.setLifecycleOwner(this);

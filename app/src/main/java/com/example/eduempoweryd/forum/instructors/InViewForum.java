@@ -1,4 +1,4 @@
-package com.example.forum.instructors;
+package com.example.eduempoweryd.forum.instructors;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.eduempoweryd.forum.DiscussionItem;
 import com.example.eduempoweryd.forum.DiscussionItemAdapter;
-import com.example.forum.R;
+import com.example.eduempoweryd.R;
 import com.example.eduempoweryd.forum.RecyclerViewClickListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,7 +34,7 @@ public class InViewForum extends AppCompatActivity implements DiscussionItemAdap
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.in_view_forum);
+        setContentView(R.layout.forum_in_view_forum);
 
         // Assuming you have a DatabaseReference reference
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Discussion");

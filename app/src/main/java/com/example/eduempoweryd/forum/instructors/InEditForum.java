@@ -166,7 +166,7 @@
 //    }
 //}
 
-package com.example.forum.instructors;
+package com.example.eduempoweryd.forum.instructors;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -185,7 +185,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.eduempoweryd.forum.DiscussionItem;
-import com.example.forum.R;
+import com.example.eduempoweryd.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -200,7 +200,7 @@ public class InEditForum extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.in_edit_forum);
+        setContentView(R.layout.forum_in_edit_forum);
 
         // Assuming you have a DatabaseReference reference
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Discussion");
@@ -272,7 +272,7 @@ public class InEditForum extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popupView = inflater.inflate(R.layout.in_delete_forum, null);
+                View popupView = inflater.inflate(R.layout.forum_in_delete_forum, null);
 
                 // create the popup window
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;

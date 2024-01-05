@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eduempoweryd.R;
+
 import java.util.List;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder> {
@@ -21,7 +23,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     @Override
     public CommentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflate the layout for a single comment item
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.comment_item, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.forum_comment_item, parent, false);
         return new CommentViewHolder(itemView);
     }
 

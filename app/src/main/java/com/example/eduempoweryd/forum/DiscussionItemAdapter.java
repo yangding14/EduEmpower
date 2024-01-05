@@ -317,6 +317,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eduempoweryd.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -349,9 +351,9 @@ public class DiscussionItemAdapter extends RecyclerView.Adapter<DiscussionItemAd
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         if(!isStudentView){
-            view = LayoutInflater.from(context).inflate(R.layout.discussion_items, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.forum_discussion_items, parent, false);
         }else{
-            view = LayoutInflater.from(context).inflate(R.layout.stud_discussion_items, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.forum_stud_discussion_items, parent, false);
         }
 
         return new ViewHolder(view);

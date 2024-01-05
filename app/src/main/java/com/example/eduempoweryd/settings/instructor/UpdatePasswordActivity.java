@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.eduempoweryd.R;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
@@ -23,7 +24,7 @@ public class UpdatePasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_password);
+        setContentView(R.layout.settings_in_activity_update_password);
 
         //Initialise
         userName = findViewById(R.id.userName7);

@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.forum.R;
+import com.example.eduempoweryd.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -77,7 +77,7 @@ public class AddComment extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_comment);
+        setContentView(R.layout.forum_add_comment);
 
         // Assuming you have a DatabaseReference reference
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Discussion");

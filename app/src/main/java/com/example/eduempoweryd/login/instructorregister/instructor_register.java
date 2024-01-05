@@ -19,10 +19,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.eduempoweryd.R;
-import com.example.mad2.loginpage.login_page;
-import com.example.mad2.registerpage.register_page;
-import com.example.mad2.studentregister.student_register;
-import com.example.mad2.studentsurvey.student_survey;
+import com.example.eduempoweryd.login.loginpage.login_page;
+import com.example.eduempoweryd.login.registerpage.register_page;
+import com.example.eduempoweryd.login.studentregister.student_register;
+import com.example.eduempoweryd.login.studentsurvey.student_survey;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

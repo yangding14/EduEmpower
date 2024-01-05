@@ -1,4 +1,4 @@
-package com.example.mad2.pageone;
+package com.example.eduempoweryd.login.pageone;
 
 import android.os.Bundle;
 import android.view.View;

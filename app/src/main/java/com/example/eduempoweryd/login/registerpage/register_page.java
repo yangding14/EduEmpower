@@ -1,4 +1,4 @@
-package com.example.mad2.registerpage;
+package com.example.eduempoweryd.login.registerpage;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.mad2.R;
-import com.example.mad2.databinding.RegisterPageBinding;
-import com.example.mad2.instructorregister.instructor_register;
-import com.example.mad2.loginpage.login_page;
-import com.example.mad2.studentregister.student_register;
+import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.login.databinding.RegisterPageBinding;
+import com.example.eduempoweryd.login.instructorregister.instructor_register;
+import com.example.eduempoweryd.login.loginpage.login_page;
+import com.example.eduempoweryd.login.studentregister.student_register;
 
 public class register_page extends AppCompatActivity {
     @Override

@@ -1,4 +1,4 @@
-package com.example.mad2.studentsurvey;
+package com.example.eduempoweryd.login.studentsurvey;
 
 import static androidx.databinding.adapters.ViewBindingAdapter.setClickListener;
 
@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mad2.R;
+import com.example.eduempoweryd.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class student_survey extends AppCompatActivity {
@@ -23,7 +23,7 @@ public class student_survey extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.student_survey);
+        setContentView(R.layout.lr_student_survey);
         buttonDone = findViewById(R.id.btnDone);
 
         for (int i = 0; i <= 17; i++) {

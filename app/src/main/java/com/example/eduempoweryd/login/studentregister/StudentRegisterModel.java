@@ -1,4 +1,4 @@
-package com.example.mad2.studentregister;
+package com.example.eduempoweryd.login.studentregister;
 
 public class StudentRegisterModel {
 

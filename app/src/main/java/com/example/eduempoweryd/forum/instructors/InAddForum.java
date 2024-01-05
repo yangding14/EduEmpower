@@ -70,7 +70,7 @@
 //
 //
 //
-package com.example.forum.instructors;
+package com.example.eduempoweryd.forum.instructors;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -82,7 +82,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.eduempoweryd.forum.DiscussionItem;
-import com.example.forum.R;
+import com.example.eduempoweryd.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -92,7 +92,7 @@ public class InAddForum extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.in_add_forum);
+        setContentView(R.layout.forum_in_add_forum);
 
         // Assuming you have a DatabaseReference reference
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Discussion");

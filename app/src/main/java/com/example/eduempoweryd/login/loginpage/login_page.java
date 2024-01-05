@@ -1,4 +1,4 @@
-package com.example.mad2.loginpage;
+package com.example.eduempoweryd.login.loginpage;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -21,10 +21,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.databinding.DataBindingUtil;
-import com.example.mad2.R;
-import com.example.mad2.databinding.LoginPageBinding;
-import com.example.mad2.registerpage.register_page;
-import com.example.mad2.studentsurvey.student_survey;
+
+import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.login.databinding.LoginPageBinding;
+import com.example.eduempoweryd.login.registerpage.register_page;
+import com.example.eduempoweryd.login.studentsurvey.student_survey;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -44,7 +45,7 @@ public class login_page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LoginPageBinding binding = DataBindingUtil.setContentView(this, R.layout.login_page);
+        LoginPageBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_login_page);
         LoginPageVM viewModel = new LoginPageVM();
         binding.setLoginPageVM(viewModel);
         binding.setLifecycleOwner(this);

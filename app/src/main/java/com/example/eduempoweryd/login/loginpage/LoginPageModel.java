@@ -1,4 +1,4 @@
-package com.example.mad2.loginpage;
+package com.example.eduempoweryd.login.loginpage;
 
 public class LoginPageModel {
 

@@ -1,4 +1,4 @@
-package com.example.mad2.pagetwo;
+package com.example.eduempoweryd.login.pagetwo;
 
 import android.os.Bundle;
 import androidx.lifecycle.MutableLiveData;

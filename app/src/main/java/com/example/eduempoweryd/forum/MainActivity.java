@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.forum.instructors.InViewForum;
+import com.example.eduempoweryd.forum.instructors.InViewForum;
 
 public class MainActivity extends AppCompatActivity {
 

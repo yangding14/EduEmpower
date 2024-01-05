@@ -1,4 +1,4 @@
-package com.example.mad2.studentregister;
+package com.example.eduempoweryd.login.studentregister;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -23,13 +23,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.databinding.DataBindingUtil;
 
-import com.example.mad2.R;
-import com.example.mad2.databinding.StudentRegisterBinding;
-import com.example.mad2.instructorregister.instructor_register;
-import com.example.mad2.loginpage.login_page;
-import com.example.mad2.registerpage.register_page;
-import com.example.mad2.studentregister.StudentRegisterVM;
-import com.example.mad2.studentsurvey.student_survey;
+import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.login.databinding.StudentRegisterBinding;
+import com.example.eduempoweryd.login.instructorregister.instructor_register;
+import com.example.eduempoweryd.login.loginpage.login_page;
+import com.example.eduempoweryd.login.registerpage.register_page;
+import com.example.eduempoweryd.login.studentregister.StudentRegisterVM;
+import com.example.eduempoweryd.login.studentsurvey.student_survey;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -60,7 +60,7 @@ public class student_register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.student_register);
+        setContentView(R.layout.lr_student_register);
 //        super.onCreate(savedInstanceState);
 //        StudentRegisterBinding binding = DataBindingUtil.setContentView(this, R.layout.student_register);
 //        StudentRegisterVM viewModel = new StudentRegisterVM();

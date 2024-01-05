@@ -1,4 +1,4 @@
-package com.example.mad2.landingpage;
+package com.example.eduempoweryd.login.landingpage;
 
 public class LandingPageModel {
 
