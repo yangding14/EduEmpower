@@ -86,7 +86,7 @@
                 android:drawableStart="@drawable/img_user"
                 android:drawablePadding="@dimen/_10pxh"
                 android:ellipsize="end"
-                android:hint="@string/lbl_username"
+                android:hint="Email"
                 android:inputType="textPersonName"
                 android:paddingStart="@dimen/_14pxh"
                 android:paddingTop="@dimen/_10pxv"

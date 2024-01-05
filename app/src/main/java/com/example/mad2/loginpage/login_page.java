@@ -2,7 +2,9 @@ package com.example.mad2.loginpage;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.icu.util.Freezable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,16 +26,20 @@ import com.example.mad2.databinding.LoginPageBinding;
 import com.example.mad2.registerpage.register_page;
 import com.example.mad2.studentsurvey.student_survey;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class login_page extends AppCompatActivity {
 
-    private EditText username;
+    private EditText email;
     private EditText password;
     private Spinner role;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +49,15 @@ public class login_page extends AppCompatActivity {
         binding.setLoginPageVM(viewModel);
         binding.setLifecycleOwner(this);
         Spinner spinner = (Spinner) findViewById(R.id.spinnerstud);
-// Create an ArrayAdapter using the string array and a default spinner layout.
+        // Create an ArrayAdapter using the string array and a default spinner layout.
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.user_types,
                 R.layout.spinner_list
         );
-// Specify the layout to use when the list of choices appears.
+        // Specify the layout to use when the list of choices appears.
         adapter.setDropDownViewResource(R.layout.spinner_list);
-// Apply the adapter to the spinner.
+        // Apply the adapter to the spinner.
         spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -106,9 +112,10 @@ public class login_page extends AppCompatActivity {
                 }
         );
 
-        username = findViewById(R.id.usernameinput);
+        email = findViewById(R.id.usernameinput);
         password = findViewById(R.id.etInputFieldT);
         role = findViewById(R.id.spinnerstud);
+        auth = FirebaseAuth.getInstance();
 
 
         AppCompatButton b2 = findViewById(R.id.btnLogInOne);
@@ -116,19 +123,22 @@ public class login_page extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String txt_username = username.getText().toString();
+                        String txt_email = email.getText().toString();
                         String txt_role = spinner.getSelectedItem().toString();
                         String txt_password = password.getText().toString();
+                        Log.d("Email", txt_email);
+                        Log.d("Password", txt_password);
+                        Log.d("Role", txt_role);
                         if(txt_role.equals("Students")){
-                            if(!txt_username.isEmpty()){
-                                studentLogin(txt_username, txt_password);
+                            if(!txt_email.isEmpty()){
+                                studentLogin(txt_email, txt_password);
                             }
                             else{
                                 Toast.makeText(getApplicationContext(), "Please enter username", Toast.LENGTH_SHORT).show();
                             }
                         } else if (txt_role.equals("Instructors")){
-                            if(!txt_username.isEmpty()){
-                                instructorLogin(txt_username, txt_password);
+                            if(!txt_email.isEmpty()){
+                                instructorLogin(txt_email, txt_password);
                             }
                             else{
                                 Toast.makeText(getApplicationContext(), "Please enter username", Toast.LENGTH_SHORT).show();
@@ -152,48 +162,26 @@ public class login_page extends AppCompatActivity {
         );
     }
 
-    private void instructorLogin(String username,String password) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Instructors");
-        reference.child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+    private void instructorLogin(String email,String password) {
+        auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if(task.isSuccessful()){
-                    if(task.getResult().exists()){
-                        Toast.makeText(getApplicationContext(), "Read successfully", Toast.LENGTH_SHORT).show();
-                        DataSnapshot snapshot = task.getResult();
-                        String confirmPassword = String.valueOf(snapshot.child("Password").getValue());
-                        if(password.equals(confirmPassword)){
-                            Toast.makeText(getApplicationContext(), "Login successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(login_page.this, student_survey.class));
-                            finish();
-                        }
-                    }
-                } else{
-                    Toast.makeText(getApplicationContext(), "Failed to read", Toast.LENGTH_SHORT).show();
-                }
+            public void onSuccess(AuthResult authResult) {
+                Toast.makeText(getApplicationContext(), "Login successfully", Toast.LENGTH_SHORT).show();
+                // After merging, change navigated location to homepage
+                startActivity(new Intent(login_page.this, student_survey.class));
+                finish();
             }
         });
     }
 
-    private void studentLogin(String username, String password) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
-        reference.child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+    private void studentLogin(String email, String password) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if(task.isSuccessful()){
-                    if(task.getResult().exists()){
-                        Toast.makeText(getApplicationContext(), "Read successfully", Toast.LENGTH_SHORT).show();
-                        DataSnapshot snapshot = task.getResult();
-                        String confirmPassword = String.valueOf(snapshot.child("Password").getValue());
-                        if(password.equals(confirmPassword)){
-                            Toast.makeText(getApplicationContext(), "Login successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(login_page.this, student_survey.class));
-                            finish();
-                        }
-                    }
-                } else{
-                    Toast.makeText(getApplicationContext(), "Failed to read", Toast.LENGTH_SHORT).show();
-                }
+            public void onSuccess(AuthResult authResult) {
+                Toast.makeText(getApplicationContext(), "Login successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(login_page.this, student_survey.class));
+                finish();
             }
         });
     }
