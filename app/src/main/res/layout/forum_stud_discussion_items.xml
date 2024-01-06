@@ -5,7 +5,7 @@
     <data>
         <variable
             name="discussionItem"
-            type="com.example.forum.DiscussionItem" />
+            type="com.example.eduempoweryd.forum.DiscussionItem" />
     </data>
     <FrameLayout android:id="@+id/frameStackrectanglethirtyone"
         android:layout_height="wrap_content"

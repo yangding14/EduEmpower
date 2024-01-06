@@ -38,7 +38,7 @@
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:fontFamily="@font/poppins_light"
+                android:fontFamily="@font/poppins_thin"
                 android:text="The Atomic Truth: It’s Mostly Empty Space, Just Like My Social Calendar"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/chapterIndex"

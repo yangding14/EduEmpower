@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import com.example.eduempoweryd.settings.instructor.UserSettingsActivity;
 import com.example.eduempoweryd.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

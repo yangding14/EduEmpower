@@ -48,4 +48,5 @@
     <color name="purple_900">#410375</color>
     <color name="deep_purple_A700">#730cdb</color>
     <color name="red_A700">#ff0000</color>
+    <color name="dark_purple">#23000000</color>
 </resources>

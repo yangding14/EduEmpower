@@ -3,7 +3,7 @@
     <data>
         <variable
             name="addComment"
-            type="com.example.forum.AddComment" />
+            type="com.example.eduempoweryd.forum.AddComment" />
     </data>
 
     <FrameLayout android:id="@+id/frameFORUMCOMMENT"

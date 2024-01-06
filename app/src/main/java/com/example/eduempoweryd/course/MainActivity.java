@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 
 import com.example.eduempoweryd.R;
 import com.example.eduempoweryd.databinding.CourseActivityMainBinding;
+import com.example.eduempoweryd.settings.student.AccountFragment;
 
 public class MainActivity extends AppCompatActivity {
 

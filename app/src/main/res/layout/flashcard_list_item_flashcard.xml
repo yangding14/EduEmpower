@@ -61,7 +61,7 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/circular_delete_button"
         android:src="@drawable/delete_vector"
-        android:contentDescription="@string/delete"
+        android:contentDescription="Delete"
         android:scaleType="center"
         android:elevation="50dp" />
 

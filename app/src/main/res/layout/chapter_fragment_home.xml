@@ -134,7 +134,7 @@
             android:layout_height="94dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="52dp"
-            android:fontFamily="@font/poppins_light"
+            android:fontFamily="@font/poppins_thin"
             android:text="track your learning progress and leap your performance by achieving your goal"
             android:textColor="@color/white"
             android:textSize="16dp"
@@ -171,7 +171,7 @@
             android:layout_height="94dp"
             android:layout_marginStart="150dp"
             android:layout_marginTop="4dp"
-            android:fontFamily="@font/poppins_light"
+            android:fontFamily="@font/poppins_thin"
             android:text="Chapter 1 :
     The Atomic Truth: It’s Mostly Empty Space, Just Like My Social Calendar"
             android:textColor="@color/white"
