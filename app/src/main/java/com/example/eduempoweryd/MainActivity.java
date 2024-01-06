@@ -1,4 +1,4 @@
-package com.example.eduempoweryd.quiz;
+package com.example.eduempoweryd;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +10,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent intent = new Intent(MainActivity.this, QuizActivityStudent.class);
+        Intent intent = new Intent(MainActivity.this, com.example.eduempoweryd.login.MainActivity.class);
         startActivity(intent);
         finish();
     }
-
-
 }

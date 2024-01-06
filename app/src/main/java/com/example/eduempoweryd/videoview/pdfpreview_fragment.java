@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.eduempoweryd.R;
+
 import java.util.ArrayList;
 
 /**
@@ -57,6 +59,6 @@ public class pdfpreview_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pdfpreview, container, false);
+        return inflater.inflate(R.layout.videoview_fragment_pdfpreview, container, false);
     }
 }

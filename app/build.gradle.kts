@@ -79,4 +79,6 @@ dependencies {
     implementation ("com.github.barteksc:android-pdf-viewer:3.2.0-beta.1")
 
     implementation ("com.pspdfkit:pspdfkit:8.2.1")
+
+    implementation ("com.karumi:dexter:6.2.3")
 }

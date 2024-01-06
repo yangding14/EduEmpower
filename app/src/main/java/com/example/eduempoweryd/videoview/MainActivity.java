@@ -9,18 +9,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.videoview.databinding.ActivityMainBinding;
+import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.databinding.VideoviewActivityMainBinding;
 import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
+    VideoviewActivityMainBinding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(this);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = VideoviewActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new VideoFragment());
     }
