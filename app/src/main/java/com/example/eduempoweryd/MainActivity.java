@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // TODO: change back to landing_page.class
-        String uid = "V0yHY8LzznXx6YsJdCuHuffJwzo1";
+        String uid = "5bgKr3QuD6d3guVcHcD2FuNKc8q2";
 
         SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
 
         // navigate to student
-        Intent intent = new Intent(this, com.example.eduempoweryd.course.MainActivity.class);
+//        Intent intent = new Intent(this, com.example.eduempoweryd.course.MainActivity.class);
 
         // navigate to instructor
-//        Intent intent = new Intent(this, com.example.eduempoweryd.course.InCourseList.class);
+        Intent intent = new Intent(this, com.example.eduempoweryd.course.InCourseList.class);
 
 
 //        Intent intent = new Intent(MainActivity.this, com.example.eduempoweryd.login.MainActivity.class);

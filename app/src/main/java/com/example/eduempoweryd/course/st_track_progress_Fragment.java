@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.chapters.HomeFragment;
+import com.example.eduempoweryd.course.HomeFragment;
 
 public class st_track_progress_Fragment extends Fragment {
 
@@ -50,7 +50,7 @@ public class st_track_progress_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.chapter_fragment_st_track_progress_, container, false);
+        return inflater.inflate(R.layout.course_fragment_st_track_progress_, container, false);
 
 
     }

@@ -32,7 +32,7 @@ public class student_survey extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("TAG", "onClick: ");
-                startActivity(new Intent(student_survey.this, com.example.eduempoweryd.chapters.MainActivity.class));
+                startActivity(new Intent(student_survey.this, com.example.eduempoweryd.course.MainActivity.class));
             }
         });
 

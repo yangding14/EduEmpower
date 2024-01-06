@@ -55,7 +55,7 @@ public class current_progress_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.chapter_fragment_current_progress_, container, false);
+        return inflater.inflate(R.layout.course_fragment_current_progress_, container, false);
     }
 
     @Override

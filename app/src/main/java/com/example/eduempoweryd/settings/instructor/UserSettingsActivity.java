@@ -1,6 +1,7 @@
 package com.example.eduempoweryd.settings.instructor;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +30,7 @@ public class UserSettingsActivity extends AppCompatActivity {
     private Button updateGender;
     private Button updatePassword;
     private Button updateEducation;
+    private Button buttonLogout;
 
     private TextView userName;
     private TextView userEmail;
@@ -54,18 +56,17 @@ public class UserSettingsActivity extends AppCompatActivity {
         updatePhone = findViewById(R.id.buttonPhone);
         userName = findViewById(R.id.us_username);
         userEmail = findViewById(R.id.us_email);
+        buttonLogout = findViewById(R.id.buttonLogout);
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                if (item.getItemId() == R.id.Home) {
-                    return true;
-                } else if (item.getItemId() == R.id.Course) {
-                    startActivity(new Intent(getApplicationContext(), InstructorCourseList.class));
+                if (item.getItemId() == R.id.Course) {
+                    startActivity(new Intent(getApplicationContext(), com.example.eduempoweryd.course.InCourseList.class));
                     return true;
                 } else if (item.getItemId() == R.id.Account) {
-                    startActivity(new Intent(getApplicationContext(), UserSettingsActivity.class));
                     return true;
                 } else
                     return false;
@@ -74,8 +75,8 @@ public class UserSettingsActivity extends AppCompatActivity {
         });
 
         // Show profile username and email
-        // Later need to change hardcoded UID to FirebaseAuth.getInstance().getUID();
-        String uid = "BlL8dpswezc7ibhUWYjSNx9FeWC3";
+        SharedPreferences preferences = getSharedPreferences("system", MODE_PRIVATE);
+        String uid = preferences.getString("uid", "");
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Instructors");
         reference.child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -159,10 +160,22 @@ public class UserSettingsActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        buttonLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("system", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.clear();
+                editor.apply();
+                Intent i = new Intent(UserSettingsActivity.this, com.example.eduempoweryd.login.MainActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     public void open_InstructorCourseList(){
-        Intent intent = new Intent(this , InstructorCourseList.class);
+        Intent intent = new Intent(this , com.example.eduempoweryd.course.InCourseList.class);
         startActivity(intent);
     }
 }

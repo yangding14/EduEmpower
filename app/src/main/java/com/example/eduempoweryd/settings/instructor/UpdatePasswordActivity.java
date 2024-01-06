@@ -3,6 +3,7 @@ package com.example.eduempoweryd.settings.instructor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,13 +27,13 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_in_activity_update_password);
 
+        SharedPreferences preferences = getSharedPreferences("system", MODE_PRIVATE);
+        String uid = preferences.getString("uid", "");
         //Initialise
         userName = findViewById(R.id.userName7);
         userEmail = findViewById(R.id.userEmail7);
         buttonConfirm = findViewById(R.id.btnConfirmPassword);
         editPassword = findViewById(R.id.EditPassword2);
-        // After merging, need to change hardcoded UID to FirebaseAuth.getInstance().getUID();
-        String uid = "BlL8dpswezc7ibhUWYjSNx9FeWC3";
 
         //Show profile data
         String name = getIntent().getStringExtra("Username");

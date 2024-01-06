@@ -13,8 +13,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.chapters.current_progress_Fragment;
-import com.example.eduempoweryd.chapters.st_track_progress_Fragment;
+import com.example.eduempoweryd.course.current_progress_Fragment;
+import com.example.eduempoweryd.course.st_track_progress_Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -67,7 +67,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.chapter_fragment_home, container, false);
+        return inflater.inflate(R.layout.course_fragment_home, container, false);
     }
 
     @Override

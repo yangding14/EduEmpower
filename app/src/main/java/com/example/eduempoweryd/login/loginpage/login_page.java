@@ -1,6 +1,7 @@
 package com.example.eduempoweryd.login.loginpage;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.icu.util.Freezable;
 import android.os.Bundle;
@@ -164,24 +165,48 @@ public class login_page extends AppCompatActivity {
     }
 
     private void instructorLogin(String email,String password) {
+
+        // TODO: Store user id in SharedPreferences
+        String uid = "V0yHY8LzznXx6YsJdCuHuffJwzo1";
+
+        SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("uid", uid);
+        editor.apply();
+
+        startActivity(new Intent(login_page.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
+
+
+        // TODO: Login user to Firebase not working
         auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(getApplicationContext(), "Login successfully", Toast.LENGTH_SHORT).show();
-                // After merging, change navigated location to homepage
-                startActivity(new Intent(login_page.this, student_survey.class));
+                startActivity(new Intent(login_page.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
                 finish();
             }
         });
     }
 
     private void studentLogin(String email, String password) {
+
+        // TODO: Store user id in SharedPreferences
+        String uid = "V0yHY8LzznXx6YsJdCuHuffJwzo1";
+
+        SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("uid", uid);
+        editor.apply();
+
+        startActivity(new Intent(login_page.this, com.example.eduempoweryd.course.MainActivity.class));
+
+
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(getApplicationContext(), "Login successfully", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(login_page.this, student_survey.class));
+                startActivity(new Intent(login_page.this, com.example.eduempoweryd.course.MainActivity.class));
                 finish();
             }
         });

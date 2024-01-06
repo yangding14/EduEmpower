@@ -3,6 +3,7 @@ package com.example.eduempoweryd.settings.instructor;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,9 @@ public class UpdateDOBActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_in_activity_update_dobactivity);
 
+        SharedPreferences preferences = getSharedPreferences("system", MODE_PRIVATE);
+        String uid = preferences.getString("uid", "");
+
         userEmail = findViewById(R.id.userEmail4);
         userName = findViewById(R.id.userName4);
         editDOB = findViewById(R.id.EditDOB);
@@ -40,8 +44,6 @@ public class UpdateDOBActivity extends AppCompatActivity {
         userEmail.setText(email);
 
         // Show DOB from database
-        // Later need to change hardcoded UID to FirebaseAuth.getInstance().getUID();
-        String uid = "BlL8dpswezc7ibhUWYjSNx9FeWC3";
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Instructors");
         reference.child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override

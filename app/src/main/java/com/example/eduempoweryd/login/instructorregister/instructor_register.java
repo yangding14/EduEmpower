@@ -2,6 +2,7 @@ package com.example.eduempoweryd.login.instructorregister;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -160,6 +161,19 @@ public class instructor_register extends AppCompatActivity {
     }
 
     private void registerUser(String txtUsername, String txtEmail, String txtPhone, String txtPassword, String txtDob, String txtGender, String txtQualification, String txtInstitute, String txtMarks) {
+
+        // TODO: Store user id in SharedPreferences before navigating to next page
+        String uid = "V0yHY8LzznXx6YsJdCuHuffJwzo1";
+
+        SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("uid", uid);
+        editor.apply();
+
+        startActivity(new Intent(instructor_register.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
+
+
+        // TODO: Register user to Firebase not working
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.createUserWithEmailAndPassword(txtEmail, txtPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -182,8 +196,8 @@ public class instructor_register extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
                                         Toast.makeText(getApplicationContext(), "Register successfully", Toast.LENGTH_SHORT).show();
-                                        // After merging, need to change student_survey.class to the home page
-                                        startActivity(new Intent(instructor_register.this, student_survey.class));
+
+                                        startActivity(new Intent(instructor_register.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
                                     }else {
                                         Toast.makeText(getApplicationContext(), "Something wrong", Toast.LENGTH_SHORT).show();
                                     }

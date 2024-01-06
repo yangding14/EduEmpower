@@ -2,6 +2,7 @@ package com.example.eduempoweryd.course;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,11 +23,22 @@ public class InCourseViewActivity extends AppCompatActivity {
 
     private TextView courseTitleTextView, courseDescTextView;
     private ImageView courseImageView;
+    private Button editCourse, btnPreviewChapters, btnEditChapters, btnEditFlashcard, btnAddDiscussion, btnEditDiscussion, btnEnrol;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.course_in_course_view);
-        Button editCourse = findViewById(R.id.btnEditCourse);
+
+        editCourse = findViewById(R.id.btnEditCourse);
+        btnPreviewChapters = findViewById(R.id.btnPreviewChapters);
+        btnEditChapters = findViewById(R.id.btnEditChapters);
+        btnEditFlashcard = findViewById(R.id.btnEditFlashcard);
+        btnAddDiscussion = findViewById(R.id.btnAddDiscussion);
+        btnEditDiscussion = findViewById(R.id.btnEditDiscussion);
+        btnEnrol = findViewById(R.id.btnEnrol);
+
+        setupButton();
 
         editCourse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +114,51 @@ public class InCourseViewActivity extends AppCompatActivity {
     public void openEditCourse() {
         Intent intent = new Intent(this, InEditCourseActivity.class);
         startActivity(intent);
+    }
+
+    private void setupButton(){
+        btnPreviewChapters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.videoview.MainActivity.class));
+            }
+        });
+
+        btnEditChapters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.videoview.MainActivity.class));
+            }
+        });
+
+        btnEditFlashcard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.flashcard.InstructorActivity.class));
+            }
+        });
+
+        btnAddDiscussion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.forum.AddComment.class));
+            }
+        });
+
+        btnEditDiscussion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.forum.AddComment.class));
+            }
+        });
+
+        btnEnrol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO: Handle enrolment
+                Log.e("Enrol", "Enrol");
+            }
+        });
     }
 
 

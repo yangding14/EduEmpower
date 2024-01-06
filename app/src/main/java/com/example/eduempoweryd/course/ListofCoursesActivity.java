@@ -45,10 +45,7 @@ public class ListofCoursesActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                if (item.getItemId() == R.id.Home) {
-                    return true;
-                } else if (item.getItemId() == R.id.Course) {
-                    startActivity(new Intent(getApplicationContext(), InCourseList.class));
+                if (item.getItemId() == R.id.Course) {
                     return true;
                 } else if (item.getItemId() == R.id.Account) {
                     startActivity(new Intent(getApplicationContext(), UserSettingsActivity.class));

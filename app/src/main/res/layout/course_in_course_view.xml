@@ -100,7 +100,7 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/rounded_rectangle_orange"
                 android:onClick="openEditCourse"
-                android:text="EDIT COURSE"
+                android:text="EDIT"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/bgAboutThisCourse"
@@ -164,12 +164,12 @@
                 app:srcCompat="@drawable/group_131" />
 
             <Button
-                android:id="@+id/btnPrieviewChapters"
+                android:id="@+id/btnPreviewChapters"
                 android:layout_width="143dp"
                 android:layout_height="37dp"
                 android:layout_marginStart="12dp"
                 android:background="@drawable/rounded_rectangle_orange"
-                android:text="PREVIEW CHAPTERS"
+                android:text="PREVIEW"
                 android:fontFamily="@font/poppinssemibold"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/bgChapters"
@@ -183,11 +183,11 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/rounded_rectangle_orange"
-                android:text="EDIT CHAPTERS"
+                android:text="EDIT"
                 android:fontFamily="@font/poppinssemibold"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/bgChapters"
-                app:layout_constraintTop_toBottomOf="@+id/btnPrieviewChapters" />
+                app:layout_constraintTop_toBottomOf="@+id/btnPreviewChapters" />
 
 
             <ImageView
@@ -231,7 +231,7 @@
                 android:layout_marginTop="84dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/rounded_rectangle_orange"
-                android:text="EDIT FLASHCARDS"
+                android:text="EDIT"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/bgFlashcard"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -287,7 +287,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="44dp"
                 android:background="@drawable/rounded_rectangle_orange"
-                android:text="ADD DISCUSSION"
+                android:text="ADD"
                 android:fontFamily="@font/poppinssemibold"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/bgDiscussionForum"
@@ -300,7 +300,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="44dp"
                 android:background="@drawable/rounded_rectangle_orange"
-                android:text="EDIT DISCUSSION"
+                android:text="EDIT"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/bgDiscussionForum"
                 app:layout_constraintTop_toBottomOf="@+id/btnAddDiscussion" />

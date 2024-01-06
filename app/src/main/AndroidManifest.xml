@@ -71,42 +71,6 @@
             android:exported="true"
         />
 
-<!--        chapters-->
-        <activity android:name=".chapters.MainActivity"
-            android:theme="@style/Theme.NoTitleBar"
-            android:exported="true"
-        />
-        <activity
-            android:name=".chapters.LandscapeVideo"
-            android:theme="@style/Theme.NoTitleBar"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name=".chapters.In_EditActivity2"
-            android:theme="@style/Theme.NoTitleBar"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name=".chapters.In_EditActivity"
-            android:theme="@style/Theme.NoTitleBar"
-            android:exported="true"/>
-        <activity
-            android:name=".chapters.PDFActivity"
-            android:theme="@style/Theme.NoTitleBar"
-            android:exported="true" />
-        <activity
-            android:name=".chapters.In_PreviewActivity"
-            android:theme="@style/Theme.NoTitleBar"
-            android:exported="true" />
-        <activity
-            android:name=".chapters.St_MaterialActivity"
-            android:theme="@style/Theme.NoTitleBar"
-            android:exported="true" />
-        <activity
-            android:name=".chapters.CustomerSupportActivity"
-            android:theme="@style/Theme.NoTitleBar"
-            android:exported="false" />
-
 <!--        courses-->
         <activity
             android:name=".course.MainActivity"
@@ -160,6 +124,34 @@
             android:name=".settings.instructor.UserSettingsActivity"
             android:exported="true"
             android:theme="@style/Theme.NoTitleBar"/>
+        <activity
+            android:name=".settings.instructor.UpdateDOBActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar"/>
+        <activity
+            android:name=".settings.instructor.UpdateEducationActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar"/>
+        <activity
+            android:name=".settings.instructor.UpdateEmailActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar"/>
+        <activity
+            android:name=".settings.instructor.UpdateGenderActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar"/>
+        <activity
+            android:name=".settings.instructor.UpdatePasswordActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar"/>
+        <activity
+            android:name=".settings.instructor.UpdatePhoneActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar"/>
+        <activity
+            android:name=".settings.instructor.UpdateUsernameActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar"/>
 
 <!--        student settings-->
 
@@ -186,29 +178,35 @@
 <!--        forum-->
         <activity
             android:name=".forum.instructors.InEditForum"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar">
         </activity>
         <activity
             android:name=".forum.instructors.InViewForum"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar">
         </activity>
         <activity
             android:name=".forum.instructors.InAddForum"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar">
         </activity>
         <activity
             android:name=".forum.students.StudViewForum"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar">
         </activity>
         <activity
             android:name=".forum.AddComment"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar">
         </activity>
 
 <!--        videoview-->
         <activity
             android:name=".videoview.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar">
         </activity>
 
     </application>

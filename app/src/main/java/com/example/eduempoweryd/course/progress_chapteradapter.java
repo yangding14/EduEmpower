@@ -34,7 +34,7 @@ public class progress_chapteradapter extends RecyclerView.Adapter<progress_chapt
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.chapter_progress_chapterlist_layout, parent, false);
+        View view = layoutInflater.inflate(R.layout.course_progress_chapterlist_layout, parent, false);
         return new MyViewHolder(view);
     }
 
