@@ -4,7 +4,7 @@
     <data>
         <variable
             name="pageOneVM"
-            type="com.example.mad2.pageone.PageOneVM"/>
+            type="com.example.eduempoweryd.login.pageone.PageOneVM"/>
     </data>
 
     <FrameLayout

@@ -198,4 +198,75 @@ Are you sure you want to delete this discussion forum? This action is irreversib
     <string name="are_you_sure_you_want_to_delete_this_discussion_forum_this_action_is_irreversible">Are you sure you want to delete this discussion forum? This action is irreversible.</string>
     <string name="content">Content</string>
     <string name="add_some_contents">Add some contents!</string>
+
+    <string-array name="chaptertype">
+        <item>Video</item>
+        <item>PDF</item>
+        <item>Video</item>
+        <item>Quiz</item>
+        <item>PDF</item>
+        <item>Video</item>
+    </string-array>
+    <string name="title_activity_update">UpdateActivity</string>
+
+    <string-array name="courses">
+        <item>Web Development</item>
+        <item>Software Development</item>
+        <item>Account Development</item>
+        <item>Bio Development</item>
+    </string-array>
+
+    <string-array name="course_desc">
+        <item>Web development is a great course ever. Come and join us.</item>
+        <item>Software development is a great course ever. Come and join us.</item>
+        <item>Account development is a great course ever. Come and join us.</item>
+        <item>Bio development is a great course ever. Come and join us.</item>
+    </string-array>
+
+    <string-array name="oc_courseName">
+        <item>Accounting</item>
+        <item>Biology</item>
+        <item>Physics</item>
+        <item>Psychology</item>
+        <item>Marketing</item>
+    </string-array>
+
+    <string-array name="oc_courseQty">
+        <item>20 courses</item>
+        <item>15 courses</item>
+        <item>20 courses</item>
+        <item>15 courses</item>
+        <item>10 courses</item>
+    </string-array>
+
+    <string-array name="cc_courseName">
+        <item>Introduction to General Chemistry</item>
+    </string-array>
+
+    <string-array name="cc_courseDesc">
+        <item>Explore the fundamental principles of chemistry in this introductory course.</item>
+    </string-array>
+
+    <string-array name="chemistry_chapter">
+        <item>The Atomic Truth: It’s Mostly Empty Space, Just Like My Social Calendar</item>
+        <item>Acids and Bases: The pHun Stuff</item>
+        <item>The Periodic Table: More Than Just a Chart</item>
+        <item>Quiz 1: Brain Busters!</item>
+        <item>Organic Chemistry: Carbon’s Many Friends</item>
+        <item>Biochemistry: When Chemistry Gets Life</item>
+    </string-array>
+
+    <string-array name="index">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+    </string-array>
+
+    <string-array name="file_type">
+        <item>video</item>
+        <item>pdf</item>
+    </string-array>
 </resources>

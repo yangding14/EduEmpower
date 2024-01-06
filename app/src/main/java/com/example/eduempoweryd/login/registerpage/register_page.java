@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.login.databinding.RegisterPageBinding;
+import com.example.eduempoweryd.databinding.LrRegisterPageBinding;
 import com.example.eduempoweryd.login.instructorregister.instructor_register;
 import com.example.eduempoweryd.login.loginpage.login_page;
 import com.example.eduempoweryd.login.studentregister.student_register;
@@ -17,7 +17,7 @@ public class register_page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        RegisterPageBinding binding = DataBindingUtil.setContentView(this, R.layout.register_page);
+        LrRegisterPageBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_register_page);
         RegisterPageVM viewModel = new RegisterPageVM();
         binding.setRegisterPageVM(viewModel);
         binding.setLifecycleOwner(this);

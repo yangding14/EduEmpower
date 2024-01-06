@@ -4,7 +4,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 
-import com.example.mad2.landingpage.landing_page;
+import com.example.eduempoweryd.login.landingpage.landing_page;
 
 public class MainActivity extends AppCompatActivity {
     @Override

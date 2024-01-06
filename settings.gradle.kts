@@ -11,6 +11,10 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven(url = "https://jitpack.io")
+        maven {
+            url = uri("https://my.pspdfkit.com/maven/")
+        }
+        jcenter()
     }
 }
 

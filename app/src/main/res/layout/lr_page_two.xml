@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="pageTwoVM"
-            type="com.example.mad2.pagetwo.PageTwoVM"/>
+            type="com.example.eduempoweryd.login.pagetwo.PageTwoVM"/>
     </data>
 
     <FrameLayout android:id="@+id/framePageTwo"

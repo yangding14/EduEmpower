@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.mad2.R;
+import com.example.eduempoweryd.R;
+
 
 public class PageTwoFragment extends Fragment {
 
@@ -16,6 +17,6 @@ public class PageTwoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.page_two, container, false);
+        return inflater.inflate(R.layout.lr_page_two, container, false);
     }
 }

@@ -91,10 +91,10 @@ public class instructor_register extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.gender,
-                R.layout.spinner_register
+                R.layout.lr_spinner_register
         );
 // Specify the layout to use when the list of choices appears.
-        adapter.setDropDownViewResource(R.layout.spinner_register);
+        adapter.setDropDownViewResource(R.layout.lr_spinner_register);
 // Apply the adapter to the spinner.
         spinner.setAdapter(adapter);
 

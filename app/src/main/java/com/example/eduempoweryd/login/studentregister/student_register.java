@@ -24,7 +24,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.login.databinding.StudentRegisterBinding;
+import com.example.eduempoweryd.databinding.LrStudentRegisterBinding;
 import com.example.eduempoweryd.login.instructorregister.instructor_register;
 import com.example.eduempoweryd.login.loginpage.login_page;
 import com.example.eduempoweryd.login.registerpage.register_page;
@@ -116,10 +116,10 @@ public class student_register extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.gender,
-                R.layout.spinner_register
+                R.layout.lr_spinner_register
         );
 // Specify the layout to use when the list of choices appears.
-        adapter.setDropDownViewResource(R.layout.spinner_register);
+        adapter.setDropDownViewResource(R.layout.lr_spinner_register);
 // Apply the adapter to the spinner.
         spinner.setAdapter(adapter);
 
@@ -144,10 +144,10 @@ public class student_register extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
                 this,
                 R.array.educationalstatus,
-                R.layout.spinner_register
+                R.layout.lr_spinner_register
         );
 // Specify the layout to use when the list of choices appears.
-        adapter2.setDropDownViewResource(R.layout.spinner_register);
+        adapter2.setDropDownViewResource(R.layout.lr_spinner_register);
 // Apply the adapter to the spinner.
         spinner2.setAdapter(adapter2);
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="user_types">
+        <item>Students/Instructors</item>
+        <item>Students</item>
+        <item>Instructors</item>
+    </string-array>
+    <string-array name="gender">
+        <item>Gender</item>
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+    <string-array name="educationalstatus">
+        <item>Educational Status</item>
+        <item>Primary school</item>
+        <item>Middle school</item>
+        <item>High school</item>
+        <item>College</item>
+    </string-array>
+
+</resources>

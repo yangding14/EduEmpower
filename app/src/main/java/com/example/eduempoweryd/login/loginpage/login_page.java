@@ -23,7 +23,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.login.databinding.LoginPageBinding;
+import com.example.eduempoweryd.databinding.LrLoginPageBinding;
 import com.example.eduempoweryd.login.registerpage.register_page;
 import com.example.eduempoweryd.login.studentsurvey.student_survey;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,7 +45,7 @@ public class login_page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LoginPageBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_login_page);
+        LrLoginPageBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_login_page);
         LoginPageVM viewModel = new LoginPageVM();
         binding.setLoginPageVM(viewModel);
         binding.setLifecycleOwner(this);
@@ -54,10 +54,10 @@ public class login_page extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.user_types,
-                R.layout.spinner_list
+                R.layout.lr_spinner_list
         );
         // Specify the layout to use when the list of choices appears.
-        adapter.setDropDownViewResource(R.layout.spinner_list);
+        adapter.setDropDownViewResource(R.layout.lr_spinner_list);
         // Apply the adapter to the spinner.
         spinner.setAdapter(adapter);
 
@@ -88,7 +88,7 @@ public class login_page extends AppCompatActivity {
                         // inflate the layout of the popup window
                         LayoutInflater inflater = (LayoutInflater)
                                 getSystemService(LAYOUT_INFLATER_SERVICE);
-                        View popupView = inflater.inflate(R.layout.forgot_password, null);
+                        View popupView = inflater.inflate(R.layout.lr_forgot_password, null);
 
                         // create the popup window
                         int width = LinearLayout.LayoutParams.WRAP_CONTENT;

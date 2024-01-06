@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.login.databinding.PageOneBinding;
-import com.example.eduempoweryd.login.databinding.PageTwoBinding;
+import com.example.eduempoweryd.databinding.LrPageOneBinding;
+import com.example.eduempoweryd.databinding.LrPageTwoBinding;
 import com.example.eduempoweryd.login.pagetwo.PageTwoVM;
 import com.example.eduempoweryd.login.pagetwo.page_two;
 
@@ -19,7 +19,7 @@ public class page_one extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PageOneBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_page_one);
+        LrPageOneBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_page_one);
         PageOneVM viewModel = new PageOneVM();
         binding.setPageOneVM(viewModel);
         binding.setLifecycleOwner(this);

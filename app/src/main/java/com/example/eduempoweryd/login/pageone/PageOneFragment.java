@@ -6,12 +6,13 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.mad2.R;
+import com.example.eduempoweryd.R;
+
 
 public class PageOneFragment extends Fragment {
 
     public PageOneFragment() {
-        super(R.layout.page_one);
+        super(R.layout.lr_page_one);
     }
 
     @Override

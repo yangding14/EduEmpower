@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable name="registerPageVM"
-            type="com.example.mad2.registerpage.RegisterPageVM"/>
+            type="com.example.eduempoweryd.login.registerpage.RegisterPageVM"/>
     </data>
     <FrameLayout android:id="@+id/frameRegisterpage"
         android:layout_height="match_parent"

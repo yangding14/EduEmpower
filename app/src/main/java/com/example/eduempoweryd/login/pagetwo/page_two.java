@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.login.databinding.PageTwoBinding;
+import com.example.eduempoweryd.databinding.LrPageTwoBinding;
 import com.example.eduempoweryd.login.loginpage.login_page;
 import com.example.eduempoweryd.login.registerpage.register_page;
 import com.example.eduempoweryd.login.studentregister.student_register;
@@ -20,7 +20,7 @@ public class page_two extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PageTwoBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_page_two);
+        LrPageTwoBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_page_two);
         PageTwoVM viewModel = new PageTwoVM();
         binding.setPageTwoVM(viewModel);
         binding.setLifecycleOwner(this);

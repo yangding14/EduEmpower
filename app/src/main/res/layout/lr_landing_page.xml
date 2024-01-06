@@ -6,7 +6,7 @@
     <data>
         <variable
             name="landingPageVM"
-            type="com.example.mad2.landingpage.LandingPageVM"/>
+            type="com.example.eduempoweryd.login.landingpage.LandingPageVM"/>
     </data>
     <FrameLayout android:id="@+id/frameLandingpage"
         android:layout_height="match_parent"

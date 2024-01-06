@@ -9,14 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.login.databinding.LandingPageBinding; // Import the correct binding class
+import com.example.eduempoweryd.databinding.LrLandingPageBinding; // Import the correct binding class
 import com.example.eduempoweryd.login.pageone.page_one;
 
 public class landing_page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LandingPageBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_landing_page);
+        LrLandingPageBinding binding = DataBindingUtil.setContentView(this, R.layout.lr_landing_page);
         LandingPageVM viewModel = new LandingPageVM();
         binding.setLandingPageVM(viewModel);
         binding.setLifecycleOwner(this);
