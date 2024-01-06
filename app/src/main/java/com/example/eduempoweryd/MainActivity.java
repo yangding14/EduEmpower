@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // if want skip login, uncomment this line and specify role (student or instructor) and uncomment the intent line below (line 17 and 18)
+        // if want skip login, uncomment this line and specify role (student or instructor) and comment the intent line below (line 17 and 18)
 //        skiplogin("instructor");
 
         Intent intent = new Intent(MainActivity.this, com.example.eduempoweryd.login.MainActivity.class);
