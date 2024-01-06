@@ -11,42 +11,30 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.chapters.current_progress_Fragment;
-import com.example.eduempoweryd.chapters.st_track_progress_Fragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class HomeFragment extends Fragment {
+import java.util.ArrayList;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class current_progress_Fragment extends Fragment {
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    ArrayList<progress_chapterlist> progressChapterlists = new ArrayList<>();
+    int[] images = {R.drawable.checked, R.drawable.checked, R.drawable.checked, R.drawable.checked, R.drawable.pending,R.drawable.pending};
 
-    public HomeFragment() {
+    public current_progress_Fragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static current_progress_Fragment newInstance(String param1, String param2) {
+        current_progress_Fragment fragment = new current_progress_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,32 +55,36 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.chapter_fragment_home, container, false);
+        return inflater.inflate(R.layout.chapter_fragment_current_progress_, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        RecyclerView recyclerview = view.findViewById(R.id.Progress_RecycleView);
+        setUpProgressChapterLists();
+        progress_chapteradapter progress_chapteradapter = new progress_chapteradapter(this.getContext() ,  progressChapterlists );
+        recyclerview.setAdapter(progress_chapteradapter);
+        recyclerview.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
-        ImageButton button1 = view.findViewById(R.id.imageButton5);
-        button1.setOnClickListener(new View.OnClickListener() {
+        ImageButton backbutton = view.findViewById(R.id.btn_cs_back);
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment = new st_track_progress_Fragment();
+                Fragment fragment = new HomeFragment();
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.frameLayout, fragment).commit();
             }
         });
-        ImageButton button2 = view.findViewById(R.id.imageButton6);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment fragment = new current_progress_Fragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout, fragment).commit();
-            }
-        });
+    }
+
+    public void setUpProgressChapterLists(){
+        String[] position = getResources().getStringArray(R.array.index);
+        String[] chemistry_chapter = getResources().getStringArray(R.array.chemistry_chapter);
+
+        for (int i=0; i<position.length; i++){
+            progressChapterlists.add(new progress_chapterlist(position[i], chemistry_chapter[i], images[i]));
+        }
     }
 }

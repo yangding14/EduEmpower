@@ -11,16 +11,8 @@
         android:id="@+id/framePageOne"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        style="@style/groupStylewhite_A700">
-
-        <ImageView
-            android:id="@+id/imageBackground"
-            android:layout_gravity="start"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:scaleType="fitXY"
-            android:src = "@drawable/img_background"
-            tools:ignore="ContentDescription" tools:src="@drawable/img_background"/>
+        style="@style/groupStylewhite_A700"
+        android:background="@drawable/img_background">
 
         <LinearLayout
             android:id="@+id/linearColumnteaching"

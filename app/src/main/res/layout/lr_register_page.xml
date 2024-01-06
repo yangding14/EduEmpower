@@ -6,17 +6,8 @@
     </data>
     <FrameLayout android:id="@+id/frameRegisterpage"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" style="@style/groupStylewhite_A700">
-
-        <ImageView
-            android:id="@+id/imageBackgroundTwo"
-            android:src ="@drawable/img_background2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:scaleType="fitXY"
-            tools:ignore="ContentDescription"
-            tools:src="@drawable/img_background2" />
+        android:layout_width="match_parent" style="@style/groupStylewhite_A700"
+        android:background="@drawable/img_background2">
         <LinearLayout android:id="@+id/linearColumnregisteras"
             android:layout_gravity="bottom|center"
             android:layout_height="wrap_content"

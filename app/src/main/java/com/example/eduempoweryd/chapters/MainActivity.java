@@ -6,7 +6,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -34,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
+
+        SharedPreferences sharedPreferences = getSharedPreferences("system", MODE_PRIVATE);
+        Log.i("TAG", "Get uid: " + sharedPreferences.getString("uid", "none"));
     }
 
     public void replaceFragment(Fragment fragment){

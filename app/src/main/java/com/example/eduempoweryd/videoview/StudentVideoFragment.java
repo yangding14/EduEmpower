@@ -1,5 +1,7 @@
 package com.example.eduempoweryd.videoview;
 
+import android.content.ContentResolver;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -11,15 +13,19 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.example.eduempoweryd.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,12 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link VideoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class VideoFragment extends Fragment {
+public class StudentVideoFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -97,6 +98,8 @@ public class VideoFragment extends Fragment {
                     String key = snapshot.getKey();
                     String filetype = snapshot.child("file").getValue(String.class);
 
+
+
                     if (!filetype.equals(null) && !filetype.trim().isEmpty()) {
                         if (getfiletype(Uri.parse(filetype)).equals("mp4")) {
                             chapterlists.add(new chapterlist(position, name, images[0], key));
@@ -113,36 +116,11 @@ public class VideoFragment extends Fragment {
             }
 
 
-
-                // Notify any adapter about the data change
-//                int dotIndex = filetype.lastIndexOf('.');
-//
-//                    if(filetype.substring(dotIndex + 1).equals("mp4")){
-//                        chapterlists.add(new chapterlist(position, name, images[0], key));
-//                    }
-//                    else if (filetype.substring(dotIndex + 1).equals("pdf")) {
-//                        chapterlists.add(new chapterlist(position, name, images[1], key));
-//                    }
-//                    else chapterlists.add(new chapterlist(position, name, images[2], key));
-//                    }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle the error
             }
         });
-
-        Button button = view.findViewById(R.id.edit_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment fragment = new EditChapterFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout, fragment).commit();
-            }
-        });
-
 
     }
 

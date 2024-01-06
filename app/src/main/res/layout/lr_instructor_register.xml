@@ -5,17 +5,9 @@
 
     <FrameLayout android:id="@+id/frameStudentregiste"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent" style="@style/groupStylewhite_A700">
+        android:layout_width="match_parent" style="@style/groupStylewhite_A700"
+        android:background="@drawable/img_background2">
 
-        <ImageView
-            android:id="@+id/imageBackground"
-            android:layout_width="match_parent"
-            android:layout_height="795dp"
-            android:layout_gravity="start"
-            android:scaleType="fitXY"
-            android:src="@drawable/img_background2"
-            tools:ignore="ContentDescription"
-            tools:src="@drawable/img_background2" />
 
         <ScrollView
             android:layout_width="match_parent"

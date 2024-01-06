@@ -18,6 +18,12 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.settings.student.UpdateDOBFragment;
+import com.example.eduempoweryd.settings.student.UpdateEmailFragment;
+import com.example.eduempoweryd.settings.student.UpdateGenderFragment;
+import com.example.eduempoweryd.settings.student.UpdateNameFragment;
+import com.example.eduempoweryd.settings.student.UpdatePasswordFragment;
+import com.example.eduempoweryd.settings.student.UpdatePhoneNumberFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

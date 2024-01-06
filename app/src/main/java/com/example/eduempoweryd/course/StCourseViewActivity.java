@@ -1,6 +1,9 @@
 package com.example.eduempoweryd.course;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class StCourseViewActivity extends AppCompatActivity {
     private TextView courseTitleTextView, courseDescTextView;
+    private Button btnStartStudy, btnRevision, btnForum;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +26,11 @@ public class StCourseViewActivity extends AppCompatActivity {
 
         courseTitleTextView = findViewById(R.id.TVCourseTitle);
         courseDescTextView = findViewById(R.id.TVDesc);
+
+        btnStartStudy = findViewById(R.id.btnStartStudy);
+        btnRevision = findViewById(R.id.btnRevision);
+        btnForum = findViewById(R.id.btnForum);
+        setupButton();
 
 
         // Reference to the Firebase "Edit Course" section where instructor data is stored
@@ -46,6 +55,29 @@ public class StCourseViewActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+
+    private void setupButton() {
+        btnStartStudy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StCourseViewActivity.this, com.example.eduempoweryd.videoview.MainActivity.class));
+            }
+        });
+
+        btnRevision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StCourseViewActivity.this, com.example.eduempoweryd.flashcard.StudentActivity.class));
+            }
+        });
+
+        btnForum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StCourseViewActivity.this, com.example.eduempoweryd.forum.AddComment.class));
             }
         });
     }

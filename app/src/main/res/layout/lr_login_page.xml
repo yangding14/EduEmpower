@@ -5,17 +5,8 @@
     </data>
     <FrameLayout android:id="@+id/frameLoginpage"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" style="@style/groupStylewhite_A700">
-
-        <ImageView
-            android:id="@+id/imageBackgroundTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:scaleType="fitXY"
-            android:src="@drawable/img_background2"
-            tools:ignore="ContentDescription"
-            tools:src="@drawable/img_background2" />
+        android:layout_width="match_parent" style="@style/groupStylewhite_A700"
+        android:background="@drawable/img_background2">
         <LinearLayout android:id="@+id/linearColumnlogin"
             android:layout_gravity="bottom|center"
             android:layout_height="wrap_content"

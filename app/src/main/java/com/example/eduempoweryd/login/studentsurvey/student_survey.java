@@ -2,6 +2,8 @@ package com.example.eduempoweryd.login.studentsurvey;
 
 import static androidx.databinding.adapters.ViewBindingAdapter.setClickListener;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +27,14 @@ public class student_survey extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lr_student_survey);
         buttonDone = findViewById(R.id.btnDone);
+
+        buttonDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("TAG", "onClick: ");
+                startActivity(new Intent(student_survey.this, com.example.eduempoweryd.chapters.MainActivity.class));
+            }
+        });
 
         for (int i = 0; i <= 17; i++) {
             int layoutId = getResources().getIdentifier("linearChip" + i, "id", getPackageName());

@@ -16,6 +16,7 @@ import com.google.firebase.FirebaseApp;
 public class MainActivity extends AppCompatActivity {
     VideoviewActivityMainBinding binding;
 
+    // TODO: if instructor navigate to video fragment, if student navigate to student video fragment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

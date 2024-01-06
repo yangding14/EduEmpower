@@ -2,6 +2,7 @@ package com.example.eduempoweryd.login.studentregister;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -213,7 +214,18 @@ public class student_register extends AppCompatActivity {
     }
 
     private void registerUser(String username, String email, String phone, String password, String dob, String gender, String education) {
+        // TODO: Store user id in SharedPreferences
+        String uid = "V0yHY8LzznXx6YsJdCuHuffJwzo1";
 
+        SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("uid", uid);
+        editor.apply();
+
+        startActivity(new Intent(student_register.this, student_survey.class));
+
+
+        // TODO: Register user to Firebase not working
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
