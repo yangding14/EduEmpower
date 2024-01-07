@@ -13,10 +13,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.widget.SearchView;
 
+import com.bumptech.glide.Glide;
 import com.example.eduempoweryd.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -53,8 +61,10 @@ public class CoursesFragment extends Fragment {
     //Completed Course Variables
     ArrayList<CompletedCourse> completedCourseArrayList = new ArrayList<>();
     CompletedCourse completedCourse;
-    int[] cc_courseImages = {R.drawable.course_photo};
-
+    String[] cc_courseImages = new String[]{""};
+    private DiscoverCourseAdapter discoverCourseAdapter;
+    private OngoingCourseAdapter ongoingCourseAdapter;
+    private CompletedCourseAdapter completedCourseAdapter;
     public CoursesFragment() {
         // Required empty public constructor
     }
@@ -95,7 +105,7 @@ public class CoursesFragment extends Fragment {
 
         Button button = view.findViewById(R.id.BtnCompletedCourse);
         Button button2 = view.findViewById(R.id.BtnOngoingCourses);
-
+        Button retakeCourse = view.findViewById(R.id.BtnRetake);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,43 +119,54 @@ public class CoursesFragment extends Fragment {
                 openViewOngoingCourse();
             }
         });
+
+        retakeCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCourse();
+            }
+        });
+
+        discoverCourseAdapter = new DiscoverCourseAdapter(getContext(), discoverCoursesArray);
+        ongoingCourseAdapter = new OngoingCourseAdapter(getContext(), ongoingCourseArrayList);
+        completedCourseAdapter = new CompletedCourseAdapter(getContext(), completedCourseArrayList);
         return view;
     }
 
-        public void openViewCompletedCourse() {
-            Intent intent = new Intent(getActivity(), SeeAllCompletedCourses.class);
-            startActivity(intent);
-        }
+    public void openViewCompletedCourse() {
+        Intent intent = new Intent(getActivity(), SeeAllCompletedCourses.class);
+        startActivity(intent);
+    }
 
-        public void openViewOngoingCourse() {
+    public void openViewOngoingCourse() {
         Intent intent = new Intent(getActivity(), SeeAllOngoingCourses.class);
         startActivity(intent);
     }
 
+    public void openCourse() {
+        Intent intent = new Intent(getActivity(), StCourseViewActivity.class);
+        startActivity(intent);
+    }
+
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         // Recycle View for Discover Courses
         RecyclerView recyclerView = view.findViewById(R.id.discoverCourseRecycleView);
         setUpDiscoverCourseData();
-        DiscoverCourseAdapter discoverCourseAdapter = new DiscoverCourseAdapter(this.getContext(), discoverCoursesArray);
+        //DiscoverCourseAdapter discoverCourseAdapter = new DiscoverCourseAdapter(this.getContext(), discoverCoursesArray);
         recyclerView.setAdapter(discoverCourseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         // Recycle View for Ongoing Courses
         RecyclerView recyclerView1 = view.findViewById(R.id.ongoingCourseRecycleView);
         setUpOngoingCourseData();
-        OngoingCourseAdapter ongoingCourseAdapter = new OngoingCourseAdapter(this.getContext(), ongoingCourseArrayList);
+        // OngoingCourseAdapter ongoingCourseAdapter = new OngoingCourseAdapter(this.getContext(), ongoingCourseArrayList);
         recyclerView1.setAdapter(ongoingCourseAdapter);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        // Recycle View for Completed Courses
-        RecyclerView recyclerView2 = view.findViewById(R.id.CompltetedCourseRecycleView);
-        setUpCompletedCourse();
-        CompletedCourseAdapter completedCourseAdapter = new CompletedCourseAdapter(this.getContext(), completedCourseArrayList);
-        recyclerView2.setAdapter(completedCourseAdapter);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+
 
         // Get the SearchView
         searchView = view.findViewById(R.id.searchView);
@@ -169,7 +190,66 @@ public class CoursesFragment extends Fragment {
                 return true;
             }
         });
+
+        TextView courseTitleTextView = view.findViewById(R.id.cc_courseName);
+
+
+        // Reference to the Firebase "Edit Course" section where instructor data is stored
+        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Edit Course");
+
+        // Attach a ValueEventListener to retrieve data from Firebase
+        databaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Check if data exists
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        // Retrieve data for each course
+                        String courseTitle = snapshot.child("courseTitle").getValue(String.class);
+                        // Update the TextViews in the student view with the retrieved data
+                        courseTitleTextView.setText(courseTitle);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+        ImageView courseImageView = view.findViewById(R.id.CompletedCourseImage);
+
+        // Reference to the Firebase "Image" section where instructor data is stored
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Image");
+
+        // Attach a ValueEventListener to retrieve data from Firebase
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Check if data exists
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        // Retrieve image
+                        String imageUrl = snapshot.child("imageUrl").getValue(String.class); // Retrieve image URL
+
+                        // Load the image using Glide or Picasso (you may need to add the corresponding libraries)
+                        if (imageUrl != null && !imageUrl.isEmpty()) {
+                            Glide.with(CoursesFragment.this)
+                                    .load(imageUrl)
+                                    .into(courseImageView);
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
+
+
 
     public void setUpDiscoverCourseData(){
         String[] courseName = getResources().getStringArray(R.array.courses);
@@ -187,15 +267,5 @@ public class CoursesFragment extends Fragment {
             ongoingCourseArrayList.add(new OngoingCourse(oc_courseNames[i], oc_courseQtys[i], oc_courseImages[i]));
         }
     }
-
-    public void setUpCompletedCourse(){
-        String[] cc_courseNames = getResources().getStringArray(R.array.cc_courseName);
-        String[] cc_courseDesc = getResources().getStringArray(R.array.cc_courseDesc);
-        for (int i=0; i<cc_courseDesc.length; i++){
-            completedCourseArrayList.add(new CompletedCourse(cc_courseNames[i], cc_courseDesc[i], cc_courseImages[i]));
-        }
-    }
-
-
 
 }
