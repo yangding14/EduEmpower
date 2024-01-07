@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -57,6 +58,7 @@ public class InEditCourseActivity extends AppCompatActivity {
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
     private Uri imageUri;
     private static final String SAVED_TEXT_KEY = "savedText";
+    private String uriToStore;
 
 
     @Override
@@ -208,8 +210,8 @@ public class InEditCourseActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         Model model = new Model(uri.toString());
-                        String modelId = root.push().getKey();
-                        root.child(modelId).setValue(model);
+                        Log.d("tag", "onSuccess: Uploaded Image URl is " + uri.toString());
+                        uriToStore = uri.toString();
                         progressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(InEditCourseActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
                     }
@@ -247,14 +249,17 @@ public class InEditCourseActivity extends AppCompatActivity {
         String desc = edit2.getText().toString();
         String selectedText = textView.getText().toString();
 
-        // Get a reference to the "Edit Course" section in Firebase and generate a new unique key
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Edit Course").push();
+        SharedPreferences sharedPreferences = getSharedPreferences("system", MODE_PRIVATE);
+        String courseid = sharedPreferences.getString("courseId", "");
+
+        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Course").child(courseid);
 
         // Create a Map to hold all the data together
         Map<String, Object> courseData = new HashMap<>();
         courseData.put("courseTitle", title);
         courseData.put("courseDesc", desc);
         courseData.put("category", selectedText);
+        courseData.put("uri", uriToStore);
 
         // Save all the data under the generated unique key
         databaseRef.setValue(courseData)

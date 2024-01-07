@@ -144,7 +144,7 @@ public class UploadFragment extends Fragment {
                                 Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                                 while (!uriTask.isSuccessful()) ;
                                 // get the link of video
-                                String downloadUri = uriTask.getResult().toString();
+                                String downloadUri = uriTask.getResult().toString();  // hereeeeee
                                 DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference("Chapters");
                                 UploadData("Chapters" , chapterText , downloadUri);
                                 // Video uploaded successfully

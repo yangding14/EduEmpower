@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,17 +17,27 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import com.bumptech.glide.Glide;
+import com.example.eduempoweryd.quiz.Question;
 import com.example.eduempoweryd.settings.instructor.UserSettingsActivity;
 import com.example.eduempoweryd.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ListofCoursesActivity extends AppCompatActivity {
 
@@ -34,19 +45,12 @@ public class ListofCoursesActivity extends AppCompatActivity {
     private ImageButton currentImageButtonToDelete;
     private Button ShowDialog;
     private SearchView searchView;
+    List<Course> courses = new ArrayList<>();
+    LinearLayout coursesContainer;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.course_listofcourse);
-
-        ImageButton chemistry = findViewById(R.id.ScAndMath1);
-
-        chemistry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openChemistry();
-            }
-        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavView);
         bottomNavigationView.setSelectedItemId(R.id.Course);
@@ -68,14 +72,114 @@ public class ListofCoursesActivity extends AppCompatActivity {
         });
 
 
-        // Find your ImageButtons by their IDs
-        ImageButton imageButton1 = findViewById(R.id.btndelete1);
-        ImageButton imageButton2 = findViewById(R.id.btndelete2);
-        ImageButton imageButton3 = findViewById(R.id.btndelete3);
-        ImageButton imageButton4 = findViewById(R.id.btndelete4);
-        ImageButton imageButton5 = findViewById(R.id.btndelete5);
-        ImageButton imageButton6 = findViewById(R.id.btndelete6);
+        // Get the SearchView
+        searchView = findViewById(R.id.searchView);
 
+        // Set the search query hint
+        searchView.setQueryHint("Search courses");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                String query = newText.toLowerCase();
+                filterImageButtonsByTag(query);
+                return true;
+            }
+        });
+
+        coursesContainer = findViewById(R.id.coursesContainer);
+
+        renderListOfCourses();
+    }
+
+    private void renderListOfCourses(){
+
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("Course");
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            private String courseId;
+            private String courseTitle;
+            private String courseDesc;
+            private String category;
+            private String uri;
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    courses.add(new Course(dataSnapshot.getKey(), dataSnapshot.child("courseTitle").getValue(String.class), dataSnapshot.child("courseDesc").getValue(String.class), dataSnapshot.child("category").getValue(String.class), dataSnapshot.child("uri").getValue(String.class)));
+                    Log.d("StQuizQuestionsList", "Success to get data.");
+                    Log.d("StQuizQuestionsList", "Value is: " + dataSnapshot.getValue());
+                }
+
+                Log.d("StQuizQuestionsList", "courses size: " + courses.size());
+                for (Course course : courses) {
+                    View courseView = getLayoutInflater().inflate(R.layout.course_one_course, coursesContainer, false);
+
+                    ImageView imageView = courseView.findViewById(R.id.image);
+                    // Use Glide to load the image from the URI
+                    Glide.with(getApplicationContext())
+                            .load(course.getUri())
+                            .into(imageView);
+
+                    TextView courseTitleTextView = courseView.findViewById(R.id.courseTitle);
+                    courseTitleTextView.setText(course.getCourseTitle());
+
+                    // Set OnClickListener for each courseView
+                    courseView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // Handle the click event for the courseView
+                            // For example, you can open a new activity with details of the selected course
+                            SharedPreferences sharedPreferences = getSharedPreferences("system", MODE_PRIVATE);
+                            sharedPreferences.edit().putString("courseId", course.getCourseId()).apply();
+
+                            Intent intent = new Intent(ListofCoursesActivity.this, InEditCourseActivity.class);
+                            intent.putExtra("courseId", course.getCourseId()); // Pass any relevant data
+                            startActivity(intent);
+                        }
+                    });
+
+                    coursesContainer.addView(courseView);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // calling on cancelled method when we receive any error or we are not able to get the data.
+                Log.e("StQuizQuestionsList", "Fail to get data.");
+            }
+        });
+
+
+
+//        courses.add(new Course("1", "Course 1", "Course 1 Description", "science", null));
+//        courses.add(new Course("2", "Course 2", "Course 2 Description", "math", null));
+//
+//        for (Course course : courses) {
+//            View courseView = getLayoutInflater().inflate(R.layout.course_one_course, coursesContainer, false);
+
+//            ImageView imageView = courseView.findViewById(R.id.IVCI);
+//
+//            imageView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    openGalleryForImageView(imageView);
+//                }
+//            });
+
+//            coursesContainer.addView(courseView);
+//        }
+    }
+
+
+
+    private Uri selectedImageUri = null;
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private ImageView selectedImageView;
+
+    private void setupDeleteDialog(){
         // Initialize your dialog
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.course_custom_delete_popup);
@@ -83,55 +187,6 @@ public class ListofCoursesActivity extends AppCompatActivity {
         // Assuming the buttons in your dialog have IDs btn_delete and btn_cancel
         Button deleteButton = dialog.findViewById(R.id.btn_delete);
         Button cancelButton = dialog.findViewById(R.id.btn_cancel);
-
-        // Set OnClickListener for each ImageButton to trigger the delete confirmation dialog
-        imageButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentImageButtonToDelete = imageButton1;
-                showDialogForDeletion();
-            }
-        });
-
-        imageButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentImageButtonToDelete = imageButton2;
-                showDialogForDeletion();
-            }
-        });
-
-        imageButton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentImageButtonToDelete = imageButton3;
-                showDialogForDeletion();
-            }
-        });
-
-        imageButton4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentImageButtonToDelete = imageButton4;
-                showDialogForDeletion();
-            }
-        });
-
-        imageButton5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentImageButtonToDelete = imageButton5;
-                showDialogForDeletion();
-            }
-        });
-
-        imageButton6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentImageButtonToDelete = imageButton6;
-                showDialogForDeletion();
-            }
-        });
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,35 +221,10 @@ public class ListofCoursesActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-
-
-        // Get the SearchView
-        searchView = findViewById(R.id.searchView);
-
-        // Set the search query hint
-        searchView.setQueryHint("Search courses");
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                String query = newText.toLowerCase();
-                filterImageButtonsByTag(query);
-                return true;
-            }
-        });
     }
 
     private void showDialogForDeletion() {
         dialog.show();
-    }
-
-    public void openChemistry() {
-        Intent intent = new Intent(this, InCourseViewActivity.class);
-        startActivity(intent);
     }
 
     private void filterImageButtonsByTag(String query) {
@@ -211,37 +241,26 @@ public class ListofCoursesActivity extends AppCompatActivity {
         }
     }
 
-    public void open_UserSettingsActivty() {
-        Intent intent = new Intent(this, UserSettingsActivity.class);
-        startActivity(intent);
-    }
-
-    public void open_InstructorCourseList() {
-        Intent intent = new Intent(this, InCourseList.class);
-        startActivity(intent);
-    }
-
-    private String editTextContent = "";
-    private Uri selectedImageUri = null;
-
     public void addNewCourse(View view) {
 
-        LinearLayout linearLayout = findViewById(R.id.LinearLayout1);
+        startActivity(new Intent(getApplicationContext(), InEditCourseActivity.class));
 
-        LayoutInflater inflater = LayoutInflater.from(this);
-
-        View courseView = inflater.inflate(R.layout.course_add_course, null);
-
-        ImageView imageView = courseView.findViewById(R.id.IVCI);
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openGalleryForImageView(imageView);
-            }
-        });
-
-        linearLayout.addView(courseView);
+//        LinearLayout linearLayout = findViewById(R.id.coursesContainer);
+//
+//        LayoutInflater inflater = LayoutInflater.from(this);
+//
+//        View courseView = inflater.inflate(R.layout.course_add_course, null);
+//
+//        ImageView imageView = courseView.findViewById(R.id.IVCI);
+//
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openGalleryForImageView(imageView);
+//            }
+//        });
+//
+//        linearLayout.addView(courseView);
     }
 
     private void openGalleryForImageView(ImageView imageView) {
@@ -250,8 +269,7 @@ public class ListofCoursesActivity extends AppCompatActivity {
         intent.setType("image/*");
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
-    private static final int PICK_IMAGE_REQUEST = 1;
-    private ImageView selectedImageView;
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -268,21 +286,21 @@ public class ListofCoursesActivity extends AppCompatActivity {
             }
         }
     }
+
     public void onSaveChangesClicked(View view) {
-        // Handle the "Save Changes" button click
-        EditText editText = findViewById(R.id.editTextCourseName);
-        editTextContent = editText.getText().toString();
-
-
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        if (selectedImageUri != null) {
-            String imageUriString = selectedImageUri.toString();
-            editor.putString("courseText", editTextContent);
-            editor.putString("courseImageUri", imageUriString);
-            editor.apply();
-        }
-
+//        // Handle the "Save Changes" button click
+//        EditText editText = findViewById(R.id.editTextCourseName);
+//        editTextContent = editText.getText().toString();
+//
+//        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//
+//        if (selectedImageUri != null) {
+//            String imageUriString = selectedImageUri.toString();
+//            editor.putString("courseText", editTextContent);
+//            editor.putString("courseImageUri", imageUriString);
+//            editor.apply();
+//        }
     }
+
 }

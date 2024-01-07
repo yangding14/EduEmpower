@@ -50,257 +50,46 @@
     </androidx.appcompat.widget.SearchView>
 
 
-    <HorizontalScrollView
-        android:layout_width="421dp"
-        android:layout_height="200dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="38dp"
-        android:layout_marginBottom="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.0">
-
-        <LinearLayout
-            android:id="@+id/LinearLayout1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-
-                <ImageButton
-                    android:id="@+id/ScAndMath1"
-                    android:layout_width="160dp"
-                    android:layout_height="167dp"
-                    android:layout_marginStart="24dp"
-                    android:background="#00FFFFFF"
-                    android:onClick="openChemistry"
-                    android:scaleType="fitCenter"
-                    android:tag="Introduction toGeneral Chemistry"
-                    app:layout_constraintStart_toStartOf="parent"
-
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/introtochemi" />
-
-                <ImageButton
-                    android:id="@+id/btndelete1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="108dp"
-                    android:layout_marginBottom="124dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    app:layout_constraintBottom_toBottomOf="@+id/ScAndMath1"
-                    app:layout_constraintStart_toStartOf="@+id/ScAndMath1"
-                    app:srcCompat="@drawable/baseline_delete_24" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-
-                <ImageButton
-                    android:id="@+id/ScAndMath3"
-                    android:layout_width="160dp"
-                    android:layout_height="167dp"
-                    android:layout_marginStart="24dp"
-                    android:background="#00FFFFFF"
-                    android:scaleType="fitCenter"
-                    android:tag="Space Science"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/spacescience" />
-
-                <ImageButton
-                    android:id="@+id/btndelete3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="108dp"
-                    android:layout_marginBottom="124dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    app:layout_constraintBottom_toBottomOf="@+id/ScAndMath3"
-                    app:layout_constraintStart_toStartOf="@+id/ScAndMath3"
-                    app:srcCompat="@drawable/baseline_delete_24" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/ScAndMath5"
-                    android:layout_width="160dp"
-                    android:layout_height="167dp"
-                    android:layout_marginStart="8dp"
-                    android:background="#00FFFFFF"
-                    android:scaleType="fitCenter"
-                    android:tag="Additional Mathematics"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/addmaths" />
-
-                <ImageButton
-                    android:id="@+id/btndelete5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="108dp"
-                    android:layout_marginBottom="124dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    app:layout_constraintBottom_toBottomOf="@+id/ScAndMath5"
-                    app:layout_constraintStart_toStartOf="@+id/ScAndMath5"
-                    app:srcCompat="@drawable/baseline_delete_24" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </LinearLayout>
-
-
-    </HorizontalScrollView>
-
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="421dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginBottom="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.919">
+        android:paddingBottom="80dp">
 
+<!--        container for course images-->
         <LinearLayout
+            android:id="@+id/coursesContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            android:orientation="vertical">
 
 
-                <ImageButton
-                    android:id="@+id/ScAndMath2"
-                    android:layout_width="160dp"
-                    android:layout_height="167dp"
-                    android:layout_marginStart="24dp"
-                    android:background="#00FFFFFF"
-                    android:scaleType="fitCenter"
-                    android:tag="Biology"
-                    app:layout_constraintStart_toStartOf="parent"
-
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/biology" />
-
-                <ImageButton
-                    android:id="@+id/btndelete2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="104dp"
-                    android:layout_marginBottom="124dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    app:layout_constraintBottom_toBottomOf="@+id/ScAndMath2"
-                    app:layout_constraintStart_toStartOf="@+id/ScAndMath2"
-                    app:srcCompat="@drawable/baseline_delete_24" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/ScAndMath4"
-                    android:layout_width="160dp"
-                    android:layout_height="167dp"
-                    android:layout_marginStart="24dp"
-                    android:background="#00FFFFFF"
-                    android:scaleType="fitCenter"
-                    android:tag="Physics"
-                    app:layout_constraintStart_toStartOf="parent"
-
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/physics" />
-
-                <ImageButton
-                    android:id="@+id/btndelete4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="104dp"
-                    android:layout_marginBottom="124dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    app:layout_constraintBottom_toBottomOf="@+id/ScAndMath4"
-                    app:layout_constraintStart_toStartOf="@+id/ScAndMath4"
-                    app:srcCompat="@drawable/baseline_delete_24" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/ScAndMath6"
-                    android:layout_width="160dp"
-                    android:layout_height="167dp"
-                    android:layout_marginStart="24dp"
-                    android:background="#00FFFFFF"
-                    android:scaleType="fitCenter"
-                    android:tag="Mathematics"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/mathematics" />
-
-                <ImageButton
-                    android:id="@+id/btndelete6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="109dp"
-                    android:layout_marginBottom="127dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    app:layout_constraintBottom_toBottomOf="@+id/ScAndMath6"
-                    app:layout_constraintStart_toStartOf="@+id/ScAndMath6"
-                    app:srcCompat="@drawable/baseline_delete_24" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
 
-    </HorizontalScrollView>
+    </ScrollView>
+
 
     <Button
         android:id="@+id/btnAddCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="8dp"
+        android:paddingHorizontal="24dp"
+        android:textSize="16sp"
         android:onClick="addNewCourse"
         android:text="Add Course"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+        android:fontFamily="@font/poppinsbold"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_rectangle_white"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavView"
+        android:layout_marginEnd="26dp"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
-        android:id="@+id/btnsave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="12dp"
-        android:onClick="onSaveChangesClicked"
-        android:text="Save Changes"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavView"
-        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
