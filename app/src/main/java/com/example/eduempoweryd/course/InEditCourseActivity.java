@@ -252,7 +252,11 @@ public class InEditCourseActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("system", MODE_PRIVATE);
         String courseid = sharedPreferences.getString("courseId", "");
 
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Course").child(courseid);
+        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Course");
+        if(courseid.isEmpty() || courseid.equals(null)){
+            DatabaseReference newRef = FirebaseDatabase.getInstance().getReference("Course").push();
+            courseid = newRef.getKey(); // Get the generated key
+        }
 
         // Create a Map to hold all the data together
         Map<String, Object> courseData = new HashMap<>();
@@ -262,7 +266,7 @@ public class InEditCourseActivity extends AppCompatActivity {
         courseData.put("uri", uriToStore);
 
         // Save all the data under the generated unique key
-        databaseRef.setValue(courseData)
+        databaseRef.child(courseid).setValue(courseData)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
