@@ -25,46 +25,44 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_arrow_back_ios_new_24" />
 
-        <TextView
-            android:id="@+id/imageButton4"
-            android:layout_width="221dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="95dp"
-            android:background="@drawable/rounded_bg6"
-            android:text="\?"
-            android:textSize="160dp"
-            android:gravity="center|center_vertical"
-            android:textColor="@color/white"
-            android:tint="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton2"
-            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <ImageButton
             android:id="@+id/imageButton2"
             android:layout_width="221dp"
             android:layout_height="207dp"
-            android:layout_marginStart="95dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/rounded_bg6"
             android:src="@drawable/pdf"
             android:tint="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton3"
-            app:layout_constraintBottom_toTopOf="@+id/imageButton4"/>
+            app:layout_constraintBottom_toTopOf="@+id/imageButton"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="221dp"
             android:layout_height="207dp"
-            android:layout_marginStart="95dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="28dp"
             android:background="@drawable/rounded_bg6"
             android:src="@drawable/video"
             android:tint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/imageButton2"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
-
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="221dp"
+            android:layout_height="207dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/rounded_bg6"
+            android:src="@drawable/quiz"
+            android:tint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

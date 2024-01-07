@@ -1,6 +1,7 @@
 package com.example.eduempoweryd.videoview;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
 
@@ -72,7 +74,8 @@ public class FileTypeFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ImageButton quiz_button = view.findViewById(R.id.imageButton4);
+
+        ImageButton quiz_button = view.findViewById(R.id.imageButton);
         quiz_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

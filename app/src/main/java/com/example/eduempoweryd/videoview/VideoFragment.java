@@ -2,6 +2,7 @@ package com.example.eduempoweryd.videoview;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -17,11 +18,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.course.InCourseViewActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -160,6 +163,14 @@ public class VideoFragment extends Fragment {
             }
         });
 
+        ImageButton backbutton = view.findViewById(R.id.btn_cs_back);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(requireContext(), com.example.eduempoweryd.course.InCourseViewActivity.class));
+
+            }
+        });
 
     }
 
