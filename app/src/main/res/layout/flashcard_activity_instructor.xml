@@ -6,15 +6,33 @@
     android:background="@drawable/background"
     android:padding="16dp">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Flashcards"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:layout_marginBottom="16dp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/poppins_bold"/>
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_button"
+            android:background="@drawable/back_button"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/tv_flashcards_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Flashcards"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
 
     <ListView
         android:id="@+id/lv_flashcards"

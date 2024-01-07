@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -116,6 +117,13 @@ public class StudentActivity extends Activity {
             }
         });
 
+        ImageButton btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void setupFlashcardView() {
@@ -187,7 +195,7 @@ public class StudentActivity extends Activity {
         pieChart.setData(data);
         pieChart.invalidate(); // Refresh the pie chart
 
-        // Optional: Add animation
+        // Add animation
         pieChart.animateXY(1400, 1400);
     }
 }

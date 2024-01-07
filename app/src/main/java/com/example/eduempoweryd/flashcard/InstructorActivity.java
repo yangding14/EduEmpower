@@ -1,6 +1,7 @@
 package com.example.eduempoweryd.flashcard;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.app.AlertDialog;
 import android.widget.Toast;
 
 import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.course.InCourseViewActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -52,6 +54,14 @@ public class InstructorActivity extends Activity {
             @Override
             public void onClick(View view) {
                 showSaveConfirmation();
+            }
+        });
+
+        ImageButton btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
