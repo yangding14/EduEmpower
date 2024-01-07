@@ -63,6 +63,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
+            android:id="@+id/LinearLayout1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -129,6 +130,7 @@
                     app:layout_constraintStart_toStartOf="@+id/ScAndMath3"
                     app:srcCompat="@drawable/baseline_delete_24" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -166,6 +168,7 @@
     </HorizontalScrollView>
 
     <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="421dp"
         android:layout_height="200dp"
         android:layout_marginTop="38dp"
@@ -211,6 +214,7 @@
                     app:layout_constraintStart_toStartOf="@+id/ScAndMath2"
                     app:srcCompat="@drawable/baseline_delete_24" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -277,6 +281,26 @@
 
     </HorizontalScrollView>
 
+    <Button
+        android:id="@+id/btnAddCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:onClick="addNewCourse"
+        android:text="Add Course"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
+    <Button
+        android:id="@+id/btnsave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="12dp"
+        android:onClick="onSaveChangesClicked"
+        android:text="Save Changes"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavView"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

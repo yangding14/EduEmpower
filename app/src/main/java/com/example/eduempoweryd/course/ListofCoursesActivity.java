@@ -2,12 +2,20 @@ package com.example.eduempoweryd.course;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,6 +25,8 @@ import androidx.appcompat.widget.SearchView;
 import com.example.eduempoweryd.settings.instructor.UserSettingsActivity;
 import com.example.eduempoweryd.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.io.IOException;
 
 public class ListofCoursesActivity extends AppCompatActivity {
 
@@ -209,5 +219,70 @@ public class ListofCoursesActivity extends AppCompatActivity {
     public void open_InstructorCourseList() {
         Intent intent = new Intent(this, InCourseList.class);
         startActivity(intent);
+    }
+
+    private String editTextContent = "";
+    private Uri selectedImageUri = null;
+
+    public void addNewCourse(View view) {
+
+        LinearLayout linearLayout = findViewById(R.id.LinearLayout1);
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+
+        View courseView = inflater.inflate(R.layout.course_add_course, null);
+
+        ImageView imageView = courseView.findViewById(R.id.IVCI);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGalleryForImageView(imageView);
+            }
+        });
+
+        linearLayout.addView(courseView);
+    }
+
+    private void openGalleryForImageView(ImageView imageView) {
+        selectedImageView = imageView;
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private ImageView selectedImageView;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri selectedImageUri = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
+                if (selectedImageView != null) {
+                    selectedImageView.setImageBitmap(bitmap);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void onSaveChangesClicked(View view) {
+        // Handle the "Save Changes" button click
+        EditText editText = findViewById(R.id.editTextCourseName);
+        editTextContent = editText.getText().toString();
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        if (selectedImageUri != null) {
+            String imageUriString = selectedImageUri.toString();
+            editor.putString("courseText", editTextContent);
+            editor.putString("courseImageUri", imageUriString);
+            editor.apply();
+        }
+
     }
 }
