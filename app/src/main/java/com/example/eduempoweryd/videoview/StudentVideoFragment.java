@@ -1,7 +1,10 @@
 package com.example.eduempoweryd.videoview;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -50,6 +53,8 @@ public class StudentVideoFragment extends Fragment {
     ArrayList<chapterlist> chapterlists = new ArrayList<>();
     int[] images = {R.drawable.play, R.drawable.file, R.drawable.question, };
 
+    private Button edit_button;
+
 
 
     @Override
@@ -82,10 +87,19 @@ public class StudentVideoFragment extends Fragment {
         videoView.setMediaController(mediaController);
 
         RecyclerView recyclerview = view.findViewById(R.id.chapter_recycleview);
-        chapteradapter chapteradapter = new chapteradapter(this.getContext(), chapterlists, videoView,pdfpreview);
+        chapteradapter chapteradapter = new chapteradapter(this.getContext(), chapterlists, videoView,pdfpreview, this.getActivity().getSharedPreferences("system", MODE_PRIVATE));
         recyclerview.setAdapter(chapteradapter);
         recyclerview.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
+        edit_button = view.findViewById(R.id.edit_button);
+        SharedPreferences preferences = getActivity().getSharedPreferences("system", MODE_PRIVATE);
+        String role = preferences.getString("role", "null");
+        if(role.equals("student")){
+            edit_button.setVisibility(View.GONE);
+        }
+        else{
+            edit_button.setVisibility(View.VISIBLE);
+        }
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Chapters");
 

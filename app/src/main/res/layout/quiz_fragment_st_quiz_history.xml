@@ -19,9 +19,8 @@
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/reattemptButton"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             >
 
             <LinearLayout
@@ -33,12 +32,25 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="parent"
                 android:orientation="vertical">
-
-
-
             </LinearLayout>
-
         </ScrollView>
+
+        <Button
+            android:id="@+id/editQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Edit Question"
+            android:background="@drawable/rounded_rectangle_black"
+            android:fontFamily="@font/open_sans_bold"
+            android:textColor="@color/white"
+            android:paddingVertical="20dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/reattemptButton"
+            android:layout_marginBottom="26dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/reattemptButton"

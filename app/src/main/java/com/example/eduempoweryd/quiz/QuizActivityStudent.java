@@ -4,12 +4,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentContainerView;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.eduempoweryd.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class QuizActivityStudent extends AppCompatActivity {
+    FragmentContainerView fragmentContainerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +33,7 @@ public class QuizActivityStudent extends AppCompatActivity {
             // Pop the back stack to navigate back to the previous fragment
             fragmentManager.popBackStack();
         } else {
-            Log.d("QuizActivityStudent", "Nothing on back stack");
+            finish();
         }
     }
 }

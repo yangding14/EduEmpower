@@ -1,5 +1,7 @@
 package com.example.eduempoweryd.videoview;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -88,7 +90,7 @@ public class EditChapterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerview = view.findViewById(R.id.editchapter_recycleview);
-        editchapteradapter editchapteradapter = new editchapteradapter(this.getContext(), editchapterlist , getActivity().getSupportFragmentManager());
+        editchapteradapter editchapteradapter = new editchapteradapter(this.getContext(), editchapterlist , getActivity().getSupportFragmentManager(), this.getActivity().getSharedPreferences("system", MODE_PRIVATE));
         recyclerview.setAdapter(editchapteradapter);
         recyclerview.setLayoutManager(new LinearLayoutManager(this.getContext()));
 

@@ -28,7 +28,7 @@ public class QuizActivityInstructor extends AppCompatActivity {
             // Pop the back stack to navigate back to the previous fragment
             fragmentManager.popBackStack();
         } else {
-            Log.d("QuizActivityInstructor", "Nothing on back stack");
+            finish();
         }
     }
 }
