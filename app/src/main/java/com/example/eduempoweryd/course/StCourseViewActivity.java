@@ -77,7 +77,7 @@ public class StCourseViewActivity extends AppCompatActivity {
         btnForum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StCourseViewActivity.this, com.example.eduempoweryd.forum.AddComment.class));
+                startActivity(new Intent(StCourseViewActivity.this, com.example.eduempoweryd.forum.students.StudViewForum.class));
             }
         });
     }

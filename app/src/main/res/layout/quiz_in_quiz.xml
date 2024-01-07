@@ -60,7 +60,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentInQuizContainerView"
-            android:name="com.example.eduempoweryd.quiz.InQuizQuestionsListFragment"
+            android:name="com.example.eduempoweryd.quiz.StQuizHistoryFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

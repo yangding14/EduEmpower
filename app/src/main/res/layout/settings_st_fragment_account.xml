@@ -11,15 +11,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/userImage"
-            android:layout_width="62dp"
-            android:layout_height="62dp"
-            android:layout_marginTop="100dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="56dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintVertical_bias="0.0"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@drawable/penguin" />
+
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:id="@+id/userName"
@@ -59,7 +72,7 @@
             android:id="@+id/btn_acc_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="31dp"
             android:layout_marginEnd="40dp"
             android:background="@android:color/transparent"
             android:src="@drawable/baseline_arrow_forward_ios_24"
@@ -71,7 +84,7 @@
             android:id="@+id/btn_acc_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="31dp"
             android:layout_marginEnd="40dp"
             android:background="@android:color/transparent"
             android:src="@drawable/baseline_arrow_forward_ios_24"
@@ -83,7 +96,7 @@
             android:id="@+id/btn_acc_dob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="31dp"
             android:layout_marginEnd="40dp"
             android:background="@android:color/transparent"
             android:src="@drawable/baseline_arrow_forward_ios_24"
@@ -95,7 +108,7 @@
             android:id="@+id/btn_acc_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="31dp"
             android:layout_marginEnd="40dp"
             android:background="@android:color/transparent"
             android:src="@drawable/baseline_arrow_forward_ios_24"
@@ -107,7 +120,7 @@
             android:id="@+id/btn_acc_support"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="31dp"
             android:layout_marginEnd="40dp"
             android:background="@android:color/transparent"
             android:src="@drawable/baseline_arrow_forward_ios_24"
@@ -119,7 +132,7 @@
             android:id="@+id/btn_acc_change_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="31dp"
             android:layout_marginEnd="40dp"
             android:background="@android:color/transparent"
             android:src="@drawable/baseline_arrow_forward_ios_24"
@@ -222,14 +235,15 @@
             android:id="@+id/btn_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="125dp"
             android:background="@android:color/transparent"
             android:fontFamily="@font/poppins_semibold"
             android:text="LOG OUT"
+            android:textColor="@color/white"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            android:layout_marginTop="30dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

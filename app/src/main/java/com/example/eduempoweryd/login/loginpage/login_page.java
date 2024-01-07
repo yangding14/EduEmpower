@@ -33,8 +33,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class login_page extends AppCompatActivity {
 
@@ -166,48 +168,71 @@ public class login_page extends AppCompatActivity {
 
     private void instructorLogin(String email,String password) {
 
-        // TODO: Store user id in SharedPreferences
-        String uid = "V0yHY8LzznXx6YsJdCuHuffJwzo1";
 
-        SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("uid", uid);
-        editor.apply();
-
-        startActivity(new Intent(login_page.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
-
-
-        // TODO: Login user to Firebase not working
-        auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+        // get password from database
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("Instructors");
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onSuccess(AuthResult authResult) {
-                Toast.makeText(getApplicationContext(), "Login successfully", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(login_page.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
-                finish();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot child: snapshot.getChildren()){
+                    if(child.child("Email").getValue().toString().equals(email)){
+
+                        String pass = child.child("Password").getValue().toString();
+                        if(pass.equals(password)){
+                            SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putString("uid", child.getKey());
+                            editor.putString("role", "instructor");
+                            editor.apply();
+
+                            startActivity(new Intent(login_page.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
+                            finish();
+                        }
+
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // calling on cancelled method when we receive any error or we are not able to get the data.
+                Log.e("StQuizQuestionsList", "Fail to get data.");
             }
         });
     }
 
     private void studentLogin(String email, String password) {
 
-        // TODO: Store user id in SharedPreferences
-        String uid = "V0yHY8LzznXx6YsJdCuHuffJwzo1";
-
-        SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("uid", uid);
-        editor.apply();
-
-        startActivity(new Intent(login_page.this, com.example.eduempoweryd.course.MainActivity.class));
-
-
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+        // get password from database
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("Students");
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onSuccess(AuthResult authResult) {
-                Toast.makeText(getApplicationContext(), "Login successfully", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(login_page.this, com.example.eduempoweryd.course.MainActivity.class));
-                finish();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot child: snapshot.getChildren()){
+                    if(child.child("Email").getValue().toString().equals(email)){
+
+                        String pass = child.child("Password").getValue().toString();
+                        if(pass.equals(password)){
+                            SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putString("uid", child.getKey());
+                            editor.putString("role", "student");
+                            editor.apply();
+
+                            startActivity(new Intent(login_page.this, com.example.eduempoweryd.course.MainActivity.class));
+                            finish();
+                        }
+
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // calling on cancelled method when we receive any error or we are not able to get the data.
+                Log.e("StQuizQuestionsList", "Fail to get data.");
             }
         });
     }

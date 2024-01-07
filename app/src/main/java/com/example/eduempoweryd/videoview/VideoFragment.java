@@ -1,5 +1,7 @@
 package com.example.eduempoweryd.videoview;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -27,6 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -79,7 +83,7 @@ public class VideoFragment extends Fragment {
         videoView.setMediaController(mediaController);
 
         RecyclerView recyclerview = view.findViewById(R.id.chapter_recycleview);
-        chapteradapter chapteradapter = new chapteradapter(this.getContext(), chapterlists, videoView,pdfpreview);
+        chapteradapter chapteradapter = new chapteradapter(this.getContext(), chapterlists, videoView,pdfpreview, this.getActivity().getSharedPreferences("system", MODE_PRIVATE));
         recyclerview.setAdapter(chapteradapter);
         recyclerview.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
@@ -108,6 +112,19 @@ public class VideoFragment extends Fragment {
                     }
 
                 }
+
+                Collections.sort(chapterlists, new Comparator<chapterlist>() {
+                    @Override
+                    public int compare(chapterlist chapter1, chapterlist chapter2) {
+                        // Parse "position" as integers and compare
+                        int position1 = Integer.parseInt(chapter1.getPosition());
+                        int position2 = Integer.parseInt(chapter2.getPosition());
+
+                        // Compare the parsed integers
+                        return Integer.compare(position1, position2);
+                    }
+                });
+
                 chapteradapter.notifyDataSetChanged();
 
             }

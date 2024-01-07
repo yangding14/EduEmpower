@@ -1,6 +1,7 @@
 package com.example.eduempoweryd.videoview;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.MODE_PRIVATE;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
@@ -300,7 +301,7 @@ public class EditPDF_Fragment extends Fragment {
             videoView.setMediaController(mediaController);
 
             RecyclerView recyclerview = view.findViewById(R.id.chapter_recycleview);
-            chapteradapter chapteradapter = new chapteradapter(this.getContext(), chapterlists, videoView,pdfpreview);
+            chapteradapter chapteradapter = new chapteradapter(this.getContext(), chapterlists, videoView,pdfpreview, this.getActivity().getSharedPreferences("system", MODE_PRIVATE));
             recyclerview.setAdapter(chapteradapter);
             recyclerview.setLayoutManager(new LinearLayoutManager(this.getContext()));
 

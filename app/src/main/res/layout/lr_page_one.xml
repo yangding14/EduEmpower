@@ -122,6 +122,7 @@
                         android:singleLine="true"
                         android:text="@string/lbl_skip"
                         style="@style/txtPoppinssemibold16"
+                        android:onClick="skip"
                         tools:text="@string/lbl_skip"/>
                 </LinearLayout>
             </LinearLayout>

@@ -1,9 +1,13 @@
 package com.example.eduempoweryd.quiz;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,6 +29,7 @@ public class StQuizHistoryFragment extends Fragment {
     List<String> date = new ArrayList<>();
     List<String> score = new ArrayList<>();
     List<String> attemptId = new ArrayList<>();
+    private Button reattemptButton, editQuestion;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,9 @@ public class StQuizHistoryFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.quiz_fragment_st_quiz_history, container, false);
         fetchData();
+        reattemptButton = view.findViewById(R.id.reattemptButton);
+        editQuestion = view.findViewById(R.id.editQuestion);
+        setupButton();
 
         // Inflate the layout for this fragment
         return view;
@@ -138,5 +146,35 @@ public class StQuizHistoryFragment extends Fragment {
         String year = dateSplit[5];
 
         return day + " " + month + " " + year;
+    }
+
+    private void setupButton(){
+        SharedPreferences preferences = getActivity().getSharedPreferences("system", MODE_PRIVATE);
+        String role = preferences.getString("role", "null");
+
+        if(role.equals("student")){editQuestion.setVisibility(View.GONE);
+            reattemptButton.setText("Reattempt Quiz");
+        }else if(role.equals("instructor")){
+            reattemptButton.setText("Edit Questions");
+        }
+
+        reattemptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(role.equals("student")){
+                    Fragment newFragment = new StQuizStartQuizFragment();
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.fragmentStQuizContainerView, newFragment).addToBackStack(null).commit();
+                }else if(role.equals("instructor")){
+
+                    Fragment newFragment = new InQuizQuestionsListFragment();
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.fragmentInQuizContainerView, newFragment).addToBackStack(null).commit();
+                }
+            }
+        });
+
+
+
     }
 }

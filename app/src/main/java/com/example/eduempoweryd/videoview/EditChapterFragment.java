@@ -1,5 +1,7 @@
 package com.example.eduempoweryd.videoview;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class EditChapterFragment extends Fragment {
 
@@ -86,7 +90,7 @@ public class EditChapterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerview = view.findViewById(R.id.editchapter_recycleview);
-        editchapteradapter editchapteradapter = new editchapteradapter(this.getContext(), editchapterlist , getActivity().getSupportFragmentManager());
+        editchapteradapter editchapteradapter = new editchapteradapter(this.getContext(), editchapterlist , getActivity().getSupportFragmentManager(), this.getActivity().getSharedPreferences("system", MODE_PRIVATE));
         recyclerview.setAdapter(editchapteradapter);
         recyclerview.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
@@ -106,6 +110,18 @@ public class EditChapterFragment extends Fragment {
 
 
                 }
+
+                Collections.sort(editchapterlist, new Comparator<editchapterlist>() {
+                    @Override
+                    public int compare(editchapterlist chapter1, editchapterlist chapter2) {
+                        // Parse "position" as integers and compare
+                        int position1 = Integer.parseInt(chapter1.getPosition());
+                        int position2 = Integer.parseInt(chapter2.getPosition());
+
+                        // Compare the parsed integers
+                        return Integer.compare(position1, position2);
+                    }
+                });
 
                 // Notify any adapter about the data change
                 editchapteradapter.notifyDataSetChanged();

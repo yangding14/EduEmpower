@@ -1,6 +1,8 @@
 package com.example.eduempoweryd.videoview;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,11 +30,13 @@ public class editchapteradapter extends RecyclerView.Adapter<editchapteradapter.
     private FragmentManager fragmentManager;
     EditText chapterText;
     VideoView videoView;
+    SharedPreferences preferences;
 
-    public editchapteradapter(Context context,ArrayList<editchapterlist> editChapterarrayList,FragmentManager fragmentManager){
+    public editchapteradapter(Context context,ArrayList<editchapterlist> editChapterarrayList,FragmentManager fragmentManager, SharedPreferences preferences){
         this.context=context;
         this.fragmentManager = fragmentManager;
         this.editChapterarrayList=editChapterarrayList;
+        this.preferences = preferences;
     }
 
 
@@ -83,6 +87,18 @@ public class editchapteradapter extends RecyclerView.Adapter<editchapteradapter.
                     FragmentManager fm = fragmentManager;
                     FragmentTransaction ft = fm.beginTransaction();
                     ft.replace(R.id.frameLayout, fragment).commit();
+                }
+
+                if(holder.filetype.getText()=="Quiz") {
+                    String role = preferences.getString("role", "null");
+
+                    if(role.equals("student")){
+                        Intent intent = new Intent(v.getContext(), com.example.eduempoweryd.quiz.QuizActivityStudent.class);
+                        v.getContext().startActivity(intent);
+                    }else if(role.equals("instructor")){
+                        Intent intent = new Intent(v.getContext(), com.example.eduempoweryd.quiz.QuizActivityInstructor.class);
+                        v.getContext().startActivity(intent);
+                    }
                 }
             }
         });

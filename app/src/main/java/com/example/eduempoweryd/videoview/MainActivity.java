@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,7 +25,17 @@ public class MainActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         binding = VideoviewActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new VideoFragment());
+
+        SharedPreferences preferences = getSharedPreferences("system", MODE_PRIVATE);
+        String role = preferences.getString("role", "null");
+
+        if ("instructor".equals(role)) {
+            replaceFragment(new VideoFragment());
+        } else if ("student".equals(role)) {
+            replaceFragment(new StudentVideoFragment());
+        } else {
+            // Handle the case where the role is not recognized or handle it according to your logic.
+        }
     }
 
     public void replaceFragment(Fragment fragment){

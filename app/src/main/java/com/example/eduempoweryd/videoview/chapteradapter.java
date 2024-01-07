@@ -3,6 +3,7 @@ package com.example.eduempoweryd.videoview;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.pdf.PdfRenderer;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -36,13 +37,15 @@ public class chapteradapter extends RecyclerView.Adapter<chapteradapter.MyViewHo
     int total_pages = 0;
     int display_page = 0;
     public static final int PICK_FILE = 99;
+    SharedPreferences preferences;
 
 
-    public chapteradapter(Context context, ArrayList<chapterlist> chapterarraylist, VideoView videoview, ImageView pdfpreivew) {
+    public chapteradapter(Context context, ArrayList<chapterlist> chapterarraylist, VideoView videoview, ImageView pdfpreivew, SharedPreferences preferences) {
         this.context = context;
         this.ChapterarrayList = chapterarraylist;
         this.videoView = videoview;
         this.pdfpreview = pdfpreivew;
+        this.preferences = preferences;
     }
 
 
@@ -91,6 +94,18 @@ public class chapteradapter extends RecyclerView.Adapter<chapteradapter.MyViewHo
                             try{
                                 v.getContext().startActivity(intent);
                             }catch(ActivityNotFoundException e){}
+                        } else{
+                            String role = preferences.getString("role", "null");
+
+                            if(role.equals("student")){
+                                Intent intent = new Intent(v.getContext(), com.example.eduempoweryd.quiz.QuizActivityStudent.class);
+                                v.getContext().startActivity(intent);
+                            }else if(role.equals("instructor")){
+                                Intent intent = new Intent(v.getContext(), com.example.eduempoweryd.quiz.QuizActivityInstructor.class);
+                                v.getContext().startActivity(intent);
+                            }
+
+
                         }
 
                     }

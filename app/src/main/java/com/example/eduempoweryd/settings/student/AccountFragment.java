@@ -1,5 +1,9 @@
 package com.example.eduempoweryd.settings.student;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,11 +15,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
 import com.example.eduempoweryd.course.MainActivity;
+import com.example.eduempoweryd.settings.instructor.UserSettingsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -27,6 +33,7 @@ public class AccountFragment extends Fragment {
 
     TextView userName;
     TextView userEmail;
+    Button btn_logout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +49,7 @@ public class AccountFragment extends Fragment {
         ImageButton cs_button = view.findViewById(R.id.btn_acc_support);
         userEmail = view.findViewById(R.id.userEmail);
         userName = view.findViewById(R.id.userName);
+        btn_logout = view.findViewById(R.id.btn_logout);
 
         cs_button.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -51,8 +59,9 @@ public class AccountFragment extends Fragment {
         });
 
         // Show profile username and email
-        // Later need to change hardcoded UID to FirebaseAuth.getInstance().getUID();
-        String uid = "KW9dQocc6mUJtUkssl73sO07oDr2";
+        SharedPreferences preferences = getActivity().getSharedPreferences("system", MODE_PRIVATE);
+        String uid = preferences.getString("uid", "null");
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
         reference.child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -144,6 +153,18 @@ public class AccountFragment extends Fragment {
                 BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
                 btm.setVisibility(View.INVISIBLE);
                 ft.replace(R.id.frameLayout, fragment).commit();
+            }
+        });
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences preferences = getActivity().getSharedPreferences("system", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.clear();
+                editor.apply();
+                Intent i = new Intent(getActivity(), com.example.eduempoweryd.login.MainActivity.class);
+                startActivity(i);
             }
         });
     }
