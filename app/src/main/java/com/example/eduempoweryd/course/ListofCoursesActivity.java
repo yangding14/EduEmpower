@@ -135,7 +135,7 @@ public class ListofCoursesActivity extends AppCompatActivity {
                             SharedPreferences sharedPreferences = getSharedPreferences("system", MODE_PRIVATE);
                             sharedPreferences.edit().putString("courseId", course.getCourseId()).apply();
 
-                            Intent intent = new Intent(ListofCoursesActivity.this, InEditCourseActivity.class);
+                            Intent intent = new Intent(ListofCoursesActivity.this, InCourseViewActivity.class);
                             intent.putExtra("courseId", course.getCourseId()); // Pass any relevant data
                             startActivity(intent);
                         }

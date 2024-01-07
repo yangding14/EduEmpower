@@ -52,7 +52,7 @@ public class InCourseViewActivity extends AppCompatActivity {
         courseDescTextView = findViewById(R.id.TVDesc);
 
         // Reference to the Firebase "Edit Course" section where instructor data is stored
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Edit Course");
+        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Course");
 
         // Attach a ValueEventListener to retrieve data from Firebase
         databaseRef.addValueEventListener(new ValueEventListener() {
@@ -81,7 +81,7 @@ public class InCourseViewActivity extends AppCompatActivity {
         courseImageView = findViewById(R.id.ImageCourse);
 
         // Reference to the Firebase "Image" section where instructor data is stored
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Image");
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Course");
 
         // Attach a ValueEventListener to retrieve data from Firebase
         dbRef.addValueEventListener(new ValueEventListener() {
@@ -91,7 +91,7 @@ public class InCourseViewActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         // Retrieve image
-                        String imageUrl = snapshot.child("imageUrl").getValue(String.class); // Retrieve image URL
+                        String imageUrl = snapshot.child("uri").getValue(String.class); // Retrieve image URL
 
                         // Load the image using Glide or Picasso (you may need to add the corresponding libraries)
                         if (imageUrl != null && !imageUrl.isEmpty()) {
