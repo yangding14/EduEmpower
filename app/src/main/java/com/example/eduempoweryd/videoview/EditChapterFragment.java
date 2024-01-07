@@ -26,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class EditChapterFragment extends Fragment {
 
@@ -106,6 +108,18 @@ public class EditChapterFragment extends Fragment {
 
 
                 }
+
+                Collections.sort(editchapterlist, new Comparator<editchapterlist>() {
+                    @Override
+                    public int compare(editchapterlist chapter1, editchapterlist chapter2) {
+                        // Parse "position" as integers and compare
+                        int position1 = Integer.parseInt(chapter1.getPosition());
+                        int position2 = Integer.parseInt(chapter2.getPosition());
+
+                        // Compare the parsed integers
+                        return Integer.compare(position1, position2);
+                    }
+                });
 
                 // Notify any adapter about the data change
                 editchapteradapter.notifyDataSetChanged();

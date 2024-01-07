@@ -33,6 +33,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class StudentVideoFragment extends Fragment {
@@ -111,6 +113,19 @@ public class StudentVideoFragment extends Fragment {
                     }
 
                 }
+
+                Collections.sort(chapterlists, new Comparator<chapterlist>() {
+                    @Override
+                    public int compare(chapterlist chapter1, chapterlist chapter2) {
+                        // Parse "position" as integers and compare
+                        int position1 = Integer.parseInt(chapter1.getPosition());
+                        int position2 = Integer.parseInt(chapter2.getPosition());
+
+                        // Compare the parsed integers
+                        return Integer.compare(position1, position2);
+                    }
+                });
+
                 chapteradapter.notifyDataSetChanged();
 
             }

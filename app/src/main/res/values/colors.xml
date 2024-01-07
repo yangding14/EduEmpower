@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="pie_easy">#3579FF</color>
     <color name="pie_good">#B24FFF</color>
+    <color name="done">#AACE54</color>
+    <color name="not_done">#353A47</color>
     <color name="red">#ff0000</color>
     <color name="orange">#FF6905</color>
     <color name="gray_600">#7b7b7b</color>

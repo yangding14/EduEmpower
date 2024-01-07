@@ -1,20 +1,32 @@
 package com.example.eduempoweryd.course;
 
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.course.current_progress_Fragment;
-import com.example.eduempoweryd.course.st_track_progress_Fragment;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,12 +35,16 @@ import com.example.eduempoweryd.course.st_track_progress_Fragment;
  */
 public class HomeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private PieChart pieChart;
 
-    // TODO: Rename and change types of parameters
+    ArrayList<progress_chapterlist> progressChapterlists = new ArrayList<>();
+    int [] images= {R.drawable.checked, R.drawable.checked, R.drawable.checked, R.drawable.checked, R.drawable.checked,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+    int[] image = {R.drawable.checked, R.drawable.pending};
+    int x=0,y=0;
+
     private String mParam1;
     private String mParam2;
 
@@ -36,15 +52,7 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -73,12 +81,47 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        pieChart = view.findViewById(R.id.pieChart);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Chapters");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                progressChapterlists.clear(); // Clear existing data before adding new data
+                int i = 0;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    String name = snapshot.child("name").getValue(String.class);
+                    String position = snapshot.child("position").getValue(String.class);
+                    String key = snapshot.getKey();
+                    String filetype = snapshot.child("file").getValue(String.class);
+
+                    if(images[i]!=0){
+                        progressChapterlists.add(new progress_chapterlist(position, name, image[0] , key));
+                        x++;
+                    }else {progressChapterlists.add(new progress_chapterlist(position, name, image[1] , key));
+                        y++;
+                    }
+
+                    i++;
+                }
+                showStatistics(x,y);
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle the error
+            }
+        });
+
+
 
         ImageButton button1 = view.findViewById(R.id.imageButton5);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment = new st_track_progress_Fragment();
+                Fragment fragment = new st_track_progress_Fragment(progressChapterlists);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.frameLayout, fragment).commit();
@@ -94,5 +137,39 @@ public class HomeFragment extends Fragment {
                 ft.replace(R.id.frameLayout, fragment).commit();
             }
         });
+
+
+
+
+    }
+
+    private void showStatistics(int done , int not_done) {
+        pieChart.setVisibility(View.VISIBLE);
+
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setDrawHoleEnabled(true);
+
+        List<PieEntry> entries = new ArrayList<>();
+
+        entries.add(new PieEntry(done, ""));
+        entries.add(new PieEntry(not_done, ""));
+
+        PieDataSet set = new PieDataSet(entries, "");
+        set.setColors(new int[] {
+                ContextCompat.getColor(requireContext(), R.color.done),
+                ContextCompat.getColor(requireContext(), R.color.not_done)
+        });
+
+        int percentage = done * 100 /(done+not_done);
+        pieChart.setCenterText(String.valueOf(percentage)+"%");
+
+
+
+        PieData data = new PieData(set);
+        pieChart.setData(data);
+        pieChart.invalidate(); // Refresh the pie chart
+
+        // Optional: Add animation
+        pieChart.animateXY(1400, 1400);
     }
 }
