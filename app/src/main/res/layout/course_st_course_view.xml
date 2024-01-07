@@ -18,6 +18,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:background="@android:color/transparent"
+        android:onClick="back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/vector" />
