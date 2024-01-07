@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
             SharedPreferences.Editor editor = pref.edit();
             editor.putString("uid", uid);
+            editor.putString("role", "student");
             editor.apply();
 
             Intent intent = new Intent(this, com.example.eduempoweryd.course.MainActivity.class);
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
             SharedPreferences.Editor editor = pref.edit();
             editor.putString("uid", uid);
+            editor.putString("role", "instructor");
             editor.apply();
 
             Intent intent = new Intent(this, com.example.eduempoweryd.course.ListofCoursesActivity.class);

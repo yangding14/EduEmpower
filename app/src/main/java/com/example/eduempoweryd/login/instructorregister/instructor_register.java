@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +29,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
@@ -160,53 +162,100 @@ public class instructor_register extends AppCompatActivity {
         );
     }
 
+//    private void registerUser(String txtUsername, String txtEmail, String txtPhone, String txtPassword, String txtDob, String txtGender, String txtQualification, String txtInstitute, String txtMarks) {
+//
+//        // TODO: Store user id in SharedPreferences before navigating to next page
+//        String uid = "V0yHY8LzznXx6YsJdCuHuffJwzo1";
+//
+//        SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = pref.edit();
+//        editor.putString("uid", uid);
+//        editor.apply();
+//
+//        startActivity(new Intent(instructor_register.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
+//
+//
+//
+//
+//        // TODO: Register user to Firebase not working
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+//        auth.createUserWithEmailAndPassword(txtEmail, txtPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if (task.isSuccessful()){
+//                    HashMap <String, Object> map = new HashMap<>();
+//                    map.put("Username", txtUsername);
+//                    map.put("Email", txtEmail);
+//                    map.put("Phone", txtPhone);
+//                    map.put("Password", txtPassword);
+//                    map.put("DateOfBirth", txtDob);
+//                    map.put("Gender", txtGender);
+//                    map.put("Qualification", txtQualification);
+//                    map.put("Institute", txtInstitute);
+//                    map.put("Marks", txtMarks);
+//
+//                    FirebaseDatabase.getInstance().getReference().child("Instructors").child(auth.getUid())
+//                            .updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<Void> task) {
+//                                    if (task.isSuccessful()){
+//                                        Toast.makeText(getApplicationContext(), "Register successfully", Toast.LENGTH_SHORT).show();
+//
+//                                        startActivity(new Intent(instructor_register.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
+//                                    }else {
+//                                        Toast.makeText(getApplicationContext(), "Something wrong", Toast.LENGTH_SHORT).show();
+//                                    }
+//                                }
+//                            });
+//                }
+//            }
+//        });
+//
+//
+//    }
+
     private void registerUser(String txtUsername, String txtEmail, String txtPhone, String txtPassword, String txtDob, String txtGender, String txtQualification, String txtInstitute, String txtMarks) {
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("Instructors");
 
-        // TODO: Store user id in SharedPreferences before navigating to next page
-        String uid = "V0yHY8LzznXx6YsJdCuHuffJwzo1";
+        HashMap <String, Object> map = new HashMap<>();
+        map.put("Username", txtUsername);
+        map.put("Email", txtEmail);
+        map.put("Phone", txtPhone);
+        map.put("Password", txtPassword);
+        map.put("DateOfBirth", txtDob);
+        map.put("Gender", txtGender);
+        map.put("Qualification", txtQualification);
+        map.put("Institute", txtInstitute);
+        map.put("Marks", txtMarks);
 
-        SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("uid", uid);
-        editor.apply();
+        // Use push to generate a unique key in the Students node
+        DatabaseReference newInstructorRef = db.push();
+        String uniqueKey = newInstructorRef.getKey(); // Get the unique key
 
-        startActivity(new Intent(instructor_register.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
+        // Use setValue on the specific reference
+        newInstructorRef.setValue(map)
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("StQuizInsideQuizFrag", "Attempt stored successfully");
+                    Toast.makeText(getApplicationContext(), "Register successfully", Toast.LENGTH_SHORT).show();
 
+                    SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putString("uid", uniqueKey);
+                    editor.putString("role", "instructor");
+                    editor.apply();
 
-        // TODO: Register user to Firebase not working
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        auth.createUserWithEmailAndPassword(txtEmail, txtPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    HashMap <String, Object> map = new HashMap<>();
-                    map.put("Username", txtUsername);
-                    map.put("Email", txtEmail);
-                    map.put("Phone", txtPhone);
-                    map.put("Password", txtPassword);
-                    map.put("DateOfBirth", txtDob);
-                    map.put("Gender", txtGender);
-                    map.put("Qualification", txtQualification);
-                    map.put("Institute", txtInstitute);
-                    map.put("Marks", txtMarks);
+                    Log.d("StQuizInsideQuizFrag", "dbKey: " + db.getKey());
 
-                    FirebaseDatabase.getInstance().getReference().child("Instructors").child(auth.getUid())
-                            .updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
-                                        Toast.makeText(getApplicationContext(), "Register successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(instructor_register.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
+                })
+                .addOnFailureListener(e -> {
+                    // Show error message
+                    Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                });
+    }
 
-                                        startActivity(new Intent(instructor_register.this, com.example.eduempoweryd.course.ListofCoursesActivity.class));
-                                    }else {
-                                        Toast.makeText(getApplicationContext(), "Something wrong", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-                }
-            }
-        });
-
-
+    public void onClick(View v){
+        Intent i = new Intent(instructor_register.this, login_page.class);
+        startActivity(i);
     }
 }

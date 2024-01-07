@@ -52,6 +52,7 @@ public class student_register extends AppCompatActivity {
     private EditText email;
     private EditText phone;
     private EditText password;
+    private EditText password2;
     private EditText dob;
     private Spinner gender;
     private Spinner education;
@@ -73,7 +74,8 @@ public class student_register extends AppCompatActivity {
         username = findViewById(R.id.usernameinput);
         email = findViewById(R.id.emailinput);
         phone = findViewById(R.id.phoneinput);
-        password = findViewById(R.id.pass2input);
+        password = findViewById(R.id.passinput);
+        password2 = findViewById(R.id.pass2input);
         dob = findViewById(R.id.SelectDate);
         gender = findViewById(R.id.spinnergender);
         education = findViewById(R.id.spinneredu);
@@ -182,6 +184,7 @@ public class student_register extends AppCompatActivity {
 //                        startActivity(i);
                         String txt_email = email.getText().toString();
                         String txt_password = password.getText().toString();
+                        String txt_password2 = password2.getText().toString();
                         String txt_username = username.getText().toString();
                         String txt_phone = phone.getText().toString();
                         String txt_dob = dob.getText().toString();
@@ -192,7 +195,9 @@ public class student_register extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Empty Credentials", Toast.LENGTH_SHORT).show();
                         } else if (txt_password.length() < 6){
                             Toast.makeText(getApplicationContext(), "Password too short", Toast.LENGTH_SHORT).show();
-                        } else{
+                        } else if(!txt_password.equals(txt_password2)){
+                            Toast.makeText(getApplicationContext(), "Password not match", Toast.LENGTH_SHORT).show();
+                        } else {
                             registerUser(txt_username, txt_email, txt_phone, txt_password, txt_dob, txt_gender, txt_education);
                         }
                     }
@@ -203,64 +208,52 @@ public class student_register extends AppCompatActivity {
 
         b2 = findViewById(R.id.txtSignIn);
         b2.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent i = new Intent(student_register.this, login_page.class);
-                        startActivity(i);
-                    }
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(student_register.this, login_page.class);
+                    startActivity(i);
                 }
+            }
         );
     }
 
     private void registerUser(String username, String email, String phone, String password, String dob, String gender, String education) {
-        // TODO: Store user id in SharedPreferences
-        String uid = "V0yHY8LzznXx6YsJdCuHuffJwzo1";
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("Students");
 
-        SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("uid", uid);
-        editor.apply();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("Username", username);
+        map.put("Email", email);
+        map.put("Phone", phone);
+        map.put("Password", password);
+        map.put("DateOfBirth", dob);
+        map.put("Gender", gender);
+        map.put("Education", education);
 
-        startActivity(new Intent(student_register.this, student_survey.class));
+        // Use push to generate a unique key in the Students node
+        DatabaseReference newStudentRef = db.push();
+        String uniqueKey = newStudentRef.getKey(); // Get the unique key
 
+        // Use setValue on the specific reference
+        newStudentRef.setValue(map)
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("StQuizInsideQuizFrag", "Attempt stored successfully");
+                    Toast.makeText(getApplicationContext(), "Register successfully", Toast.LENGTH_SHORT).show();
 
-        // TODO: Register user to Firebase not working
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    //Log.d("Checking1", auth.getUid());
+                    SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putString("uid", uniqueKey);
+                    editor.putString("role", "student");
+                    editor.apply();
 
-                    HashMap<String, Object> map = new HashMap<>();
-                    map.put("Username", username);
-                    map.put("Email", email);
-                    map.put("Phone", phone);
-                    map.put("Password", password);
-                    map.put("DateOfBirth", dob);
-                    map.put("Gender", gender);
-                    map.put("Education", education);
+                    Log.d("StQuizInsideQuizFrag", "dbKey: " + db.getKey());
 
-                    //Log.d("Checking2", auth.getUid());
-
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference reference = database.getReference().child("Students").child(auth.getUid());
-                    reference.updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(getApplicationContext(), "Register successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(student_register.this, student_survey.class));
-                                finish();
-                            } else{
-                                Toast.makeText(getApplicationContext(), "Something wrong", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-            }
-        });
+                    startActivity(new Intent(student_register.this, student_survey.class));
+                })
+                .addOnFailureListener(e -> {
+                    // Show error message
+                    Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                });
     }
 
 }
