@@ -18,8 +18,11 @@ import android.widget.Toast;
 
 import com.example.eduempoweryd.R;
 import com.example.eduempoweryd.course.InCourseViewActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class InstructorActivity extends Activity {
 
@@ -38,6 +41,23 @@ public class InstructorActivity extends Activity {
         listView.setAdapter(adapter);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        mDatabase.child("flashcards").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                flashcardsList.clear(); // Clear the old list
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Flashcard flashcard = snapshot.getValue(Flashcard.class);
+                    flashcardsList.add(flashcard);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(InstructorActivity.this, "Failed to load flashcards.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         Button btnAddFlashcard = findViewById(R.id.btn_add_flashcard);
         Button btnSaveFlashcards = findViewById(R.id.btn_save_flashcards);
