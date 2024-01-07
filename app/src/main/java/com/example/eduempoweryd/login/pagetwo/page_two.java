@@ -47,4 +47,9 @@ public class page_two extends AppCompatActivity {
                 }
         );
     }
+
+    public void skip(View v){
+        Intent i = new Intent(page_two.this, register_page.class);
+        startActivity(i);
+    }
 }

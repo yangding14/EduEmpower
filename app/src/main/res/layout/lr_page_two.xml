@@ -96,7 +96,7 @@
                         android:singleLine="true"
                         android:text="@string/lbl_skip"
                         android:clickable="true"
-                        android:onClick="onClick"
+                        android:onClick="skip"
                         style="@style/txtPoppinssemibold16" tools:text="@string/lbl_skip"
                         android:focusable="true" />
                 </LinearLayout>

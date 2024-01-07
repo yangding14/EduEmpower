@@ -14,6 +14,7 @@ import com.example.eduempoweryd.databinding.LrPageOneBinding;
 import com.example.eduempoweryd.databinding.LrPageTwoBinding;
 import com.example.eduempoweryd.login.pagetwo.PageTwoVM;
 import com.example.eduempoweryd.login.pagetwo.page_two;
+import com.example.eduempoweryd.login.registerpage.register_page;
 
 public class page_one extends AppCompatActivity {
     @Override
@@ -37,6 +38,11 @@ public class page_one extends AppCompatActivity {
                 }
         );
 
+    }
+
+    public void skip(View v){
+        Intent i = new Intent(page_one.this, register_page.class);
+        startActivity(i);
     }
 
 }
