@@ -129,24 +129,24 @@
 
         </FrameLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/linearColumngroupone"
-            android:layout_gravity="bottom|start"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10pxv"
+            style="@style/groupStyledeep_purple_A700"
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            style="@style/groupStyledeep_purple_A700">
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginTop="@dimen/_10pxv"
+            android:background="#CFCFCF"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/comment"
                 style="@style/etSolidRounded"
-                android:layout_width="291dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_20pxh"
-                android:layout_marginTop="@dimen/_13pxv"
-                android:layout_marginEnd="@dimen/_70pxh"
-                android:layout_marginBottom="@dimen/_36pxv"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/rectangle_bg_gray_301_radius_24_5"
                 android:ellipsize="end"
                 android:hint="@string/msg_comment_here"
@@ -163,10 +163,12 @@
                 android:id="@+id/addbutton"
                 android:layout_width="70dp"
                 android:layout_height="86dp"
-                app:srcCompat="@drawable/ic_add_foreground"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
                 android:clickable="true"
-                android:onClick="onClick"/>
+                android:onClick="onClick"
+                app:srcCompat="@drawable/ic_add_foreground" />
 
-        </LinearLayout>
+        </RelativeLayout>
     </FrameLayout>
 </layout>
