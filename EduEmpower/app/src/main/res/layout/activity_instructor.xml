@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Flashcards"
-        android:textSize="24sp"
-        android:gravity="center"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:text="Flashcards"
         android:textColor="@color/white"
-        android:fontFamily="@font/poppins_bold"/>
+        android:textSize="24sp" />
 
     <ListView
         android:id="@+id/lv_flashcards"
@@ -28,19 +28,19 @@
         android:id="@+id/btn_add_flashcard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add new flashcard"
-        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_black_button"
         android:fontFamily="@font/poppins_regular"
-        android:background="@drawable/rounded_black_button" />
+        android:text="Add new flashcard"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btn_save_flashcards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save flashcards"
-        android:textColor="#FFFFFF"
-        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
         android:background="@drawable/rounded_black_button"
-        android:layout_marginTop="8dp" />
+        android:fontFamily="@font/poppins_regular"
+        android:text="Save flashcards"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>
