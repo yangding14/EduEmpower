@@ -141,14 +141,14 @@ public class InCourseViewActivity extends AppCompatActivity {
         btnAddDiscussion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.forum.instructors.InAddForum.class));
+                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.forum.AddComment.class));
             }
         });
 
         btnEditDiscussion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.forum.instructors.InViewForum.class));
+                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.forum.AddComment.class));
             }
         });
 
@@ -160,6 +160,9 @@ public class InCourseViewActivity extends AppCompatActivity {
             }
         });
     }
-
+    public void back() {
+        Intent intent = new Intent(this, ListofCoursesActivity.class);
+        startActivity(intent);
+    }
 
 }

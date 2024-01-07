@@ -291,4 +291,9 @@ public class InEditCourseActivity extends AppCompatActivity {
         return Uri.parse(path);
     }
 
+    public void back() {
+        Intent intent = new Intent(this, InCourseViewActivity.class);
+        startActivity(intent);
+    }
+
 }
