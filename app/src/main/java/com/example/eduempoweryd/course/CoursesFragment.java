@@ -1,6 +1,9 @@
 package com.example.eduempoweryd.course;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,11 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.SearchView;
@@ -27,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +40,9 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class CoursesFragment extends Fragment {
+
+    LinearLayout completedCourseContainer;
+    List<Course> courses = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -105,7 +114,6 @@ public class CoursesFragment extends Fragment {
 
         Button button = view.findViewById(R.id.BtnCompletedCourse);
         Button button2 = view.findViewById(R.id.BtnOngoingCourses);
-        Button retakeCourse = view.findViewById(R.id.BtnRetake);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,13 +125,6 @@ public class CoursesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 openViewOngoingCourse();
-            }
-        });
-
-        retakeCourse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openCourse();
             }
         });
 
@@ -194,21 +195,53 @@ public class CoursesFragment extends Fragment {
         TextView courseTitleTextView = view.findViewById(R.id.cc_courseName);
 
 
-        // Reference to the Firebase "Edit Course" section where instructor data is stored
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Edit Course");
+        /// Reference to the Firebase "Image" section where instructor data is stored
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Course");
 
         // Attach a ValueEventListener to retrieve data from Firebase
-        databaseRef.addValueEventListener(new ValueEventListener() {
+        dbRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Check if data exists
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        // Retrieve data for each course
-                        String courseTitle = snapshot.child("courseTitle").getValue(String.class);
-                        // Update the TextViews in the student view with the retrieved data
-                        courseTitleTextView.setText(courseTitle);
-                    }
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Log.d("StQuizQuestionsList", "storing data.");
+
+                    courses.add(new Course(dataSnapshot.getKey(), dataSnapshot.child("courseTitle").getValue(String.class), dataSnapshot.child("courseDesc").getValue(String.class), dataSnapshot.child("category").getValue(String.class), dataSnapshot.child("uri").getValue(String.class)));
+                    Log.d("StQuizQuestionsList", "Success to get data.");
+                    Log.d("StQuizQuestionsList", "Value is: " + dataSnapshot.getValue());
+                }
+
+                Log.d("StQuizQuestionsList", "courses size: " + courses.size());
+                for (Course course : courses) {
+                    LinearLayout linearLayout = getView().findViewById(R.id.completedCourseContainer);
+                    View courseView = getLayoutInflater().inflate(R.layout.course_completed_course_single, linearLayout, false);
+
+                    ImageView imageView = courseView.findViewById(R.id.image);
+                    // Use Glide to load the image from the URI
+                    Glide.with(getActivity())
+                            .load(course.getUri())
+                            .into(imageView);
+
+                    TextView courseTitleTextView = courseView.findViewById(R.id.title);
+                    courseTitleTextView.setText(course.getCourseTitle());
+
+                    TextView courseDescTextView = courseView.findViewById(R.id.description);
+                    courseDescTextView.setText(course.getCourseDesc());
+
+                    // Set OnClickListener for each courseView
+                    courseView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // Handle the click event for the courseView
+                            // For example, you can open a new activity with details of the selected course
+                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("system", MODE_PRIVATE);
+                            sharedPreferences.edit().putString("courseId", course.getCourseId()).apply();
+
+                            Intent intent = new Intent(getActivity(), StCourseViewActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    linearLayout.addView(courseView);
                 }
             }
 
@@ -220,10 +253,10 @@ public class CoursesFragment extends Fragment {
         ImageView courseImageView = view.findViewById(R.id.CompletedCourseImage);
 
         // Reference to the Firebase "Image" section where instructor data is stored
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Image");
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("Image");
 
         // Attach a ValueEventListener to retrieve data from Firebase
-        dbRef.addValueEventListener(new ValueEventListener() {
+        db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // Check if data exists
@@ -233,11 +266,11 @@ public class CoursesFragment extends Fragment {
                         String imageUrl = snapshot.child("imageUrl").getValue(String.class); // Retrieve image URL
 
                         // Load the image using Glide or Picasso (you may need to add the corresponding libraries)
-                        if (imageUrl != null && !imageUrl.isEmpty()) {
-                            Glide.with(CoursesFragment.this)
-                                    .load(imageUrl)
-                                    .into(courseImageView);
-                        }
+//                        if (imageUrl != null && !imageUrl.isEmpty()) {
+//                            Glide.with(CoursesFragment.this)
+//                                    .load(imageUrl)
+//                                    .into(courseImageView);
+//                        }
                     }
                 }
             }
