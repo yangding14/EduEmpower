@@ -2,15 +2,21 @@ package com.example.eduempoweryd.settings.instructor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.videoview.FileTypeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -57,12 +63,23 @@ public class UpdateDOBActivity extends AppCompatActivity {
         });
 
         //Handle show data from database
-        buttonConfirm = findViewById(R.id.btnConfirmDOB);
-        buttonConfirm.setOnClickListener(new View.OnClickListener() {
+//        buttonConfirm = findViewById(R.id.btnConfirmDOB);
+//        buttonConfirm.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
+        ImageButton backbutton = findViewById(R.id.btn_cs_back);
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                   finish();
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), com.example.eduempoweryd.settings.instructor.UserSettingsActivity.class));
             }
         });
+
+
     }
+
 }

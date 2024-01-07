@@ -7,19 +7,19 @@
     android:background="@drawable/backgroundpic"
     tools:context=".UpdateUsernameActivity">
 
-    <Button
-        android:id="@+id/btnConfirmGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
-        android:background="@android:color/transparent"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Back"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditGender" />
+<!--    <Button-->
+<!--        android:id="@+id/btnConfirmGender"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="284dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:fontFamily="@font/poppins_semibold"-->
+<!--        android:text="Confirm"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/EditGender" />-->
 
     <EditText
         android:id="@+id/EditGender"
@@ -95,4 +95,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userEmail3" />
+
+    <ImageButton
+        android:id="@+id/btn_cs_back"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_ios_new_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

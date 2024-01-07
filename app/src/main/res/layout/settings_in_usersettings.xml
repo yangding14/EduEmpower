@@ -96,15 +96,15 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="335dp"
+        android:layout_height="303dp"
         android:layout_marginHorizontal="60dp"
         android:layout_marginTop="16dp"
 
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonLogout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/us_email"
-        app:layout_constraintBottom_toTopOf="@id/buttonLogout">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/us_email">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -113,7 +113,7 @@
 
             <Button
                 android:id="@+id/buttonUsername"
-                android:layout_width="match_parent"
+                android:layout_width="337dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="18dp"
@@ -140,8 +140,8 @@
                 android:fontFamily="@font/poppins"
                 android:gravity="left|center_vertical"
                 android:text="Email address"
-                android:textSize="18dp"
                 android:textColor="@color/white"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buttonUsername" />
 
@@ -174,8 +174,8 @@
                 android:fontFamily="@font/poppins"
                 android:gravity="left|center_vertical"
                 android:text="Date of Birth"
-                android:textSize="18dp"
                 android:textColor="@color/white"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buttonPhone" />
 
@@ -192,8 +192,8 @@
                 android:fontFamily="@font/poppins"
                 android:gravity="left|center_vertical"
                 android:text="Gender"
-                android:textSize="18dp"
                 android:textColor="@color/white"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buttonPhone" />
 
@@ -209,8 +209,8 @@
                 android:fontFamily="@font/poppins"
                 android:gravity="left|center_vertical"
                 android:text="Educational Details"
-                android:textSize="18dp"
                 android:textColor="@color/white"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buttonPhone" />
 
@@ -226,8 +226,8 @@
                 android:fontFamily="@font/poppins"
                 android:gravity="left|center_vertical"
                 android:text="Change Password"
-                android:textSize="18dp"
                 android:textColor="@color/white"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buttonPhone" />
 

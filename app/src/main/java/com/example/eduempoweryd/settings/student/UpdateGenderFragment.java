@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class UpdateGenderFragment extends Fragment {
@@ -59,10 +60,18 @@ public class UpdateGenderFragment extends Fragment {
             }
         });
 
-        Button btn = view.findViewById(R.id.btnConfirmGender);
-        btn.setOnClickListener(new View.OnClickListener() {
+//        Button btn = view.findViewById(R.id.btnConfirmGender);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                navigateToAccountFragment();
+//            }
+//        });
+
+        ImageButton backbutton = view.findViewById(R.id.btn_cs_back);
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 navigateToAccountFragment();
             }
         });

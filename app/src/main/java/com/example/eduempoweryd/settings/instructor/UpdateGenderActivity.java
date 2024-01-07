@@ -3,11 +3,13 @@ package com.example.eduempoweryd.settings.instructor;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
@@ -35,7 +37,7 @@ public class UpdateGenderActivity extends AppCompatActivity {
         userName = findViewById(R.id.userName3);
         userEmail = findViewById(R.id.userEmail3);
         editGender = findViewById(R.id.EditGender);
-        buttonConfirm = findViewById(R.id.btnConfirmGender);
+//        buttonConfirm = findViewById(R.id.btnConfirmGender);
 
         // Show profile data
         String name = getIntent().getStringExtra("Username");
@@ -57,12 +59,21 @@ public class UpdateGenderActivity extends AppCompatActivity {
         });
 
         //Button handling event
-        buttonConfirm.setOnClickListener(new View.OnClickListener() {
+//        buttonConfirm.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
+        ImageButton backbutton = findViewById(R.id.btn_cs_back);
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                finish();
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), com.example.eduempoweryd.settings.instructor.UserSettingsActivity.class));
             }
         });
+
     }
 
 

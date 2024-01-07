@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
@@ -67,6 +68,16 @@ public class UpdatePhoneNumberFragment extends Fragment {
                 navigateToAccountFragment();
             }
         });
+
+
+        ImageButton backbutton = view.findViewById(R.id.btn_cs_back);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToAccountFragment();
+            }
+        });
+
 
         return view;
     }

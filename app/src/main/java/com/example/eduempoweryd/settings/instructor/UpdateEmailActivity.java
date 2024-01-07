@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
@@ -78,5 +79,14 @@ public class UpdateEmailActivity extends AppCompatActivity {
                 }
             }
         });
+
+        ImageButton backbutton = findViewById(R.id.btn_cs_back);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), com.example.eduempoweryd.settings.instructor.UserSettingsActivity.class));
+            }
+        });
+
     }
 }

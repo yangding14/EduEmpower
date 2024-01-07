@@ -1,5 +1,6 @@
 package com.example.eduempoweryd.settings.student;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class UpdateDOBFragment extends Fragment {
@@ -58,10 +60,10 @@ public class UpdateDOBFragment extends Fragment {
             }
         });
 
-        Button btn = view.findViewById(R.id.btnConfirmGender);
-        btn.setOnClickListener(new View.OnClickListener() {
+        ImageButton backbutton = view.findViewById(R.id.btn_cs_back);
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 navigateToAccountFragment();
             }
         });

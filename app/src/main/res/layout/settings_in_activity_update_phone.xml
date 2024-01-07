@@ -11,8 +11,8 @@
         android:id="@+id/btnConfirmPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/poppins_semibold"
         android:text="Confirm"
@@ -96,4 +96,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userEmail5" />
+
+    <ImageButton
+        android:id="@+id/btn_cs_back"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_ios_new_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

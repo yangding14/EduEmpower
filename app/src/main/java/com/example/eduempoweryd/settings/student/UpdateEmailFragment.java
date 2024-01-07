@@ -1,5 +1,6 @@
 package com.example.eduempoweryd.settings.student;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
@@ -71,6 +73,14 @@ public class UpdateEmailFragment extends Fragment {
                 if(!txt_email.isEmpty()){
                     updateData(uid, txt_email);
                 }
+                navigateToAccountFragment();
+            }
+        });
+
+        ImageButton backbutton = view.findViewById(R.id.btn_cs_back);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 navigateToAccountFragment();
             }
         });
