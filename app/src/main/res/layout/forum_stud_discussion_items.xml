@@ -43,7 +43,7 @@
                     android:id="@+id/imageRectangleThirtyTwo"
                     android:layout_width="@dimen/_62pxh"
                     android:layout_height="@dimen/_62pxh"
-                    android:layout_gravity="start"
+                    android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_11pxh"
                     android:layout_marginEnd="@dimen/_11pxh"
                     android:scaleType="fitXY"
@@ -54,6 +54,7 @@
                 <TextView
                     android:id="@+id/txtJessBrailey"
                     style="@style/txtPoppinssemibold14"
+                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_18pxv"
@@ -61,7 +62,6 @@
                     android:layout_marginEnd="@dimen/_10pxh"
                     android:baselineAligned="false"
                     android:ellipsize="end"
-                    android:gravity="start"
                     android:singleLine="true"
                     android:text="@string/name"
                     tools:text="@string/name" />
@@ -82,13 +82,15 @@
                     android:singleLine="true"
                     android:text="@{discussionItem.topic}"
                     style="@style/txtPoppinssemibold14" tools:text="@string/tooopiccc"/>
-                <TextView android:gravity="center_horizontal"
+
+                <TextView
                     android:id="@+id/txtContent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_13pxv"
                     android:layout_width="match_parent"
                     android:text="@{discussionItem.comment}"
-                    style="@style/txtPoppinslight12" tools:text="@string/comment_comment_comment"/>
+                    style="@style/txtPoppinslight12"
+                    tools:text="@string/comment_comment_comment"/>
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>

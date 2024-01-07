@@ -44,7 +44,6 @@ public class login_page extends AppCompatActivity {
     private EditText password;
     private Spinner role;
     FirebaseAuth auth;
-    Boolean success = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,7 +179,6 @@ public class login_page extends AppCompatActivity {
 
                         String pass = child.child("Password").getValue().toString();
                         if(pass.equals(password)){
-                            success = true;
                             SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
                             SharedPreferences.Editor editor = pref.edit();
                             editor.putString("uid", child.getKey());
@@ -202,9 +200,6 @@ public class login_page extends AppCompatActivity {
                 Log.e("StQuizQuestionsList", "Fail to get data.");
             }
         });
-        if(!success){
-            Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void studentLogin(String email, String password) {
@@ -219,7 +214,6 @@ public class login_page extends AppCompatActivity {
 
                         String pass = child.child("Password").getValue().toString();
                         if(pass.equals(password)){
-                            success = true;
                             SharedPreferences pref = getSharedPreferences("system", MODE_PRIVATE);
                             SharedPreferences.Editor editor = pref.edit();
                             editor.putString("uid", child.getKey());
@@ -241,9 +235,6 @@ public class login_page extends AppCompatActivity {
                 Log.e("StQuizQuestionsList", "Fail to get data.");
             }
         });
-        if(!success){
-            Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
-        }
     }
 
 
