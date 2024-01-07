@@ -11,206 +11,203 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EduEmpowerYD"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".settings.student.St_UpdateUsernameActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoTitleBar"/>
+        <activity
+            android:name=".settings.student.St_UpdatePasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoTitleBar" />
+        <activity
+            android:name=".settings.student.St_UpdatePhoneActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoTitleBar" />
+        <activity
+            android:name=".settings.student.St_UpdateEmailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoTitleBar" />
+        <activity
+            android:name=".settings.student.St_UpdateGenderActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoTitleBar" />
+        <activity
+            android:name=".settings.student.St_UpdateDOBActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoTitleBar" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
-            >
-                <intent-filter>
-                    <action android:name="android.intent.action.MAIN"/>
-                    <category android:name="android.intent.category.LAUNCHER"/>
-                </intent-filter>
+            android:theme="@style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".login.MainActivity"
-            android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
-        />
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".login.instructorregister.instructor_register"
-            android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
-        />
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".login.landingpage.landing_page"
-            android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
-        />
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".login.loginpage.login_page"
-            android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
-        />
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".login.pageone.page_one"
-            android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
-        />
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".login.pagetwo.page_two"
-            android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
-        />
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".login.registerpage.register_page"
-            android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
-        />
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".login.studentregister.student_register"
-            android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
-        />
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".login.studentsurvey.student_survey"
-            android:theme="@style/Theme.NoTitleBar"
             android:exported="true"
-        />
-
-<!--        courses-->
+            android:theme="@style/Theme.NoTitleBar" /> <!-- courses -->
         <activity
             android:name=".course.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".course.SeeAllCompletedCourses"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".course.SeeAllOngoingCourses"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".course.CompleteCourseActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
-
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".course.StCourseViewActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".course.InCourseList"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".course.ListofCoursesActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
-
+            android:theme="@style/Theme.NoTitleBar" />
+        <activity
+            android:name=".course.CustomerSupportActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".course.InCourseViewActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".course.InEditCourseActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".course.InEditCourseCategoryActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".course.ShowActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
-
-<!--        instructor settings-->
+            android:theme="@style/Theme.NoTitleBar" /> <!-- instructor settings -->
         <activity
             android:name=".settings.instructor.UserSettingsActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".settings.instructor.UpdateDOBActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".settings.instructor.UpdateEducationActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".settings.instructor.UpdateEmailActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".settings.instructor.UpdateGenderActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".settings.instructor.UpdatePasswordActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".settings.instructor.UpdatePhoneActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".settings.instructor.UpdateUsernameActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
-
-<!--        student settings-->
-
-<!--        flashcard-->
+            android:theme="@style/Theme.NoTitleBar" /> <!-- student settings -->
+        <!-- flashcard -->
         <activity
             android:name=".flashcard.StudentActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".flashcard.InstructorActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
-
-<!--        quiz-->
+            android:theme="@style/Theme.NoTitleBar" /> <!-- quiz -->
         <activity
             android:name=".quiz.QuizActivityInstructor"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".quiz.QuizActivityStudent"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar"/>
-
-<!--        forum-->
+            android:theme="@style/Theme.NoTitleBar" /> <!-- forum -->
         <activity
             android:name=".forum.instructors.InEditForum"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar">
-        </activity>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".forum.instructors.InViewForum"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar">
-        </activity>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".forum.instructors.InAddForum"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar">
-        </activity>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".forum.students.StudViewForum"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar">
-        </activity>
+            android:theme="@style/Theme.NoTitleBar" />
         <activity
             android:name=".forum.AddComment"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar">
-        </activity>
-
-<!--        videoview-->
+            android:theme="@style/Theme.NoTitleBar" /> <!-- videoview -->
         <activity
             android:name=".videoview.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar">
-        </activity>
-
+            android:theme="@style/Theme.NoTitleBar" />
     </application>
-
-
 
 </manifest>

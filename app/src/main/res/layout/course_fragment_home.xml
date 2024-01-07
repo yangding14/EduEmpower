@@ -19,7 +19,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="39dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Hi Jess Bailey 👋"
+            android:text="Hi                    👋"
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             app:layout_constraintStart_toStartOf="parent"

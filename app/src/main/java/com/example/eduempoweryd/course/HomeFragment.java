@@ -1,5 +1,8 @@
 package com.example.eduempoweryd.course;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,12 +16,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,11 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class HomeFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
@@ -115,7 +117,23 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        TextView userName = view.findViewById(R.id.textView2);
+        SharedPreferences preferences = getActivity().getSharedPreferences("system", MODE_PRIVATE);
+        String uid = preferences.getString("uid", "");
 
+        //Retrieve data for ET
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
+        reference.child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DataSnapshot snapshot = task.getResult();
+                    String username = String.valueOf(snapshot.child("Username").getValue());
+                    String str ="Hi " + username + " \uD83D\uDC4B";
+                    userName.setText(str);
+                }
+            }
+        });
 
         ImageButton button1 = view.findViewById(R.id.imageButton5);
         button1.setOnClickListener(new View.OnClickListener() {

@@ -20,7 +20,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
+import com.example.eduempoweryd.course.CustomerSupportActivity;
 import com.example.eduempoweryd.course.MainActivity;
+import com.example.eduempoweryd.login.loginpage.login_page;
 import com.example.eduempoweryd.settings.instructor.UserSettingsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -82,12 +84,10 @@ public class AccountFragment extends Fragment {
         btnChangeName.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Fragment fragment = new UpdateNameFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
-                btm.setVisibility(View.INVISIBLE);
-                ft.replace(R.id.frameLayout, fragment).commit();
+                Intent i = new Intent(getActivity(), St_UpdateUsernameActivity.class);
+                i.putExtra("Username", userName.getText().toString());
+                i.putExtra("Email", userEmail.getText().toString());
+                startActivity(i);
             }
         });
 
@@ -95,12 +95,10 @@ public class AccountFragment extends Fragment {
         btnChangeEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new UpdateEmailFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
-                btm.setVisibility(View.INVISIBLE);
-                ft.replace(R.id.frameLayout, fragment).commit();
+                Intent i = new Intent(getActivity(), St_UpdateEmailActivity.class);
+                i.putExtra("Username", userName.getText().toString());
+                i.putExtra("Email", userEmail.getText().toString());
+                startActivity(i);
             }
         });
 
@@ -108,12 +106,10 @@ public class AccountFragment extends Fragment {
         btnChangeDOB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new UpdateDOBFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
-                btm.setVisibility(View.INVISIBLE);
-                ft.replace(R.id.frameLayout, fragment).commit();
+                Intent i = new Intent(getActivity(), St_UpdateDOBActivity.class);
+                i.putExtra("Username", userName.getText().toString());
+                i.putExtra("Email", userEmail.getText().toString());
+                startActivity(i);
             }
         });
 
@@ -121,12 +117,10 @@ public class AccountFragment extends Fragment {
         btnChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new UpdatePasswordFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
-                btm.setVisibility(View.INVISIBLE);
-                ft.replace(R.id.frameLayout, fragment).commit();
+                Intent i = new Intent(getActivity(), St_UpdatePasswordActivity.class);
+                i.putExtra("Username", userName.getText().toString());
+                i.putExtra("Email", userEmail.getText().toString());
+                startActivity(i);
             }
         });
 
@@ -134,12 +128,10 @@ public class AccountFragment extends Fragment {
         btnChangePhoneNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new UpdatePhoneNumberFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
-                btm.setVisibility(View.INVISIBLE);
-                ft.replace(R.id.frameLayout, fragment).commit();
+                Intent i = new Intent(getActivity(), St_UpdatePhoneActivity.class);
+                i.putExtra("Username", userName.getText().toString());
+                i.putExtra("Email", userEmail.getText().toString());
+                startActivity(i);
             }
         });
 
@@ -147,24 +139,26 @@ public class AccountFragment extends Fragment {
         btnChangeGender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new UpdateGenderFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                BottomNavigationView btm = getActivity().findViewById(R.id.bottomNavigationView);
-                btm.setVisibility(View.INVISIBLE);
-                ft.replace(R.id.frameLayout, fragment).commit();
+                Intent i = new Intent(getActivity(), St_UpdateGenderActivity.class);
+                i.putExtra("Username", userName.getText().toString());
+                i.putExtra("Email", userEmail.getText().toString());
+                startActivity(i);
+            }
+        });
+
+        cs_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), CustomerSupportActivity.class);
+                startActivity(i);
             }
         });
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferences = getActivity().getSharedPreferences("system", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.clear();
-                editor.apply();
-                Intent i = new Intent(getActivity(), com.example.eduempoweryd.login.MainActivity.class);
-                startActivity(i);
+                startActivity(new Intent(getActivity(), login_page.class));
+                getActivity().finish();
             }
         });
     }

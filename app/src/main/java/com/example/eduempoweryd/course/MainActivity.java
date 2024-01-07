@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = CourseActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         replaceFragment(new HomeFragment());
+
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             if(item.getItemId() == R.id.home){
