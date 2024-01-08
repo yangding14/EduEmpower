@@ -24,6 +24,51 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+//public class AddComment extends AppCompatActivity {
+//
+//    private TextView txtTopic;
+//    private TextView txtContent;
+//
+//    @Override
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.add_comment);
+//
+//        // Assuming you have a DatabaseReference reference
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Discussion");
+//
+//        // Initialize TextViews
+//        txtTopic = findViewById(R.id.txtTOPIC);
+//        txtContent = findViewById(R.id.txtCONTENT);
+//
+//        // Retrieve the item key passed from the previous activity
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null) {
+//            String itemKey = extras.getString("itemKey");
+//            // Log the itemKey to verify its value
+//            Log.d("ItemKey", "Item Key: " + itemKey);
+//
+//            // Assuming the itemKey is not null, you can use it to fetch the specific DiscussionItem
+//            if (itemKey != null) {
+//                DatabaseReference specificItemRef = databaseReference.child(itemKey);
+//                specificItemRef.get().addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+//                        // Fetch the DiscussionItem corresponding to the itemKey
+//                        DiscussionItem discussionItem = task.getResult().getValue(DiscussionItem.class);
+//
+//
+//                        // Populate the TextViews with the fetched data
+//                        if (discussionItem != null) {
+//                            txtTopic.setText(discussionItem.getTopic());
+//                            String comment = discussionItem.getComment();
+//                            txtContent.setText(comment != null ? comment : "No comments available");
+//                        }
+//                    }
+//                });
+//            }
+//        }
+//    }
+//}
 public class AddComment extends AppCompatActivity {
 
     private TextView txtTopic;
