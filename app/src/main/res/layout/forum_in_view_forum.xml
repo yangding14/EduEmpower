@@ -18,37 +18,50 @@
             android:src="@drawable/img_background"
             tools:ignore="ContentDescription"
             tools:src="@drawable/img_background" />
-        <LinearLayout android:id="@+id/linearColumnarrowleft"
-            android:layout_gravity="center"
+
+        <LinearLayout
+            android:id="@+id/linearColumnarrowleft"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_19pxh"
+            android:layout_gravity="center|top"
             android:layout_marginStart="@dimen/_20pxh"
-            android:layout_marginTop="@dimen/_24pxv"
-            android:layout_width="match_parent" android:orientation="vertical">
-            <androidx.appcompat.widget.Toolbar android:gravity="start"
+            android:layout_marginTop="@dimen/_15pxv"
+            android:layout_marginEnd="@dimen/_19pxh"
+            android:layout_marginBottom="@dimen/_15pxv"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbarToolbar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_11pxh"
                 android:layout_marginStart="@dimen/_11pxh"
-                android:layout_width="match_parent" app:contentInsetStart="0dp">
-                <LinearLayout android:gravity="start"
+                android:layout_marginEnd="@dimen/_11pxh"
+                android:gravity="start"
+                app:contentInsetStart="0dp">
+
+                <LinearLayout
                     android:id="@+id/linearRowarrowleft"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent" android:orientation="horizontal">
-                    <ImageView android:id="@+id/imageArrowleft"
-                        android:layout_height="@dimen/_21pxh"
-                        android:layout_marginBottom="@dimen/_8pxv"
-                        android:layout_marginTop="@dimen/_9pxv"
+                    android:gravity="start"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageArrowleft"
                         android:layout_width="@dimen/_12pxh"
+                        android:layout_height="@dimen/_21pxh"
+                        android:layout_marginTop="@dimen/_9pxv"
+                        android:layout_marginBottom="@dimen/_8pxv"
                         android:scaleType="fitXY"
                         android:src="@drawable/img_arrowleft"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft"/>
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_arrowleft" />
 
                     <TextView
                         android:id="@+id/txtDiscussionForu"
                         style="@style/txtPoppinssemibold26"
-                        android:layout_height="wrap_content"
                         android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_45pxh"
                         android:layout_weight="0.95"
                         android:ellipsize="end"
@@ -69,7 +82,7 @@
                 <LinearLayout
                     android:id="@+id/linearColumnsearch"
                     android:layout_width="match_parent"
-                    android:layout_height="580dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="top|start"
                     android:layout_marginBottom="@dimen/_10pxv"
                     android:orientation="vertical">
@@ -83,7 +96,7 @@
                         app:iconifiedByDefault="false"
                         app:queryBackground="@android:color/transparent"
                         app:queryHint="@string/msg_search_your_top"
-                        app:searchIcon="@drawable/img_menu" />
+                        app:searchIcon="@drawable/img_search" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler"

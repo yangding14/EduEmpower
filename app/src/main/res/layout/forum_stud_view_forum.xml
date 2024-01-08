@@ -68,7 +68,7 @@
                         android:theme="@style/searchViewsearch"
                         app:iconifiedByDefault="false"
                         app:queryBackground="@android:color/transparent"
-                        app:queryHint="@string/msg_search_your_top" app:searchIcon="@drawable/img_menu"/>
+                        app:queryHint="@string/msg_search_your_top" app:searchIcon="@drawable/img_search"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler"

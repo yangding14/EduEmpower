@@ -80,7 +80,7 @@
                     android:layout_marginEnd="@dimen/_6pxh"
                     android:layout_width="match_parent"
                     android:singleLine="true"
-                    android:text="@{discussionItem.topic}"
+                    android:text="@string/tooopiccc"
                     style="@style/txtPoppinssemibold14" tools:text="@string/tooopiccc"/>
 
                 <TextView
@@ -88,10 +88,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_13pxv"
                     android:layout_width="match_parent"
-                    android:text="@{discussionItem.comment}"
+                    android:text="@string/comment_comment_comment"
                     style="@style/txtPoppinslight12"
                     tools:text="@string/comment_comment_comment"/>
             </LinearLayout>
+            <ImageButton
+                android:id="@+id/btnEdit"
+                android:layout_gravity="end|bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginBottom="@dimen/_10pxh"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:focusable="true"
+                android:background="@android:color/transparent"/>
         </LinearLayout>
     </FrameLayout>
 </layout>

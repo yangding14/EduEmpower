@@ -21,11 +21,11 @@ public class CommentItem {
         this.author = author;
     }
 
-    public String getContent() {
+    public String getComment() {
         return comment;
     }
 
-    public void setContent(String comment) {
+    public void setComment(String comment) {
         this.comment = comment;
     }
 }

@@ -184,6 +184,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.eduempoweryd.course.InCourseViewActivity;
 import com.example.eduempoweryd.forum.DiscussionItem;
 import com.example.eduempoweryd.R;
 import com.google.firebase.database.DatabaseReference;
@@ -194,7 +195,7 @@ import java.util.HashMap;
 public class InEditForum extends AppCompatActivity {
 
     private EditText txtTopic;
-    private EditText txtComment;
+    private EditText txtContent;
     private String itemKey;
 
     @Override
@@ -207,16 +208,16 @@ public class InEditForum extends AppCompatActivity {
 
         // Initialize EditText fields
         txtTopic = findViewById(R.id.txtTopic);
-        txtComment = findViewById(R.id.txtContent);
+        txtContent = findViewById(R.id.txtContent);
 
         // Retrieve the item key passed from the previous activity
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             itemKey = extras.getString("itemKey");
         }
-
-        // Log the itemKey to verify its value
-        Log.d("ItemKey", "Item Key: " + itemKey);
+//
+//        // Log the itemKey to verify its value
+//        Log.d("ItemKey", "Item Key: " + itemKey);
 
         // Assuming the itemKey is not null, you can use it to fetch the specific DiscussionItem
         if (itemKey != null) {
@@ -229,7 +230,7 @@ public class InEditForum extends AppCompatActivity {
                     // Populate the EditText fields with the fetched data
                     if (discussionItem != null) {
                         txtTopic.setText(discussionItem.getTopic());
-                        txtComment.setText(discussionItem.getComment());
+                        txtContent.setText(discussionItem.getContent());
                     }
                 }
             });
@@ -240,15 +241,15 @@ public class InEditForum extends AppCompatActivity {
             public void onClick(View view) {
                 // Extract values from EditText fields
                 String topic = txtTopic.getText().toString();
-                String comment = txtComment.getText().toString();
+                String content = txtContent.getText().toString();
 
                 // Check if the values are not empty before saving
-                if (!topic.isEmpty() && !comment.isEmpty()) {
-                    DiscussionItem updatedDiscussionItem = new DiscussionItem(itemKey, topic, comment);
+                if (!topic.isEmpty() && !content.isEmpty()) {
+                    DiscussionItem updatedDiscussionItem = new DiscussionItem(itemKey, topic, content);
                     // Create a new HashMap to update specific fields
                     HashMap<String, Object> updateData = new HashMap<>();
                     updateData.put("topic", topic);
-                    updateData.put("comment", comment);
+                    updateData.put("content", content);
 
                     // Update the data in Firebase using the itemKey
                     databaseReference.child(itemKey).setValue(updatedDiscussionItem);
@@ -260,10 +261,15 @@ public class InEditForum extends AppCompatActivity {
 
                     // Optionally, clear the EditText fields after saving
                     txtTopic.setText("");
-                    txtComment.setText("");
+                    txtContent.setText("");
 
                     Intent intent = new Intent(InEditForum.this, InViewForum.class);
                     startActivity(intent);
+                }else{
+                    CharSequence text = "Please enter valid topic and comment for your post.";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(InEditForum.this, text, duration);
+                    toast.show();
                 }
             }
         });
@@ -300,9 +306,7 @@ public class InEditForum extends AppCompatActivity {
                                         if (task.isSuccessful()) {
                                             // Optionally, clear the EditText fields after deleting
                                             txtTopic.setText("");
-                                            txtComment.setText("");
-
-
+                                            txtContent.setText("");
                                         }
                                     }
                             );
@@ -317,7 +321,6 @@ public class InEditForum extends AppCompatActivity {
                             toast.show();
                         }
                         popupWindow.dismiss();
-
                     }
                 });
 
@@ -329,6 +332,13 @@ public class InEditForum extends AppCompatActivity {
                     }
 
                 });
+            }
+        });
+        findViewById(R.id.imageArrowleft).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Navigate back to the InViewForum activity
+                Intent intent = new Intent(InEditForum.this, InViewForum.class);
+                startActivity(intent);
             }
         });
     }

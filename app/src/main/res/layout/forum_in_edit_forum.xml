@@ -2,6 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="editForum"
+            type="com.example.eduempoweryd.forum.instructors.InEditForum" />
+    </data>
     <FrameLayout android:id="@+id/frameINEDITDISFOR"
         android:layout_height="match_parent"
         android:layout_width="match_parent" style="@style/groupStylewhite_1">
@@ -18,7 +23,7 @@
             android:layout_marginBottom="@dimen/_30pxv"
             android:layout_marginEnd="@dimen/_25pxh"
             android:layout_marginStart="@dimen/_25pxh"
-            android:layout_marginTop="@dimen/_40pxv"
+            android:layout_marginTop="@dimen/_15pxv"
             android:layout_width="match_parent" android:orientation="vertical">
             <androidx.appcompat.widget.Toolbar android:gravity="start"
                 android:id="@+id/toolbarToolbar"
@@ -109,8 +114,8 @@
                     android:layout_marginStart="@dimen/_19pxh"
                     android:layout_width="wrap_content"
                     android:singleLine="true"
-                    android:text="@string/lbl_comment"
-                    style="@style/txtPoppinsregular18" tools:text="@string/lbl_comment"/>
+                    android:text="@string/content"
+                    style="@style/txtPoppinsregular18" tools:text="@string/content"/>
                 <LinearLayout android:gravity="center_horizontal"
                     android:id="@+id/linearInputFieldT1"
                     android:layout_height="wrap_content"
@@ -126,7 +131,7 @@
                         android:layout_marginTop="@dimen/_29pxv"
                         android:layout_width="match_parent"
                         android:background="@android:color/transparent"
-                        android:hint="@string/add_some_comments"
+                        android:hint="@string/add_some_contents"
                         style="@style/txtPoppinsregular18_1"
                         android:autofillHints="Content"
                         android:inputType="textLongMessage" />

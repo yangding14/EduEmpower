@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eduempoweryd.forum.AddComment;
 import com.example.eduempoweryd.forum.DiscussionItem;
 import com.example.eduempoweryd.forum.DiscussionItemAdapter;
 import com.example.eduempoweryd.R;
@@ -26,8 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InViewForum extends AppCompatActivity implements DiscussionItemAdapter.OnEditButtonClickListener {
-    private List<DiscussionItem> discussionItemList = new ArrayList<>();
+public class InViewForum extends AppCompatActivity implements DiscussionItemAdapter.OnEditButtonClickListener, DiscussionItemAdapter.OnLayoutClickListener{
+    private final List<DiscussionItem> discussionItemList = new ArrayList<>();
     private DiscussionItemAdapter adapter;
     private SearchView searchView;
 
@@ -54,17 +56,21 @@ public class InViewForum extends AppCompatActivity implements DiscussionItemAdap
 
                 // Now you have the list of DiscussionItem objects, you can use it as needed.
                 // For example, you can pass it to your RecyclerView adapter.
-                DiscussionItemAdapter adapter = new DiscussionItemAdapter(InViewForum.this, discussionItemList, InViewForum.this);
-                adapter.setStudentView(false);
+                DiscussionItemAdapter adapter = new DiscussionItemAdapter(InViewForum.this, discussionItemList, InViewForum.this, InViewForum.this);
                 recyclerView.setAdapter(adapter);
-                recyclerView.addOnItemTouchListener(new RecyclerViewClickListener(InViewForum.this, recyclerView, new RecyclerViewClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        // Handle item click, for example, launch a new activity
-                        Intent intent = new Intent(InViewForum.this, InEditForum.class);
-                        startActivity(intent);
-                    }
-                }));
+                adapter.setStudentView(false);
+//                recyclerView.addOnItemTouchListener(new RecyclerViewClickListener(InViewForum.this, recyclerView, new RecyclerViewClickListener.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(View view, int position) {
+//                        // Handle item click, for example, launch a new activity
+//                        DiscussionItem selectedDiscussionItem = discussionItemList.get(position);
+//
+//                        // Start the InEditForum activity and pass the item key
+//                        Intent intent = new Intent(InViewForum.this, AddComment.class);
+//                        intent.putExtra("itemKey", selectedDiscussionItem.getKey());
+//                        startActivity(intent);
+//                    }
+//                }));
 
 
                 // Set the itemCount in your adapter
@@ -111,10 +117,43 @@ public class InViewForum extends AppCompatActivity implements DiscussionItemAdap
         // Pass the necessary data to the editing interface
 
         DiscussionItem selectedDiscussionItem = discussionItemList.get(position);
+        Log.d("ItemKey", "Item Key: " + selectedDiscussionItem.getKey());
 
-        // Start the InEditForum activity and pass the item key
-        Intent intent = new Intent(this, InEditForum.class);
-        intent.putExtra("itemKey", selectedDiscussionItem.getKey());
-        startActivity(intent);
+        if (selectedDiscussionItem != null && selectedDiscussionItem.getKey() != null) {
+            // Start the InEditForum activity and pass the item key
+            Intent intent = new Intent(this, InEditForum.class);
+            intent.putExtra("itemKey", selectedDiscussionItem.getKey());
+            startActivity(intent);
+
+            // Log the itemKey to verify its value
+            Log.d("ItemKey", "Item Key: " + selectedDiscussionItem.getKey());
+        } else {
+            Log.d("ItemKey", "Selected item or item key is null");
+        }
     }
+    public void onLayoutClick(int position) {
+        // Handle the edit button click for the item at the given position
+        // You can open an editing activity or dialog here
+        // Pass the necessary data to the editing interface
+
+        DiscussionItem selectedDiscussionItem = discussionItemList.get(position);
+        Log.d("ItemKey", "Item Key: " + selectedDiscussionItem.getKey());
+
+        if (selectedDiscussionItem != null && selectedDiscussionItem.getKey() != null) {
+            // Start the InEditForum activity and pass the item key
+            Intent intent = new Intent(this, AddComment.class);
+            intent.putExtra("itemKey", selectedDiscussionItem.getKey());
+            startActivity(intent);
+
+            // Log the itemKey to verify its value
+            Log.d("ItemKey", "Item Key: " + selectedDiscussionItem.getKey());
+        } else {
+            Log.d("ItemKey", "Selected item or item key is null");
+        }
+    }
+//    public void onItemClick(int position) {
+//        // Handle item click, for example, launch a new activity
+//        Intent intent = new Intent(this, AddComment.class);
+//        startActivity(intent);
+//    }
 }

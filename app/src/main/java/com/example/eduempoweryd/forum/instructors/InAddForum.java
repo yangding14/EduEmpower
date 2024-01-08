@@ -81,6 +81,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.eduempoweryd.course.InCourseViewActivity;
 import com.example.eduempoweryd.forum.DiscussionItem;
 import com.example.eduempoweryd.R;
 import com.google.firebase.database.DatabaseReference;
@@ -106,15 +107,15 @@ public class InAddForum extends AppCompatActivity {
             public void onClick(View view) {
                 // Extract values from EditText fields
                 String topic = txtTopic.getText().toString();
-                String comment = txtContent.getText().toString();
+                String content = txtContent.getText().toString();
 
                 // Check if the values are not empty before saving
-                if (!topic.isEmpty() && !comment.isEmpty()) {
+                if (!topic.isEmpty() && !content.isEmpty()) {
 //                    // Create a new DiscussionItem object with extracted data
 //                    DiscussionItem discussionItem = new DiscussionItem(topic, comment);
                     String key = databaseReference.push().getKey();
                     assert key != null;
-                    DiscussionItem discussionItem = new DiscussionItem(key, topic, comment);
+                    DiscussionItem discussionItem = new DiscussionItem(key, topic, content);
 
 //                    // Push the data to Firebase
 //                    String key = databaseReference.push().getKey();
@@ -137,5 +138,12 @@ public class InAddForum extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.imageArrowleft).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                // Navigate back to the InViewForum activity
+                Intent intent = new Intent(InAddForum.this, InViewForum.class);
+                startActivity(intent);
+            }
+        });
     }
 }
