@@ -70,6 +70,15 @@ public class InQuizQuestionsListFragment extends Fragment {
             }
         });
 
+        btnSaveChangesSaveQuiz = view.findViewById(R.id.btnSaveChangesSaveQuiz);
+        btnSaveChangesSaveQuiz.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Get the FragmentManager
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                fragmentManager.popBackStack();
+            }
+        });
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(questionAdapter);
         // Inflate the layout for this fragment

@@ -34,6 +34,7 @@ public class StQuizInsideQuizFragment extends Fragment {
     private List<TextView> optionTextViewList = new ArrayList<>();
     TextView questionText, questionNumber, timer;
     private int currentQuestion = 0;
+    CountDownTimer countdown;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -112,10 +113,11 @@ public class StQuizInsideQuizFragment extends Fragment {
         Log.d("DisplayQuestion", "Question: " + question.toString());
         Log.d("DisplayQuestion", "Question: " + questions.get(0).getQuestion() + " " + questions.get(0).getOptions().toString());
 
+
         // Get the timer
         timer = getView().findViewById(R.id.timer);
         // Timer start from 60 and start to countdown
-        new CountDownTimer(60000, 1000) {
+        countdown = new CountDownTimer(60000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timer.setText(millisUntilFinished / 1000 + "");
@@ -124,7 +126,7 @@ public class StQuizInsideQuizFragment extends Fragment {
             @Override
             public void onFinish() {
                 //TODO: Add code to skip to next question
-                timer.setText("Time's up!");
+                timer.setText("0");
             }
         }.start();
 
@@ -195,6 +197,7 @@ public class StQuizInsideQuizFragment extends Fragment {
 
     public void clickOnAnswer(View v){
         TextView clickedTextView = (TextView) v;
+        countdown.cancel();
 
         // Get the question
         Question question = questions.get(currentQuestion);

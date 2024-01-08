@@ -135,7 +135,7 @@ public class StQuizHistoryFragment extends Fragment {
         newFragment.setArguments(bundle);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragmentStQuizContainerView, newFragment).addToBackStack(null).commit();
+        fragmentManager.beginTransaction().replace(R.id.fragmentInQuizContainerView, newFragment).addToBackStack(null).commit();
     }
 
     private String convertDate(String date){
