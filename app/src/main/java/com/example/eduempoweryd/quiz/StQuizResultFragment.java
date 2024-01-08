@@ -1,6 +1,7 @@
 package com.example.eduempoweryd.quiz;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -105,6 +106,9 @@ public class StQuizResultFragment extends Fragment {
     }
 
     private void switchFragmentReviewAnswer() {
+        SharedPreferences pref = requireActivity().getSharedPreferences("system", requireActivity().MODE_PRIVATE);
+        String role = pref.getString("role", null);
+
         Bundle bundle = this.getArguments();
         StQuizReviewFragment nextFrag = new StQuizReviewFragment();
         nextFrag.setArguments(bundle);
@@ -112,11 +116,19 @@ public class StQuizResultFragment extends Fragment {
         // Get the FragmentManager
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
 
-        // Begin the transaction
-        fragmentManager.beginTransaction()
-                .replace(R.id.fragmentStQuizContainerView, nextFrag)
-                .addToBackStack(null)
-                .commit();
+        if(role.equals("student")){
+            // Begin the transaction
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentStQuizContainerView, nextFrag)
+                    .addToBackStack(null)
+                    .commit();
+        } else if(role.equals("instructor")){
+            // Begin the transaction
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentInQuizContainerView, nextFrag)
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 
     private void switchFragmentBackToCourse() {
