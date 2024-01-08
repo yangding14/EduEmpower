@@ -140,12 +140,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudViewForum extends AppCompatActivity implements DiscussionItemAdapter.OnEditButtonClickListener, DiscussionItemAdapter.OnItemClickListener {
-    private List<DiscussionItem> discussionItemList = new ArrayList<>();
+public class StudViewForum extends AppCompatActivity implements DiscussionItemAdapter.OnEditButtonClickListener {
+    private final List<DiscussionItem> discussionItemList = new ArrayList<>();
     private DiscussionItemAdapter adapter;
     private SearchView searchView;
 
-    private boolean isStud = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -168,7 +167,7 @@ public class StudViewForum extends AppCompatActivity implements DiscussionItemAd
 
                 // Now you have the list of DiscussionItem objects, you can use it as needed.
                 // For example, you can pass it to your RecyclerView adapter.
-                DiscussionItemAdapter adapter = new DiscussionItemAdapter(com.example.eduempoweryd.forum.students.StudViewForum.this, discussionItemList, com.example.eduempoweryd.forum.students.StudViewForum.this);
+                DiscussionItemAdapter adapter = new DiscussionItemAdapter(StudViewForum.this, discussionItemList, StudViewForum.this, null);
                 recyclerView.setAdapter(adapter);
                 adapter.setStudentView(true);
                 // Set click listener for the RecyclerView
@@ -184,6 +183,7 @@ public class StudViewForum extends AppCompatActivity implements DiscussionItemAd
                         startActivity(intent);
                     }
                 }));
+
 
 
                 // Set the itemCount in your adapter
@@ -221,6 +221,7 @@ public class StudViewForum extends AppCompatActivity implements DiscussionItemAd
             }
 
         });
+
     }
 
     @Override
@@ -237,11 +238,11 @@ public class StudViewForum extends AppCompatActivity implements DiscussionItemAd
         startActivity(intent);
     }
 
-    @Override
-    public void onItemClick(int position) {
-        // Handle item click, for example, launch a new activity
-        Intent intent = new Intent(this, InEditForum.class);
-        startActivity(intent);
-    }
+//    @Override
+//    public void onItemClick(int position) {
+//        // Handle item click, for example, launch a new activity
+//        Intent intent = new Intent(this, AddComment.class);
+//        startActivity(intent);
+//    }
 }
 

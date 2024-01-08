@@ -7,38 +7,53 @@
             type="com.example.eduempoweryd.forum.CommentItem" />
     </data>
 
-    <LinearLayout android:id="@+id/Rvieww"
+    <LinearLayout
+        android:id="@+id/Rvieww"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_16pxv"
-        android:layout_width="match_parent" android:orientation="horizontal">
-        <ImageView android:id="@+id/imageRectangle"
-            android:layout_height="@dimen/_40pxh"
-            android:layout_marginBottom="@dimen/_124pxv"
-            android:layout_marginTop="@dimen/_3pxv"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/_30pxv">
+
+        <ImageView
+            android:id="@+id/imageRectangle"
             android:layout_width="@dimen/_40pxh"
+            android:layout_height="@dimen/_40pxh"
+            android:layout_marginTop="@dimen/_3pxv"
+            android:layout_marginBottom="@dimen/_10pxv"
             android:scaleType="fitXY"
             android:src="@drawable/img_rectangle32"
-            tools:ignore="ContentDescription" tools:src="@drawable/img_rectangle32"/>
-        <LinearLayout android:gravity="start"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_rectangle32" />
+
+        <LinearLayout
             android:id="@+id/linearColumnbrandon"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_22pxh"
             android:layout_weight="0.86"
-            android:layout_width="0dp" android:orientation="vertical">
-            <TextView android:ellipsize="end"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <TextView
                 android:id="@+id/txtNamee"
+                style="@style/txtPoppinssemibold17"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_10pxh"
-                android:layout_width="wrap_content"
+                android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@{commentItem.author}"
-                style="@style/txtPoppinssemibold16" tools:text="@string/name"/>
-            <TextView android:id="@+id/txtComment"
+                tools:text="@string/name" />
+
+            <TextView
+                android:id="@+id/txtComment"
+                style="@style/txtPoppinslight13"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_6pxv"
-                android:layout_width="match_parent"
-                android:text="@string/comment_comment_comment"
-                style="@style/txtPoppinslight13" tools:text="@string/comment_comment_comment"/>
+                android:text="@{commentItem.comment}"
+                tools:text="@string/comment_comment_comment" />
         </LinearLayout>
     </LinearLayout>
 </layout>

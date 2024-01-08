@@ -33,7 +33,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         CommentItem commentItem = commentItemList.get(position);
 
         holder.txtCommentAuthor.setText(commentItem.getAuthor());
-        holder.txtCommentContent.setText(commentItem.getContent());
+        holder.txtCommentContent.setText(commentItem.getComment());
     }
 
     @Override

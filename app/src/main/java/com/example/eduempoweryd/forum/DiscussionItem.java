@@ -82,18 +82,22 @@
 //}
 package com.example.eduempoweryd.forum;
 
+import com.example.eduempoweryd.forum.CommentItem;
+
+import java.util.List;
+
 public class DiscussionItem {
         private String key;
         private String topic;
-        private String comment;
+        private String content;
 
         public DiscussionItem() {
         }
 
-        public DiscussionItem(String key, String topic, String comment) {
+        public DiscussionItem(String key, String topic, String content) {
                 this.key = key;
                 this.topic = topic;
-                this.comment = comment;
+                this.content = content;
         }
 
         public String getTopic() {
@@ -104,13 +108,14 @@ public class DiscussionItem {
                 this.topic = topic;
         }
 
-        public String getComment() {
-                return comment;
-        }
-
-        public void setComment(String comment) {
-                this.comment = comment;
-        }
 
         public String getKey() {return key;}
+
+        public String getContent() {
+                return content;
+        }
+
+        public void setContent(String content) {
+                this.content = content;
+        }
 }
