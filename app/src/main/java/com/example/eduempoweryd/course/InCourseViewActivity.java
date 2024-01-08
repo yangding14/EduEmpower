@@ -148,7 +148,7 @@ public class InCourseViewActivity extends AppCompatActivity {
         btnEditDiscussion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.forum.instructors.InEditForum.class));
+                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.forum.instructors.InViewForum.class));
             }
         });
 
