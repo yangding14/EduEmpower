@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eduempoweryd.course.InCourseViewActivity;
 import com.example.eduempoweryd.forum.AddComment;
 import com.example.eduempoweryd.forum.DiscussionItem;
 import com.example.eduempoweryd.forum.DiscussionItemAdapter;
@@ -107,6 +108,13 @@ public class InViewForum extends AppCompatActivity implements DiscussionItemAdap
                 toast.show();
             }
 
+        });
+        findViewById(R.id.imageArrowleft).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Navigate back to the InViewForum activity
+                Intent intent = new Intent(InViewForum.this, InCourseViewActivity.class);
+                startActivity(intent);
+            }
         });
     }
 

@@ -125,12 +125,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eduempoweryd.course.InCourseViewActivity;
+import com.example.eduempoweryd.course.StCourseViewActivity;
 import com.example.eduempoweryd.forum.AddComment;
 import com.example.eduempoweryd.forum.DiscussionItem;
 import com.example.eduempoweryd.forum.DiscussionItemAdapter;
 import com.example.eduempoweryd.R;
 import com.example.eduempoweryd.forum.RecyclerViewClickListener;
 import com.example.eduempoweryd.forum.instructors.InEditForum;
+import com.example.eduempoweryd.forum.instructors.InViewForum;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -220,8 +223,15 @@ public class StudViewForum extends AppCompatActivity implements DiscussionItemAd
                 toast.show();
             }
 
-        });
 
+        });
+        findViewById(R.id.imageArrowleft).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Navigate back to the InViewForum activity
+                Intent intent = new Intent(StudViewForum.this, StCourseViewActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
