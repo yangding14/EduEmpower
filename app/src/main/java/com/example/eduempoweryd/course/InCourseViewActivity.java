@@ -120,14 +120,14 @@ public class InCourseViewActivity extends AppCompatActivity {
         btnPreviewChapters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.videoview.MainActivity.class));
+                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.chapter.MainActivity.class));
             }
         });
 
         btnEditChapters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.videoview.MainActivity.class));
+                startActivity(new Intent(InCourseViewActivity.this, com.example.eduempoweryd.chapter.MainActivity.class));
             }
         });
 

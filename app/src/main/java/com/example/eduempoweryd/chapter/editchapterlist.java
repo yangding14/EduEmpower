@@ -1,4 +1,4 @@
-package com.example.eduempoweryd.videoview;
+package com.example.eduempoweryd.chapter;
 
 class editchapterlist {
     String position;

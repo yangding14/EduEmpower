@@ -2,9 +2,6 @@ package com.example.eduempoweryd.settings.instructor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +13,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.videoview.FileTypeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -35,8 +31,6 @@ public class UpdateDOBActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_in_activity_update_dobactivity);
 
-        SharedPreferences preferences = getSharedPreferences("system", MODE_PRIVATE);
-        String uid = preferences.getString("uid", "");
 
         userEmail = findViewById(R.id.userEmail4);
         userName = findViewById(R.id.userName4);
@@ -48,6 +42,9 @@ public class UpdateDOBActivity extends AppCompatActivity {
         String email = getIntent().getStringExtra("Email");
         userName.setText(username);
         userEmail.setText(email);
+
+        SharedPreferences preferences = getSharedPreferences("system", MODE_PRIVATE);
+        String uid = preferences.getString("uid", "");
 
         // Show DOB from database
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Instructors");

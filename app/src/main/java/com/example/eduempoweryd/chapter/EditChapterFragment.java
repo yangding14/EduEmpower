@@ -1,4 +1,4 @@
-package com.example.eduempoweryd.videoview;
+package com.example.eduempoweryd.chapter;
 
 import static android.content.Context.MODE_PRIVATE;
 

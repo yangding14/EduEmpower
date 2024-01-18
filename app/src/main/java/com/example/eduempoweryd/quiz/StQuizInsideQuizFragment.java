@@ -59,6 +59,7 @@ public class StQuizInsideQuizFragment extends Fragment {
         void onQuestionsPopulated();
     }
 
+    // fetch data from database and populate questions along with all options into the questions list
     public void awaitPopulateQuestion(OnQuestionsPopulatedListener listener) {
         Log.d("awaitPopulateQuestion", "Populating questions");
         // calling add value event listener method for getting the values from the database.
@@ -87,6 +88,7 @@ public class StQuizInsideQuizFragment extends Fragment {
                     question.setQuestion(questionText);
                     question.setOptions(options);
 
+                    // Add the question to the questions list
                     questions.add(question);
                 }
 
@@ -140,6 +142,7 @@ public class StQuizInsideQuizFragment extends Fragment {
         questionText.setText(question.getQuestion());
     }
 
+    // Display the options for the current question in a random order and render it using a TextView that inflates to the LinearContainer
     public void displayOptions(){
         // Get the options
         Question question = questions.get(currentQuestion);
@@ -160,6 +163,7 @@ public class StQuizInsideQuizFragment extends Fragment {
 
         Log.d("InQuizAddQuestionFrag", "Options: " + options.toString());
 
+        // Loop through the options and display them
         for (int i = 0; i < options.size(); i++) {
             TextView optionTextView = new TextView(requireContext());
 
@@ -197,6 +201,7 @@ public class StQuizInsideQuizFragment extends Fragment {
 
     public void clickOnAnswer(View v){
         TextView clickedTextView = (TextView) v;
+        // reset timer everytime enter a new question
         countdown.cancel();
 
         // Get the question
@@ -240,6 +245,7 @@ public class StQuizInsideQuizFragment extends Fragment {
     }
 
     private int dp(int value){
+        // get the dp value to set the margin programmatically
         float scale = getResources().getDisplayMetrics().density;
         return (int) (value * scale + 0.5f);
     }
@@ -261,6 +267,7 @@ public class StQuizInsideQuizFragment extends Fragment {
                 .commit();
     }
 
+    // Store the attempt in the database under the attempt key
     private void storeAttemptToFirebase(QuestionAttempt attempt){
         Bundle bundle = this.getArguments();
         String attemptKey = bundle.getString("attemptKey");

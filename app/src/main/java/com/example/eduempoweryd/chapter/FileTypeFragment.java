@@ -1,7 +1,6 @@
-package com.example.eduempoweryd.videoview;
+package com.example.eduempoweryd.chapter;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.example.eduempoweryd.R;
 

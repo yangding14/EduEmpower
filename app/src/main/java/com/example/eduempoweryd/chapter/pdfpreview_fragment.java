@@ -1,4 +1,4 @@
-package com.example.eduempoweryd.videoview;
+package com.example.eduempoweryd.chapter;
 
 import android.os.Bundle;
 

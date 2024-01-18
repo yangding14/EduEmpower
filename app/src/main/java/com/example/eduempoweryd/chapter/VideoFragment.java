@@ -1,4 +1,4 @@
-package com.example.eduempoweryd.videoview;
+package com.example.eduempoweryd.chapter;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -24,7 +24,6 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.example.eduempoweryd.R;
-import com.example.eduempoweryd.course.InCourseViewActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

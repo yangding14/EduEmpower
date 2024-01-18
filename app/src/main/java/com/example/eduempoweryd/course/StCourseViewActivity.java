@@ -63,7 +63,7 @@ public class StCourseViewActivity extends AppCompatActivity {
         btnStartStudy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StCourseViewActivity.this, com.example.eduempoweryd.videoview.MainActivity.class));
+                startActivity(new Intent(StCourseViewActivity.this, com.example.eduempoweryd.chapter.MainActivity.class));
             }
         });
 

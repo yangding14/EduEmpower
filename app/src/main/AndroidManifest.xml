@@ -203,9 +203,9 @@
         <activity
             android:name=".forum.AddComment"
             android:exported="true"
-            android:theme="@style/Theme.NoTitleBar" /> <!-- videoview -->
+            android:theme="@style/Theme.NoTitleBar" /> <!-- chapter -->
         <activity
-            android:name=".videoview.MainActivity"
+            android:name=".chapter.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.NoTitleBar" />
     </application>
